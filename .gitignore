@@ -1,3 +1,6 @@
+# ignorer le répertoire html
+html/
+
 # Répertoire Mac caché
 .DS_Store
 .AppleDouble

@@ -1,13 +1,5 @@
-# avr.sdk
 
-# Introduction
-
-avr.sdk est un Software Development Kit contenant les librairies et les outils
-utilisés pour mes réalisations personnelles.
-
-# TODO
-
-\todo Ajouter les commentaires aux fonctions
+@todo Ajouter les commentaires aux fonctions
 @todo Présenter l'organisation des répertoires
 @todo Faire une API correcte pour l'afficheur LCD
 @todo Faire une API correcte pour le protocol TWI (ou I2C pour les intimes)
