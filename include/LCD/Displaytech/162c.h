@@ -14,14 +14,11 @@
 #ifndef _162C_H_
 #define _162C_H_
 
-/****************************************************************
-  Fonctions disponibles
- ****************************************************************/
-
 /**
  * @brief      Initialise l'afficheur LCD
  *
- * @details    Fonction permettant d'initialiser le LCD pour qu'il soit prêt à l'utilisation
+ * @details    Fonction permettant d'initialiser le LCD pour qu'il soit prêt à
+ *             l'utilisation
  *
  * @note       Cette fonction est à appeler avant toute utilisation du LCD
  *
@@ -92,6 +89,11 @@ void LCD_PrintString(const char * string);
  */
 void LCD_ReturnHome(void);
 
+/**
+ * @brief      Sélection du mode d'insertion
+ * @details    Fonction permettant de choisir le mode d'insertion des nouveaux
+ *             caractères sur le LCD
+ */
 // Sélection du mode d'insertion
 // cursor_direction : 1 = incrémentation - 0 = décrémentation
 // display_inversion : 1 = inversion - 0 = non inversion
@@ -141,8 +143,6 @@ void LCD_CreateCharacter(const uint8_t adress, const char data[]);
 #define LCD_CMD_CLEAR			0x01
 #define LCD_CMD_HOME			0x02
 #define LCD_CMD_ENTRY			0x04
-#define LCD_BIT_ENTRY_SHIFT		0
-#define LCD_BIT_ENTRY_INC		1
 #define LCD_CMD_DISP			0x08
 #define LCD_BIT_DISP_BLINK		0
 #define LCD_BIT_DISP_CURS		1

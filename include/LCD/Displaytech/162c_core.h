@@ -17,6 +17,9 @@
 #include <util/delay.h>
 #include <avr/pgmspace.h>
 
+#define LCD_BIT_ENTRY_SHIFT       0
+#define LCD_BIT_ENTRY_INC         1
+
 static void Strobe(void)
 {
 	// On allume la limière
