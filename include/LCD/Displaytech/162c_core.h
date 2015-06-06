@@ -1,8 +1,14 @@
 /*
- * @file 162c_core.h
+ * @file      162c_core.h
  *
- * Created: 12/09/2013 13:34:33
- *  Author: Zéro Cool
+ * @author    Zéro Cool
+ * @date      12/09/2013 13:34:33
+ * @brief     Core Driver pour afficheur LCD de la série 162c
+ *
+ * @details   Fichier coeur du driver permettant de gérer un afficheur LCD de la marque
+ *            displaytech pour un afficheur de la série 162c
+ *
+ * @ingroup   LCD
  */
 
 #ifndef _162C_CORE_H_
