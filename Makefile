@@ -1,5 +1,6 @@
 # Répertoires
-DOCDIR            := documentations
+DOCSDIR           := docs
+HTMLDIR           := html
 
 # outils
 RM                := rm
@@ -9,5 +10,4 @@ all: doc
 
 .PHONY: doc
 doc:
-	-$(RM) -Rf $(DOCDIR)
-	-$(DOXYGEN) doxygen.config
+	-$(DOXYGEN) docs/doxygen.config

@@ -1,0 +1,24 @@
+/**
+ * @brief    Fichier de documentation pour la mainpage et les defgroups
+ * @author   Zéro Cool
+ * @file
+ */
+
+/**
+ * @defgroup LCD Afficheurs LCD
+ * @brief    Contient les fichiers include de gestion des afficheurs LCD
+ * @details  L'objectif est de stocker l'ensemble des fichiers relatif à la gestion
+ *           des afficheurs LCD.
+ *
+ * @defgroup RFM Radiofréquence
+ * @brief    Contient les fichiers include de gestion des modules radiofréquence FM
+ *
+ * @defgroup RFID RFID
+ * @brief    Contient les fichiers include de gestion des modules RFID
+ */
+
+/**
+ * @mainpage avr.sdk
+ * avr.sdk est un Software Development Kit contenant les librairies et les outils
+ * utilisés pour mes réalisations personnelles.
+ */
