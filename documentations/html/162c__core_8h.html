@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>avr.sdk: Référence du fichier include/LCD/Displaytech/162c_core.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">avr.sdk
+   </div>
+   <div id="projectbrief">SDK pour les projets AVR</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('162c__core_8h.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier 162c_core.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;avr/pgmspace.h&gt;</code><br />
+</div>
+<p><a href="162c__core_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ad2be0ef63c59a115e8b2aca9684d06ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#ad2be0ef63c59a115e8b2aca9684d06ad">LCD_PrintChar</a> (const unsigned char character)</td></tr>
+<tr class="memdesc:ad2be0ef63c59a115e8b2aca9684d06ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit un caractère sur le LCD.  <a href="#ad2be0ef63c59a115e8b2aca9684d06ad">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad2be0ef63c59a115e8b2aca9684d06ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91f2da5778347536f7f3e4db023afca1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#a91f2da5778347536f7f3e4db023afca1">LCD_PrintString</a> (const char *string)</td></tr>
+<tr class="memdesc:a91f2da5778347536f7f3e4db023afca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit une chaine de caractères sur le LCD.  <a href="#a91f2da5778347536f7f3e4db023afca1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a91f2da5778347536f7f3e4db023afca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa500143717af2475538de448d7fdee7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#aa500143717af2475538de448d7fdee7a">LCD_Initialize</a> (void)</td></tr>
+<tr class="memdesc:aa500143717af2475538de448d7fdee7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise l'afficheur LCD.  <a href="#aa500143717af2475538de448d7fdee7a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa500143717af2475538de448d7fdee7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d1f5679ef5e5f97ce0b0ae87b9b2164"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#a8d1f5679ef5e5f97ce0b0ae87b9b2164">LCD_SoftwareReset</a> (void)</td></tr>
+<tr class="separator:a8d1f5679ef5e5f97ce0b0ae87b9b2164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf0d478a2f2426671121625cd1fa198c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#aaf0d478a2f2426671121625cd1fa198c">LCD_DisplayClear</a> (void)</td></tr>
+<tr class="memdesc:aaf0d478a2f2426671121625cd1fa198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Efface l'afficheur LCD.  <a href="#aaf0d478a2f2426671121625cd1fa198c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaf0d478a2f2426671121625cd1fa198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe16a9cc1cda8af9ba96a411bf0a23a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#afe16a9cc1cda8af9ba96a411bf0a23a5">LCD_ReturnHome</a> (void)</td></tr>
+<tr class="memdesc:afe16a9cc1cda8af9ba96a411bf0a23a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positionne le curseur à la première ligne, première colonne d'écriture du LCD.  <a href="#afe16a9cc1cda8af9ba96a411bf0a23a5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afe16a9cc1cda8af9ba96a411bf0a23a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ac35c1af3e27ee8b4050cb2ad8baf39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#a1ac35c1af3e27ee8b4050cb2ad8baf39">LCD_EntryMode</a> (const uint8_t cursor_direction, const uint8_t display_inversion)</td></tr>
+<tr class="separator:a1ac35c1af3e27ee8b4050cb2ad8baf39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebcfb59947721a6bac5d7a1f3a79bc9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#aebcfb59947721a6bac5d7a1f3a79bc9c">LCD_DisplayConfiguration</a> (const uint8_t is_on, const uint8_t is_cursor_actif, const uint8_t is_cursor_blinking)</td></tr>
+<tr class="separator:aebcfb59947721a6bac5d7a1f3a79bc9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ce89d8450638f381300a4709fa658d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#a28ce89d8450638f381300a4709fa658d">LCD_SetShift</a> (const uint8_t type, const uint8_t directory)</td></tr>
+<tr class="separator:a28ce89d8450638f381300a4709fa658d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d3ab9853dd52701de972810dde208d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#a8d3ab9853dd52701de972810dde208d6">LCD_SetFunction</a> (const uint8_t with2lines, const uint8_t police10dots)</td></tr>
+<tr class="separator:a8d3ab9853dd52701de972810dde208d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84a10bdb0b32780dde51a977c9eaba46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#a84a10bdb0b32780dde51a977c9eaba46">LCD_MoveCursorRight</a> (uint8_t count)</td></tr>
+<tr class="separator:a84a10bdb0b32780dde51a977c9eaba46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eefc8704cf5f58cc3dac2106dd6537c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#a1eefc8704cf5f58cc3dac2106dd6537c">LCD_MoveCursorLeft</a> (uint8_t count)</td></tr>
+<tr class="separator:a1eefc8704cf5f58cc3dac2106dd6537c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8eaa8438cb28756da0f518db5e71a91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#ae8eaa8438cb28756da0f518db5e71a91">LCD_MoveDisplayRight</a> (uint8_t count)</td></tr>
+<tr class="separator:ae8eaa8438cb28756da0f518db5e71a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd1e4ec804b5646f6c13de378c76ae01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#abd1e4ec804b5646f6c13de378c76ae01">LCD_MoveDisplayLeft</a> (uint8_t count)</td></tr>
+<tr class="separator:abd1e4ec804b5646f6c13de378c76ae01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6185480d4bb824fd08cd86fc36bfe5eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#a6185480d4bb824fd08cd86fc36bfe5eb">LCD_MoveCursor</a> (const uint8_t line, const uint8_t column)</td></tr>
+<tr class="separator:a6185480d4bb824fd08cd86fc36bfe5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac88669dc2b603443234659e548a88340"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#ac88669dc2b603443234659e548a88340">LCD_CreateCharacter_P</a> (const uint8_t adress, const char data[])</td></tr>
+<tr class="separator:ac88669dc2b603443234659e548a88340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa02cdca565dca71abae2a763aed62419"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="162c__core_8h.html#aa02cdca565dca71abae2a763aed62419">LCD_CreateCharacter</a> (const uint8_t adress, const char data[])</td></tr>
+<tr class="separator:aa02cdca565dca71abae2a763aed62419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="aa02cdca565dca71abae2a763aed62419"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_CreateCharacter </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>adress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>data</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac88669dc2b603443234659e548a88340"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_CreateCharacter_P </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>adress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>data</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaf0d478a2f2426671121625cd1fa198c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_DisplayClear </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Efface l'afficheur LCD. </p>
+<p>Fonction permettant d'effacer tout ce qui est actuellement écrit sur le LCD</p>
+<p>Exemple : </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;LCD_DisplayClear();</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="aebcfb59947721a6bac5d7a1f3a79bc9c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_DisplayConfiguration </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>is_on</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>is_cursor_actif</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>is_cursor_blinking</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1ac35c1af3e27ee8b4050cb2ad8baf39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_EntryMode </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>cursor_direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>display_inversion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa500143717af2475538de448d7fdee7a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_Initialize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise l'afficheur LCD. </p>
+<p>Fonction permettant d'initialiser le LCD pour qu'il soit prêt à l'utilisation</p>
+<dl class="section note"><dt>Note</dt><dd>Cette fonction est à appeler avant toute utilisation du LCD</dd></dl>
+<p>Exemple : </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;LCD_Initilize();</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="a6185480d4bb824fd08cd86fc36bfe5eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_MoveCursor </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>column</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1eefc8704cf5f58cc3dac2106dd6537c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_MoveCursorLeft </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a84a10bdb0b32780dde51a977c9eaba46"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_MoveCursorRight </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abd1e4ec804b5646f6c13de378c76ae01"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_MoveDisplayLeft </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae8eaa8438cb28756da0f518db5e71a91"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_MoveDisplayRight </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad2be0ef63c59a115e8b2aca9684d06ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_PrintChar </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char&#160;</td>
+          <td class="paramname"><em>character</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit un caractère sur le LCD. </p>
+<p>Fonction permettant d'écrire un caractère sur le LCD. Le caractère sera ajouté à la fin de la ligne courante et avancera le curseur d'un caractère.</p>
+<p>Exemple : </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;LCD_PrintChar(&#39;A&#39;);</div>
+</div><!-- fragment --><p> ou : </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;LCD_PrintChar(0x31);</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="a91f2da5778347536f7f3e4db023afca1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_PrintString </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit une chaine de caractères sur le LCD. </p>
+<p>Fonction permettant d'écrire une chaine de caractères sur le LCD. La chaine de caractères sera ajoutée à la fin de la ligne courante et le curseur avancera d'autant de caractères contenu dans la chaine.</p>
+<dl class="section note"><dt>Note</dt><dd>La chaine de caractères doit être délimitée par un zéro binaire en fin de chaine. Le zéro binaire n'est pas écrit sur le LCD.</dd></dl>
+<p>Exemple : </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;LCD_PrintString(&quot;Hello World&quot;);</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="afe16a9cc1cda8af9ba96a411bf0a23a5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_ReturnHome </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Positionne le curseur à la première ligne, première colonne d'écriture du LCD. </p>
+<p>Fonction permettant de placer le curseur d'écriture sur la première ligne et la première colonne du LCD.</p>
+<dl class="section note"><dt>Note</dt><dd>Le contenu affiché par le LCD n'est pas supprimé. Seul le curseur est déplacé.</dd></dl>
+<p>Exemple : </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;LCD_ReturnHome();</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="a8d3ab9853dd52701de972810dde208d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_SetFunction </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>with2lines</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>police10dots</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a28ce89d8450638f381300a4709fa658d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_SetShift </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>directory</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8d1f5679ef5e5f97ce0b0ae87b9b2164"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LCD_SoftwareReset </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8a1472a16bc50042bedc625d34a1b978.html">include</a></li><li class="navelem"><a class="el" href="dir_b01da1ad2faa6a92765bca8ef8bf07c2.html">LCD</a></li><li class="navelem"><a class="el" href="dir_feac1c635e02a6fc21da4c3a72544fe3.html">Displaytech</a></li><li class="navelem"><a class="el" href="162c__core_8h.html">162c_core.h</a></li>
+    <li class="footer">Généré le Samedi 6 Juin 2015 12:01:44 pour avr.sdk par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

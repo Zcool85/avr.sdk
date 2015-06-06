@@ -1,9 +1,9 @@
 /*
- * 162c_core.h
+ * @file 162c_core.h
  *
  * Created: 12/09/2013 13:34:33
  *  Author: Zéro Cool
- */ 
+ */
 
 #ifndef _162C_CORE_H_
 #define _162C_CORE_H_
@@ -25,16 +25,16 @@ static void CheckIfLcdIsBusy(void)
 {
 	// On positionne le bus de donnée du µC en lecture
 	LCD_DATA_DIR = 0x00;
-	
+
 	// set R/W et unset RS
 	LCD_CONTROL_PORT &= ~_BV(LCD_CONTROL_RS_PIN);	// Turn on Mr LCD's Command Mode (RS off)
 	LCD_CONTROL_PORT |=  _BV(LCD_CONTROL_RW_PIN);	// Set Mr. LCD to Read (RW on)
-	
+
 	while (LCD_DATA_PORT >= LCD_MSK_BUSY_FLG)
 	{
 		Strobe();
 	}
-	
+
 	// On positionne le bus de donnée du µC en écriture
 	LCD_DATA_DIR = 0xFF;
 }
@@ -71,7 +71,7 @@ void LCD_Initialize(void)
 {
 	LCD_CONTROL_DIR |= _BV(LCD_CONTROL_EN_PIN)|_BV(LCD_CONTROL_RW_PIN)|_BV(LCD_CONTROL_RS_PIN);	// (EN on) (RS on) (RW on)
 	LCD_DATA_DIR    |= 0xFF;	// Port des datas en sortie
-	
+
 	// wait 10 ms for busy state
 	_delay_ms(10);
 	// Attente de la fin d'initialisation du LCD
@@ -185,7 +185,7 @@ void LCD_MoveCursor(const uint8_t line, const uint8_t column)
 void LCD_CreateCharacter_P(const uint8_t adress, const char data[])
 {
 	uint8_t command = LCD_CMD_SET_CGRAM | (adress << 3);
-	
+
 	for (uint8_t i = 0; i < 8; i++)
 	{
 		SendCommand(command++);
@@ -197,7 +197,7 @@ void LCD_CreateCharacter_P(const uint8_t adress, const char data[])
 void LCD_CreateCharacter(const uint8_t adress, const char data[])
 {
 	uint8_t command = LCD_CMD_SET_CGRAM | (adress << 3);
-	
+
 	for (uint8_t i = 0; i < 8; i++)
 	{
 		SendCommand(command++);

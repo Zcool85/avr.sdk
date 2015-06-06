@@ -160,8 +160,7 @@ void LCD_CreateCharacter(const uint8_t adress, const char data[]);
 #define LCD_MSK_BUSY_FLG		0x80
 
 #define LCD_OFFSET_LINE			0x40
- 
+
 #include <LCD/Displaytech/162c_core.h>
 
 #endif /* _162C_H_ */
-

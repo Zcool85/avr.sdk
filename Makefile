@@ -1,5 +1,5 @@
 # Répertoires
-DOCDIR            := doc
+DOCDIR            := documentations
 
 # outils
 RM                := rm
@@ -11,4 +11,3 @@ all: doc
 doc:
 	-$(RM) -Rf $(DOCDIR)
 	-$(DOXYGEN) doxygen.config
-

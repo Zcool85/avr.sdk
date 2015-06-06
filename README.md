@@ -1,15 +1,15 @@
-# avr.sdk                   {#mainpage}
+# avr.sdk
 
 # Introduction
 
 avr.sdk est un Software Development Kit contenant les librairies et les outils utilisés pour mes réalisations personnelles.
 
-\todo Ajouter les commentaires aux fonctions
-\todo Présenter l'organisation des répertoires
-\todo Faire une API correcte pour l'afficheur LCD
-\todo Faire une API correcte pour le protocol TWI (ou I2C pour les intimes)
-\todo Faire une API correcte pour le module FM RFM12B
-\todo Faire une API correcte pour le module RFID MFRC522
+@todo Ajouter les commentaires aux fonctions
+@todo Présenter l'organisation des répertoires
+@todo Faire une API correcte pour l'afficheur LCD
+@todo Faire une API correcte pour le protocol TWI (ou I2C pour les intimes)
+@todo Faire une API correcte pour le module FM RFM12B
+@todo Faire une API correcte pour le module RFID MFRC522
 
 
 
@@ -22,5 +22,3 @@ avr.sdk est un Software Development Kit contenant les librairies et les outils u
 
 @defgroup RFID RFID
 @brief    Contient les fichiers include de gestion des modules RFID
-
-
