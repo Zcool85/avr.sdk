@@ -39,6 +39,6 @@ var 162c__core_8h =
     [ "LCD_SetFunction", "162c__core_8h.html#a238f00ab4451f40adaca261fde6329a9", null ],
     [ "LCD_SetShift", "162c__core_8h.html#a42a88040f55a20d8225074cae175e4ee", null ],
     [ "LCD_SoftwareReset", "162c__core_8h.html#a8d1f5679ef5e5f97ce0b0ae87b9b2164", null ],
-    [ "SendCommand", "162c__core_8h.html#ad00d320cfbaff427b588a1cc193692ff", null ],
+    [ "SendCommand", "162c__core_8h.html#a121710ce7b5f558e52140992475f5956", null ],
     [ "Strobe", "162c__core_8h.html#a0a0171bb9296fe755c7937f090ed36e5", null ]
 ];
