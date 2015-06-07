@@ -79,7 +79,7 @@ static void CheckIfLcdIsBusy(void)
 	LCD_DATA_DDR = 0xFF;
 }
 
-static void SendCommand(const unsigned char command)
+static void SendCommand(const uint8_t command)
 {
 	CheckIfLcdIsBusy();
 	LCD_DATA_PORT = command;

@@ -21,6 +21,7 @@
  *            L'écriture des 40 premiers caractères sont stockés sur la première ligne
  *            de l'afficheur. Les 40 caractères suivants sur la seconde ligne.
  *
+ * @todo Faire fonctionner l'API en mode 4 bits
  * @todo Créer la fonction d'affichage d'un entier
  * @todo Créer la fonction d'affichage d'un double
  *

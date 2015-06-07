@@ -3,7 +3,7 @@
  *
  * Created: 12/09/2013 13:34:33
  *  Author: Zéro Cool
- */ 
+ */
 
 #ifndef _ALPHA_CORE_H_
 #define _ALPHA_CORE_H_
@@ -14,9 +14,9 @@ void SPI_Init(void)
 	ALPHA_SPI_DIR |=  _BV(ALPHA_SPI_SCK_PIN);	// Clock Output
 	ALPHA_SPI_DIR |=  _BV(ALPHA_SPI_SS_PIN);	// Slave Select Output
 	ALPHA_SPI_DIR &= ~_BV(ALPHA_SPI_MISO_PIN);	// MISO Input
-	
+
 	ALPHA_SPI_PORT |=  _BV(ALPHA_SPI_MISO_PIN);	// Pull-up MISO
-	
+
 	//SPCR = _BV(SPE)|_BV(MSTR)|_BV(SPR0);		// TODO : Pour le moment SPI activé en hardware
 	SPCR = _BV(SPE)|_BV(MSTR);		// IDem que la ligne du dessus, mais en 2MHz
 }
@@ -24,23 +24,23 @@ void SPI_Init(void)
 void SPI_SendWord(uint16_t data)
 {
 	ALPHA_SPI_PORT &= ~_BV(ALPHA_SPI_SS_PIN);	// SS to low
-	
+
 	SPDR = data>>8;
 	while(!(SPSR & _BV(SPIF)));
-	
+
 	SPDR = data & 0xFF;
 	while(!(SPSR & _BV(SPIF)));
-	
+
 	ALPHA_SPI_PORT |= _BV(ALPHA_SPI_SS_PIN);	// SS to high
 }
 
 void SPI_SendByte(uint8_t data)
 {
 	ALPHA_SPI_PORT &= ~_BV(ALPHA_SPI_SS_PIN);	// SS to low
-	
+
 	SPDR = data;
 	while(!(SPSR & _BV(SPIF)));
-	
+
 	ALPHA_SPI_PORT |= _BV(ALPHA_SPI_SS_PIN);	// SS to high
 }
 
@@ -48,12 +48,12 @@ void ALPHA_RxInit(void)
 {
 	ALPHA_NIRQ_DIR  &= ~_BV(ALPHA_NIRQ_PIN);	// nIRQ Input
 	ALPHA_NIRQ_PORT |=  _BV(ALPHA_NIRQ_PIN);	// nIRQ Pull-up
-	
+
 	ALPHA_FFS_DIR   &= ~_BV(ALPHA_FFS_PIN);		// FSK Input
 	ALPHA_FFS_PORT  |=  _BV(ALPHA_FFS_PIN);		// FSK Pull-up
-	
+
 	SPI_Init();
-	
+
 	// Configuration Setting Command
 	// -----------------------------
 	//   100         : Command
@@ -65,7 +65,7 @@ void ALPHA_RxInit(void)
 	//   i2 i1 i0    : Baseband Bandwith (101 => 134 KHz)
 	//   dc          : Disable the clock Output
 	SPI_SendWord(0b1000100110001011);
-	
+
 	// Frequency Setting Command
 	// -------------------------
 	//   1010                                  : Command
@@ -75,7 +75,7 @@ void ALPHA_RxInit(void)
 	//
 	// NOTE : Configure Frequency BEFORE starting Synthesizer
 	SPI_SendWord(0b1010011000100000);
-	
+
 	// Receiver Setting Command
 	// ------------------------
 	//   11000000 : Command
@@ -86,7 +86,7 @@ void ALPHA_RxInit(void)
 	//
 	// RSSIth = RSSIsetth + Glna => RSSIth = -103 + LNA Gain
 	SPI_SendWord(0b1100000011000001);
-	
+
 	// Wake-Up Timer Command
 	// ---------------------
 	//   111                     : Command
@@ -97,14 +97,14 @@ void ALPHA_RxInit(void)
 	//
 	// NOTE : For continual operation, bit et must be cleared and set
 	//SPI_SendWord(0b1110000000000000);
-	
+
 	// Low Duty-Cycle Command
 	// ----------------------
 	//   11001100             : Command
 	//   d6 d5 d4 d3 d2 d1 d0 : (0000111 => 7)
 	//   en                   : Enable low duty cycle mode
 	SPI_SendWord(0b1100110000001110);	// Low Duty-Cycle Command : DutyCycle = (D * 2 + 1) / M * 100%; en = 0
-	
+
 	// Low Battery Detector & Microcontroller Clock Divider Command
 	// ------------------------------------------------------------
 	//   11000010       : Command
@@ -113,7 +113,7 @@ void ALPHA_RxInit(void)
 	//
 	// Vlowbat = 2.2 + T * 0.1 => Vlowbat = 2.2 V
 	SPI_SendWord(0b1100001011100000);
-	
+
 	// AFC Command
 	// -----------
 	//   11000110 : Command
@@ -124,7 +124,7 @@ void ALPHA_RxInit(void)
 	//   oe       : Enable the output (frequency offset) register
 	//   en       : Enable calculation of the offset frequency by the AFC circuit (if allows the addition of the content of the output register to the frequency control word of the PPL)
 	SPI_SendWord(0b1100011011110111);
-	
+
 	// Data Filter Command
 	// -------------------
 	//   11000100 : Command
@@ -134,18 +134,18 @@ void ALPHA_RxInit(void)
 	//   s1 s0    : Type of data Filter (01 => Digital filter)
 	//   f2 f1 f0 : DQD threchold (100 => 4)
 	SPI_SendWord(0b1100010011101100);
-	
+
 	// Data Rate Command
 	// -----------------
 	//   11001000             : Command
-	//   cs                   : 
+	//   cs                   :
 	//   r6 r5 r4 r3 r2 r1 r0 : DataRate (0100011 => 35)
 	//
 	// BaudRate = 10 MHz / 29 / (DataRate + 1) / (1 + cs * 7) => BaudRate = 9578,5440613026819923371647509579 bauds
 	//
 	// Set the Receiver DataRate according the next function : DataRate = (10 MHz / 29 / (1 + cs * 7) / BaudRate) - 1
 	SPI_SendWord(0b1100100000100011);
-	
+
 	// Output and FIFO mode Command
 	// ----------------------------
 	//   11001110    : Command
@@ -153,7 +153,7 @@ void ALPHA_RxInit(void)
 	//   s1 s0       : Select the input of the FIFO fill start condition (10 => VDI & Sync-word)
 	//   ff          : Enable FIFO fill after synchron word reception. FIFO fill stop when this bit is cleared
 	//   fe          : Enables the 16 bits FIFO mode. To clear the FIFO's counter and content, it has to be set zero
-	// 
+	//
 	// NOTE : Synchron word is 2DD4h
 	// NOTE : To restart the synchron word reception, bit ff should be cleared and set. This action will initialize the FIFO and clear its content.
 	// NOTE : Bit fe modifies the function of pin 3 and pin 4. Pin 3 (nFFS) will become input if fe is set to 1. If the chip is used in FIFO mode, do not allow this to be a floating input.
@@ -161,7 +161,7 @@ void ALPHA_RxInit(void)
 	DELAI_US(250);
 	SPI_SendWord(0b1100111010001011);
 	DELAI_US(250);
-	
+
 	// Reset Mode
 	// ----------
 	//   110110100000000 : Command
@@ -179,23 +179,23 @@ void ALPHA_TxInit(void)
 {
 	ALPHA_NIRQ_DIR  &= ~_BV(ALPHA_NIRQ_PIN);	// nIRQ Input
 	ALPHA_NIRQ_PORT |=  _BV(ALPHA_NIRQ_PIN);	// nIRQ Pull-up
-	
+
 	ALPHA_FFS_DIR   |=  _BV(ALPHA_FFS_PIN);		// FFS Output
-	
+
 	ALPHA_FFIT_DIR  &= ~_BV(ALPHA_FFIT_PIN);	// FFIT Input
 	ALPHA_FFIT_PORT |=  _BV(ALPHA_FFIT_PIN);	// FFIT Pull-up
-	
+
 	ALPHA_NIRQ_DIR  &= ~_BV(ALPHA_NIRQ_PIN);	// nIRQ Input
 	ALPHA_NIRQ_PORT |=  _BV(ALPHA_NIRQ_PIN);	// nIRQ Pull-up
-	
+
 	// FFS must be hight
 	ALPHA_FFS_PORT |= _BV(ALPHA_FFS_PIN);
-	
+
 	PCICR |= _BV(0);    //  Pin Change Interrupt Enable 0
 	PCMSK0 = _BV(6);    //  PCINT6 = PB6 pour la FFIT
-	
+
 	SPI_Init();
-	
+
 	//// Configuration Setting Command
 	//// -----------------------------
 	////   100         : Command
@@ -204,7 +204,7 @@ void ALPHA_TxInit(void)
 	////   x3 x2 x1 x0 : Crystal Load Capacitance (1000 => 12.5 pF)
 	////   ms          : Modulation polarity
 	////   m2 m1 m0    : Frequency deviation (000 => 30 KHz)
-	//// 
+	////
 	//// The resulting output frequency can be calculated as :
 	////  Fout = Fo - (-1)^sign * (M + 1) * (30 kHz)
 	//// Where
@@ -219,7 +219,7 @@ void ALPHA_TxInit(void)
 	////   f11 f10 f9 f8 f7 f6 f5 f4 f3 f2 f1 f0 : Should be in range of 96 and 3903 (011000100000 => 1568)
 	////
 	//// Fo = 10 MHz * (43 + F / 4000)    => Fo = 433.92 MHz
-	//// 
+	////
 	//// NOTE : Configure Frequency BEFORE starting Synthesizer
 	//SPI_SendWord(0b1010011000100000);
 	//
@@ -227,7 +227,7 @@ void ALPHA_TxInit(void)
 	//// -----------------
 	////   11001000                : Command
 	////   r7 r6 r5 r4 r3 r2 r1 r0 : DataRate (00100011 => 35)
-	//// 
+	////
 	//// BaudRate = 10 MHz / 29 / (DataRate + 1) => BaudRate = 9578,5440613026819923371647509579 bauds
 	//SPI_SendWord(0b1100100000100011);
 	//
@@ -263,7 +263,7 @@ void ALPHA_TxInit(void)
 	//// ---------------------
 	////   111                     : Command
 	////   r4 r3 r2 r1 r0          : Should be in range of 0 to 23
-	////   m7 m6 m5 m4 m3 m2 m1 m0 : 
+	////   m7 m6 m5 m4 m3 m2 m1 m0 :
 	////
 	//// T = M * 2^R => 0ms
 	////
@@ -296,7 +296,7 @@ void ALPHA_SendFSK(uint8_t data)
 	{
 		while ((PINB & _BV(ALPHA_NIRQ_PIN)) == 0);	// Wait nIRQ Hi
 		while ((PINB & _BV(ALPHA_NIRQ_PIN)) != 0);	// Wait nIRQ Lo
-		
+
 		if (data & _BV(offset))
 		{
 			ALPHA_FFS_PORT |= _BV(ALPHA_FFS_PIN);
@@ -315,9 +315,9 @@ void ALPHA_SendData(uint8_t data)
 	SPI_SendWord(0b1100000000111001);	// Power Management Command - allumage amplificateur (Tx_Open)
 	DELAI_US(250);		// Wait PLL startup time
 	DELAI_MS(5);		// Wait crystal oscillator startup time
-	
+
 	uint8_t checksum = ~data;
-	
+
 	ALPHA_SendFSK(0xAA);	// Preamble
 	ALPHA_SendFSK(0xAA);	// Preamble
 	ALPHA_SendFSK(0x2D);	// Synch byte
@@ -325,7 +325,7 @@ void ALPHA_SendData(uint8_t data)
 	ALPHA_SendFSK(data);	// Data byte
 	ALPHA_SendFSK(checksum);	// checksum
 	ALPHA_SendFSK(0xAA);	// dummy
-	
+
 	SPI_SendWord(0b1100000000110001);	// Power Management Command - extinction de l'amplificateur
 }
 
