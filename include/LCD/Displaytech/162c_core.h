@@ -60,8 +60,11 @@ static void Strobe(void)
 
 static void CheckIfLcdIsBusy(void)
 {
+    /**
+     * @todo Direction à changer lorsque le mode 4bits sera fait
+     */
 	// On positionne le bus de donnée du µC en lecture
-	LCD_DATA_DIR = 0x00;
+	LCD_DATA_DDR = 0x00;
 
 	// set R/W et unset RS
 	LCD_CONTROL_PORT &= ~_BV(LCD_CONTROL_RS_PIN);	// Turn on Mr LCD's Command Mode (RS off)
@@ -73,7 +76,7 @@ static void CheckIfLcdIsBusy(void)
 	}
 
 	// On positionne le bus de donnée du µC en écriture
-	LCD_DATA_DIR = 0xFF;
+	LCD_DATA_DDR = 0xFF;
 }
 
 static void SendCommand(const unsigned char command)
@@ -106,8 +109,11 @@ void LCD_PrintString(const char * string)
 
 void LCD_Initialize(void)
 {
-	LCD_CONTROL_DIR |= _BV(LCD_CONTROL_EN_PIN)|_BV(LCD_CONTROL_RW_PIN)|_BV(LCD_CONTROL_RS_PIN);	// (EN on) (RS on) (RW on)
-	LCD_DATA_DIR    |= 0xFF;	// Port des datas en sortie
+	LCD_CONTROL_DDR |= _BV(LCD_CONTROL_EN_PIN)|_BV(LCD_CONTROL_RW_PIN)|_BV(LCD_CONTROL_RS_PIN);	// (EN on) (RS on) (RW on)
+	/**
+	 * @todo Direction à changer lorsque le mode 4bits sera fait
+	 */
+	LCD_DATA_DDR    |= 0xFF;	// Port des datas en sortie
 
 	// wait 10 ms for busy state
 	_delay_ms(10);
@@ -228,7 +234,7 @@ void LCD_MoveCursor(const uint8_t line, const uint8_t column)
 	_delay_us(42);
 }
 
-static void LCD_RegisterCharacter_P(const LCD_CGRAM adress, const uint8_t data[])
+void LCD_RegisterCharacter_P(const LCD_CGRAM adress, const uint8_t data[])
 {
 	uint8_t command = LCD_CMD_SET_CGRAM | (adress << 3);
 

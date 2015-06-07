@@ -8,16 +8,131 @@
  * @details   Fichier Driver permettant de gérer un afficheur LCD de la marque
  *            displaytech pour un afficheur de la série 162c
  *
+ * Site officiel du [composant](http://www.displaytech-us.com/16x2-character-lcd-displays-c).
+ * La datasheet du composant est disponible [ici](http://docs-europe.electrocomponents.com/webdocs/06dd/0900766b806dda16.pdf).
+ *
+ * @warning   Toutes les broches data de l'afficheur LCD (DB0 à DB7) doivent être sur le
+ *            même PORT du microcontroller.
+ *
+ * @warning   Toutes les broches de controle de l'afficheur LCD (EN, R/W et RS)
+ *            doivent être sur le même PORT du microcontroller.
+ *
+ * @note      Le buffer interne de l'afficheur LCD dispose de 80 caractères.
+ *            L'écriture des 40 premiers caractères sont stockés sur la première ligne
+ *            de l'afficheur. Les 40 caractères suivants sur la seconde ligne.
+ *
  * @todo Créer la fonction d'affichage d'un entier
  * @todo Créer la fonction d'affichage d'un double
- * @todo Créer la fonction LCD_RegisterCharacter_P pour enregistrer un caractère depuis l'EEPROM
- * @todo Faire un exemple complet et global d'utilisation de cette API
+ *
+ * Exemple d'utilisation :
+ * @code
+
+#include <avr/io.h>
+#include <util/delay.h>
+
+// PORT sur lequel est branché le port DATA du LCD (Broches DB0 à DB7 de l'afficheur LCD)
+#define LCD_DATA_PORT			PORTD
+#define LCD_DATA_DDR			DDRD
+
+// PORT sur lequel est branché les pins du contrôle du LCD
+#define LCD_CONTROL_PORT		PORTC
+#define LCD_CONTROL_DDR			DDRC
+
+#define LCD_CONTROL_EN_PIN		PORTC0
+#define LCD_CONTROL_RW_PIN		PORTC1
+#define LCD_CONTROL_RS_PIN		PORTC2
+
+#include <LCD/Displaytech/162c.h>
+
+// Définition d'un caractère custom en mémoire globale (RAM)
+const uint8_t data[] = {
+    0b10000,
+    0b01000,
+    0b00100,
+    0b00010,
+    0b00001,
+    0b00010,
+    0b00100,
+    0b01000,
+};
+
+// Définition d'un caractère custom em mémoire programme (flash)
+const uint8_t data_flash[] PROGMEM = {
+    0b00001,
+    0b00010,
+    0b00100,
+    0b01000,
+    0b10000,
+    0b01000,
+    0b00100,
+    0b00010,
+};
+
+int main(void)
+{
+    // Initialisation du LCD.
+    // Cette fonction est à appeler avant toute manipulation des fonctions du LCD
+    LCD_Initialize();
+
+    // Enregistrement d'un nouveau caractère en CGRAM
+    LCD_RegisterCharacter(LCD_CGRAM_00, data);
+    // Enregistrement d'un autre caractère en CGRAM
+    LCD_RegisterCharacter_P(LCD_CGRAM_01, data_flash);
+
+    // Effacement de l'écran
+    LCD_DisplayClear();
+    // Paramétrage de l'écran pour qu'il affiche 2 lignes avec les caractères sur 5x10 points
+    LCD_SetFunction(LCD_LINES_2, LCD_POLICE_5X10);
+    // Paramétrage de l'écran pour l'allumer et activer le curseur et le fait clignoter
+    LCD_DisplayOn(LCD_CURSOR_ACTIF_ON, LCD_CURSOR_BLINKING_ON);
+
+
+    // Affichage d'une chaine de caractères
+    LCD_PrintString("Exemple avec une ligne de 40 caracteres.");
+
+    // Déplacement du curseur sur la seconde ligne en colonne 1
+    LCD_MoveCursor(1, 0);
+
+    // Affichage d'une chaine de caractères sur la seconde ligne
+    LCD_PrintString("Ligne 2 : ");
+    LCD_PrintChar(LCD_CGRAM_00);
+    LCD_PrintChar(LCD_CGRAM_01);
+
+    while(1)
+    {
+        // Toutes les demi-secondes, l'affichage se décale d'un cran à gauche
+        _delay_ms(500);
+        LCD_MoveDisplayLeft(1);
+    }
+}
+
+ * @endcode
  *
  * @ingroup   LCD
  */
 
 #ifndef _162C_H_
 #define _162C_H_
+
+#if !defined(LCD_DATA_PORT) || !defined(LCD_DATA_DDR)
+#error Le PORT sur lequel est branché les broches data du LCD ne sont pas définies
+#endif
+
+#if !defined(LCD_CONTROL_PORT) || !defined(LCD_CONTROL_DDR)
+#error Le PORT sur lequel est branché les broches data du LCD ne sont pas définies
+#endif
+
+#if !defined(LCD_CONTROL_EN_PIN)
+#error La broche Enable du LCD n''est pas définie
+#endif
+
+#if !defined(LCD_CONTROL_RW_PIN)
+#error La broche R/W du LCD n''est pas définie
+#endif
+
+#if !defined(LCD_CONTROL_RS_PIN)
+#error La broche RS du LCD n''est pas définie
+#endif
 
 #include <stdint.h>
 
@@ -318,16 +433,66 @@ void LCD_SoftwareReset(void);
  *                                        Le tableau doit avoir 8 occurences. Pour chaque occurences,
  *                                        seul les 5 bits de poids faibles sont utilisés.
  *
- * @note       Seul 8 caractères peuvent être enresitrés (8 adresses disponibles)
+ * @note       Seul 8 caractères différents peuvent être enresitrés (8 adresses disponibles)
  *
  * @warning    Il n'y a aucun contrôle de dépassement de capacité
  *
- * @todo       Faire un exemple complet
+ * Exemple :
+ * Le caractère doit dans un premier temps être déclaré en mémoire (mémoire global ou membre d'une fonction) :
+ * @code
+ * const uint8_t data[] = {
+ *  0b10000,
+ *  0b01000,
+ *  0b00100,
+ *  0b00010,
+ *  0b00001,
+ *  0b00010,
+ *  0b00100,
+ *  0b01000,
+ * };
+ * @endcode
+ * Puis, la fonction s'utilise de la manière suivante pour enresgitrer le caractère en mémoire CGRAM 0x03 :
+ * @code
+ * LCD_RegisterCharacter(LCD_CGRAM_03, data);
+ * @endcode
  */
-// Créé un nouveau caractère en CGRAM
-// adress   : de 0b0000 à 0b0111 (soit 8 caracteres possibles)
-// data     : Tableau de 8x5bits (pour chacune des 8 occurences, seuls les 5 bits de poids faibles sont utilisés)
 void LCD_RegisterCharacter(const LCD_CGRAM address, const uint8_t data[]);
+
+/**
+ * @brief      Enregistre un caractère en CGRAM depuis la mémoire flash
+ * @details    Fonction permettant d'enregistrer un caratère en CGRAM du LCD à partir de la définition
+ *             du caractère en mémoire flash
+ *
+ * @param      [in]       address         Donne l'adresse en CGRAM où enregistrer le caractère
+ * @param      [in]       data            Tableau d'octets stocké en mémoire flash contenant la
+ *                                        représentation du caractère.
+ *                                        Le tableau doit avoir 8 occurences. Pour chaque occurences,
+ *                                        seul les 5 bits de poids faibles sont utilisés.
+ *
+ * @note       Seul 8 caractères différents peuvent être enresitrés (8 adresses disponibles)
+ *
+ * @warning    Il n'y a aucun contrôle de dépassement de capacité
+ *
+ * Exemple :
+ * Le caractère doit dans un premier temps être déclaré en mémoire flash :
+ * @code
+ * const uint8_t data[] PROGMEM = {
+ *  0b10000,
+ *  0b01000,
+ *  0b00100,
+ *  0b00010,
+ *  0b00001,
+ *  0b00010,
+ *  0b00100,
+ *  0b01000,
+ * };
+ * @endcode
+ * Puis, la fonction s'utilise de la manière suivante pour enresgitrer le caractère en mémoire CGRAM 0x03 :
+ * @code
+ * LCD_RegisterCharacter_P(LCD_CGRAM_03, data);
+ * @endcode
+ */
+void LCD_RegisterCharacter_P(const LCD_CGRAM address, const uint8_t data[]);
 
 #include <LCD/Displaytech/162c_core.h>
 
