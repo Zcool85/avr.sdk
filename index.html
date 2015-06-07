@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="files.html"><span>Fichiers</span></a></li>
       <li>
@@ -102,13 +103,18 @@ $(document).ready(function(){initNavTree('index.html','');});
 <div class="title">avr.sdk </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>avr.sdk est un Software Development Kit contenant les librairies et les outils utilisés pour mes réalisations personnelles. </p>
+<div class="textblock"><h1>Introduction</h1>
+<p>avr.sdk est un Software Development Kit contenant les librairies et les outils utilisés pour mes réalisations personnelles.</p>
+<h1>Compilation</h1>
+<p>Ajouter le répertoire du dépôt <code>avr.sdk/include</code> dans la liste des répertoires includes lors de la compilation (paramètre <code>-I</code> du compilateur <code>gcc-avr</code>).</p>
+<p>Le SDK utilise des énumérations. Il est conseillé d'utiliser la directive de compilation <code>-fshort-enums</code> pour réduire l'espace mémoire requis à son minimum pour les énumérations.</p>
+<p>Les directives de compilation sont disponibles sur l'URL <a href="http://www.nongnu.org/avr-libc/user-manual/using_tools.html" title="avr-libc manual">suivante</a>. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Généré le Samedi 6 Juin 2015 23:56:05 pour avr.sdk par
+    <li class="footer">Généré le Dimanche 7 Juin 2015 15:28:02 pour avr.sdk par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
