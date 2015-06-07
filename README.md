@@ -9,7 +9,8 @@ utilisés pour mes réalisations personnelles.
 # TODO
 
 - [ ] Ajouter les commentaires aux fonctions
-- [ ] Présenter l'organisation des répertoires
+- [ ] Ajouter un template de Makefile
+- [ ] Présenter l'organisation des répertoires dans la documentation
 - [ ] Faire une API correcte pour l'afficheur LCD
 - [ ] Faire une API correcte pour le protocol TWI (ou I2C pour les intimes)
 - [ ] Faire une API correcte pour le module FM RFM12B

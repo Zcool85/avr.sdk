@@ -17,8 +17,36 @@
 #include <util/delay.h>
 #include <avr/pgmspace.h>
 
+// Liste des commandes
+#define LCD_CMD_CLEAR             0x01
+#define LCD_CMD_HOME              0x02
+#define LCD_CMD_ENTRY             0x04
+#define LCD_CMD_DISP              0x08
+#define LCD_CMD_SHIFT             0x10
+#define LCD_CMD_FUNC              0x20
+#define LCD_CMD_SET_CGRAM         0x40
+#define LCD_CMD_SET_DDRAM         0x80
+
+// Définition des valeurs pour la commande LCD_CMD_ENTRY
 #define LCD_BIT_ENTRY_SHIFT       0
 #define LCD_BIT_ENTRY_INC         1
+// Définition des valeurs pour la commande LCD_CMD_DISP
+#define LCD_BIT_DISP_BLINK        0
+#define LCD_BIT_DISP_CURS         1
+#define LCD_BIT_DISP_DISP         2
+// Définition des valeurs pour la commande LCD_CMD_SHIFT
+#define LCD_BIT_SHIFT_TYPE        3
+#define LCD_BIT_SHIFT_DIR         2
+// Définition des valeurs pour la commande LCD_CMD_FUNC
+#define LCD_BIT_FUNC_INTF         4
+#define LCD_BIT_FUNC_LINS         3
+#define LCD_BIT_FUNC_DOTS         2
+
+// Masque définissant si l'afficheur LCD est occupée ou non
+#define LCD_MSK_BUSY_FLG          0x80
+
+// Offset permettant de passer d'une ligne à l'autre
+#define LCD_OFFSET_LINE           0x40
 
 static void Strobe(void)
 {
@@ -118,24 +146,30 @@ void LCD_ReturnHome(void)
 	_delay_ms(1.64);
 }
 
-void LCD_EntryMode(const uint8_t cursor_direction, const uint8_t display_inversion)
+void LCD_EntryMode(const LCD_CURSOR_DIR cursor_direction, const LCD_DISPLAY_TYPE display_type)
 {
 	SendCommand(LCD_CMD_ENTRY
-	| (display_inversion << LCD_BIT_ENTRY_SHIFT)
+	| (display_type << LCD_BIT_ENTRY_SHIFT)
 	| (cursor_direction << LCD_BIT_ENTRY_INC));
 	_delay_us(42);
 }
 
-void LCD_DisplayConfiguration(const uint8_t is_on, const uint8_t is_cursor_actif, const uint8_t is_cursor_blinking)
+void LCD_DisplayOn(const LCD_CURSOR_ACTIF cursor_actif, const LCD_CURSOR_BLINKING cursor_blinking)
 {
 	SendCommand(LCD_CMD_DISP
-	| (is_on << LCD_BIT_DISP_DISP)
-	| (is_cursor_actif << LCD_BIT_DISP_CURS)
-	| (is_cursor_blinking << LCD_BIT_DISP_BLINK));
+	| (1 << LCD_BIT_DISP_DISP)
+	| (cursor_actif << LCD_BIT_DISP_CURS)
+	| (cursor_blinking << LCD_BIT_DISP_BLINK));
 	_delay_us(42);
 }
 
-void LCD_SetShift(const uint8_t type, const uint8_t directory)
+void LCD_DisplayOff(void)
+{
+	SendCommand(LCD_CMD_DISP | (0 << LCD_BIT_DISP_DISP));
+	_delay_us(42);
+}
+
+static void LCD_SetShift(const uint8_t type, const uint8_t directory)
 {
 	SendCommand(LCD_CMD_SHIFT
 	| (type << LCD_BIT_SHIFT_TYPE)
@@ -143,13 +177,16 @@ void LCD_SetShift(const uint8_t type, const uint8_t directory)
 	_delay_us(42);
 }
 
-void LCD_SetFunction(const uint8_t with2lines, const uint8_t police10dots)
+void LCD_SetFunction(const LCD_LINES lines, const LCD_POLICE police)
 {
-	// TODO : Forcé à 8 bits pour le moment...
+	/**
+	 * @todo L'interface LCD est forcée à 8 bits pour le moment. Permettre
+	 * l'utilisation en interface 4 bits.
+	 */
 	SendCommand(LCD_CMD_FUNC
 	| (1 << LCD_BIT_FUNC_INTF)
-	| (with2lines << LCD_BIT_FUNC_LINS)
-	| (police10dots << LCD_BIT_FUNC_DOTS));
+	| (lines << LCD_BIT_FUNC_LINS)
+	| (police << LCD_BIT_FUNC_DOTS));
 	_delay_us(42);
 }
 
@@ -191,7 +228,7 @@ void LCD_MoveCursor(const uint8_t line, const uint8_t column)
 	_delay_us(42);
 }
 
-void LCD_CreateCharacter_P(const uint8_t adress, const char data[])
+static void LCD_RegisterCharacter_P(const LCD_CGRAM adress, const uint8_t data[])
 {
 	uint8_t command = LCD_CMD_SET_CGRAM | (adress << 3);
 
@@ -203,7 +240,7 @@ void LCD_CreateCharacter_P(const uint8_t adress, const char data[])
 	}
 }
 
-void LCD_CreateCharacter(const uint8_t adress, const char data[])
+void LCD_RegisterCharacter(const LCD_CGRAM adress, const uint8_t data[])
 {
 	uint8_t command = LCD_CMD_SET_CGRAM | (adress << 3);
 

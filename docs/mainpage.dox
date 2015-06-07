@@ -19,6 +19,19 @@
 
 /**
  * @mainpage avr.sdk
+ *
+ * # Introduction
+ *
  * avr.sdk est un Software Development Kit contenant les librairies et les outils
  * utilisés pour mes réalisations personnelles.
+ *
+ * # Compilation
+ *
+ * Ajouter le répertoire du dépôt `avr.sdk/include` dans la liste des répertoires includes lors de la
+ * compilation (paramètre `-I` du compilateur `gcc-avr`).
+ *
+ * Le SDK utilise des énumérations. Il est conseillé d'utiliser la directive de compilation
+ * `-fshort-enums` pour réduire l'espace mémoire requis à son minimum pour les énumérations.
+ *
+ * Les directives de compilation sont disponibles sur l'URL [suivante](http://www.nongnu.org/avr-libc/user-manual/using_tools.html "avr-libc manual").
  */
