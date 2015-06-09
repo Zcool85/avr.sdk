@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>avr.sdk:  Fichier source de include/I2C_master.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">avr.sdk
+   </div>
+   <div id="projectbrief">SDK pour les projets AVR</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_i2_c__master_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">I2C_master.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_i2_c__master_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#ifndef _I2C_MASTER_H_</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#define _I2C_MASTER_H_</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#ifndef F_CPU</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#error Fréquence du CPU non définie.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#ifndef SCL_CLOCK</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#error Horloge I2C non définie. En général vaut 100000L</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &lt;avr/io.h&gt;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_i2_c__master_8h.html#af2e33b12dfc58fa7665ca45c72278428">I2C_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_i2_c__master_8h.html#afce134e0a1b6a8bc503c97b37639c9e6">I2C_Stop</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;uint8_t <a class="code" href="_i2_c__master_8h.html#a4fa77e034cac43151f8b3fd6c48ffe48">I2C_Start</a>(<span class="keyword">const</span> uint8_t address);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;uint8_t <a class="code" href="_i2_c__master_8h.html#a127e1ac60c1d7d230a88c71ee6f9f863">I2C_RepeatedStart</a>(<span class="keyword">const</span> uint8_t address);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_i2_c__master_8h.html#a0974257590dfeaab06ab467d17aa19d4">I2C_StartWait</a>(<span class="keyword">const</span> uint8_t address);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;uint8_t <a class="code" href="_i2_c__master_8h.html#acdc9cf8e6a61ad21b2befe3d82de97d4">I2C_Send</a>(<span class="keyword">const</span> uint8_t data);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;uint8_t <a class="code" href="_i2_c__master_8h.html#a0f85a56a349448fcc67ec19e87d9dc3b">I2C_ReadAck</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;uint8_t <a class="code" href="_i2_c__master_8h.html#a4a7e4e6afa98be22172bc213cc62bc64">I2C_ReadNak</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_i2_c__master__core_8h.html">I2C_master_core.h</a>&gt;</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _I2C_MASTER_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="_i2_c__master__core_8h_html"><div class="ttname"><a href="_i2_c__master__core_8h.html">I2C_master_core.h</a></div></div>
+<div class="ttc" id="_i2_c__master_8h_html_a127e1ac60c1d7d230a88c71ee6f9f863"><div class="ttname"><a href="_i2_c__master_8h.html#a127e1ac60c1d7d230a88c71ee6f9f863">I2C_RepeatedStart</a></div><div class="ttdeci">uint8_t I2C_RepeatedStart(const uint8_t address)</div><div class="ttdoc">Déclanche le démarrage répété de la transmission. </div><div class="ttdef"><b>Definition:</b> I2C_master_core.h:76</div></div>
+<div class="ttc" id="_i2_c__master_8h_html_a0974257590dfeaab06ab467d17aa19d4"><div class="ttname"><a href="_i2_c__master_8h.html#a0974257590dfeaab06ab467d17aa19d4">I2C_StartWait</a></div><div class="ttdeci">void I2C_StartWait(const uint8_t address)</div><div class="ttdoc">Déclanche le démarrage de la transmission. </div><div class="ttdef"><b>Definition:</b> I2C_master_core.h:81</div></div>
+<div class="ttc" id="_i2_c__master_8h_html_acdc9cf8e6a61ad21b2befe3d82de97d4"><div class="ttname"><a href="_i2_c__master_8h.html#acdc9cf8e6a61ad21b2befe3d82de97d4">I2C_Send</a></div><div class="ttdeci">uint8_t I2C_Send(const uint8_t data)</div><div class="ttdoc">Envoi un byte au périphérique I2C. </div><div class="ttdef"><b>Definition:</b> I2C_master_core.h:118</div></div>
+<div class="ttc" id="_i2_c__master_8h_html_afce134e0a1b6a8bc503c97b37639c9e6"><div class="ttname"><a href="_i2_c__master_8h.html#afce134e0a1b6a8bc503c97b37639c9e6">I2C_Stop</a></div><div class="ttdeci">void I2C_Stop(void)</div><div class="ttdoc">Termine le transfert des données et libère le buss I2C. </div><div class="ttdef"><b>Definition:</b> I2C_master_core.h:35</div></div>
+<div class="ttc" id="_i2_c__master_8h_html_a4a7e4e6afa98be22172bc213cc62bc64"><div class="ttname"><a href="_i2_c__master_8h.html#a4a7e4e6afa98be22172bc213cc62bc64">I2C_ReadNak</a></div><div class="ttdeci">uint8_t I2C_ReadNak(void)</div><div class="ttdoc">Lit un byte du périphérique I2C. La lecture est suivie par l&#39;envoi d&#39;une condition STOP...</div><div class="ttdef"><b>Definition:</b> I2C_master_core.h:146</div></div>
+<div class="ttc" id="_i2_c__master_8h_html_a0f85a56a349448fcc67ec19e87d9dc3b"><div class="ttname"><a href="_i2_c__master_8h.html#a0f85a56a349448fcc67ec19e87d9dc3b">I2C_ReadAck</a></div><div class="ttdeci">uint8_t I2C_ReadAck(void)</div><div class="ttdoc">Lit un byte du périphérique I2C et demande la transmission des données suivantes. ...</div><div class="ttdef"><b>Definition:</b> I2C_master_core.h:136</div></div>
+<div class="ttc" id="_i2_c__master_8h_html_a4fa77e034cac43151f8b3fd6c48ffe48"><div class="ttname"><a href="_i2_c__master_8h.html#a4fa77e034cac43151f8b3fd6c48ffe48">I2C_Start</a></div><div class="ttdeci">uint8_t I2C_Start(const uint8_t address)</div><div class="ttdoc">Déclanche le démarrage de la transmission. </div><div class="ttdef"><b>Definition:</b> I2C_master_core.h:44</div></div>
+<div class="ttc" id="_i2_c__master_8h_html_af2e33b12dfc58fa7665ca45c72278428"><div class="ttname"><a href="_i2_c__master_8h.html#af2e33b12dfc58fa7665ca45c72278428">I2C_Initialize</a></div><div class="ttdeci">void I2C_Initialize(void)</div><div class="ttdoc">Initialise l&#39;interface I2C en mode maitre (master) </div><div class="ttdef"><b>Definition:</b> I2C_master_core.h:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_8a1472a16bc50042bedc625d34a1b978.html">include</a></li><li class="navelem"><a class="el" href="_i2_c__master_8h.html">I2C_master.h</a></li>
+    <li class="footer">Généré le Mardi 9 Juin 2015 23:26:18 pour avr.sdk par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
