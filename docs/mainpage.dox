@@ -5,6 +5,9 @@
  */
 
 /**
+ * @defgroup PROTOCOLES Protocoles de communication
+ * @brief    Contient les fichiers include de différents protocoles de communication
+ *
  * @defgroup LCD Afficheurs LCD
  * @brief    Contient les fichiers include de gestion des afficheurs LCD
  * @details  L'objectif est de stocker l'ensemble des fichiers relatif à la gestion
