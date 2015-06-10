@@ -20,6 +20,8 @@
  * Exemple de code en mode hardware :
  * @code
  * #include <avr/io.h>
+ * #include <stdint.h>
+ *
  * #define SPI_DDR                 DDRB
  * #define SPI_PORT                PORTB
  * #define SPI_MOSI_PIN            PINB1
@@ -54,6 +56,8 @@
  * Exemple de code en mode software :
  * @code
  * #include <avr/io.h>
+ * #include <stdint.h>
+ *
  * #define SPI_DDR                 DDRB
  * #define SPI_PORT                PORTB
  * #define SPI_PIN                 PINB
