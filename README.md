@@ -24,6 +24,6 @@ Un template de fichier Makefile ([Makefile.template](templates/Makefile.template
 
 - [ ] Faire fonctionner l'API RFM pour les modules alpha
 - [ ] Présenter l'organisation des répertoires dans la documentation
-- [ ] Faire une API correcte pour le protocol TWI (ou I2C pour les intimes)
+- [ ] Compléter l'API I2C avec un mode de fonctionnement par interruptions
 - [ ] Faire une API correcte pour le module FM RFM12B
 - [ ] Faire une API correcte pour le module RFID MFRC522
