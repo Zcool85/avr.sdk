@@ -52,11 +52,19 @@
 #define _I2C_MASTER_H_
 
 #ifndef F_CPU
-#error Fréquence du CPU non définie.
+#  error "I2C_master.h requires F_CPU to be defined"
 #endif
 
 #ifndef SCL_CLOCK
-#error Horloge I2C non définie. En général vaut 100000L
+#  error "I2C_master.h requires SCL_CLOCK to be defined"
+#endif
+
+#if !(F_CPU)
+#  error "F_CPU must be a constant value"
+#endif
+
+#if !(SCL_CLOCK)
+#  error "F_CPU must be a constant value"
 #endif
 
 #include <stdint.h>

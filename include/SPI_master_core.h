@@ -32,7 +32,8 @@ void SPI_Initialize(void)
   /**
    * @todo revoir le paramétrage pour les options du mode hardware
    */
-  SPCR = _BV(SPE)|_BV(MSTR);
+  SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR0);    // Enable SPI + Master + fck/16
+  SPSR &= ~_BV(SPI2X);                        // Pas de double vitesse
 #endif
 }
 

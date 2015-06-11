@@ -115,24 +115,32 @@ int main(void)
 #ifndef _162C_H_
 #define _162C_H_
 
-#if !defined(LCD_DATA_PORT) || !defined(LCD_DATA_DDR)
-#error Le PORT sur lequel est branché les broches data du LCD ne sont pas définies
+#if !defined(LCD_DATA_PORT)
+#  error "162c.h requied que LCD_DATA_PORT soit définie"
 #endif
 
-#if !defined(LCD_CONTROL_PORT) || !defined(LCD_CONTROL_DDR)
-#error Le PORT sur lequel est branché les broches data du LCD ne sont pas définies
+#if !defined(LCD_DATA_DDR)
+#  error "162c.h requied que LCD_DATA_DDR soit définie"
+#endif
+
+#if !defined(LCD_CONTROL_PORT)
+#  error "162c.h requied que LCD_CONTROL_PORT soit définie"
+#endif
+
+#if !defined(LCD_CONTROL_DDR)
+#  error "162c.h requied que LCD_CONTROL_DDR soit définie"
 #endif
 
 #if !defined(LCD_CONTROL_EN_PIN)
-#error La broche Enable du LCD n''est pas définie
+#  error "162c.h requied que LCD_CONTROL_EN_PIN soit définie"
 #endif
 
 #if !defined(LCD_CONTROL_RW_PIN)
-#error La broche R/W du LCD n''est pas définie
+#  error "162c.h requied que LCD_CONTROL_RW_PIN soit définie"
 #endif
 
 #if !defined(LCD_CONTROL_RS_PIN)
-#error La broche RS du LCD n''est pas définie
+#  error "162c.h requied que LCD_CONTROL_RS_PIN soit définie"
 #endif
 
 #include <stdint.h>

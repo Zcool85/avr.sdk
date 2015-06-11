@@ -99,32 +99,32 @@
 #define _SPI_MASTER_H_
 
 #if !defined(SPI_DDR)
-#  error SPI_DDR non définie
+#  error "SPI_master.h requires SPI_DDR to be defined"
 #endif
 
 #if !defined(SPI_PORT)
-#  error SPI_DDR non définie
+#  error "SPI_master.h requires SPI_PORT to be defined"
 #endif
 
 #if !defined(SPI_MOSI_PIN)
-#  error SPI_DDR non définie
+#  error "SPI_master.h requires SPI_MOSI_PIN to be defined"
 #endif
 
 #if !defined(SPI_MISO_PIN)
-#  error SPI_DDR non définie
+#  error "SPI_master.h requires SPI_MISO_PIN to be defined"
 #endif
 
 #if !defined(SPI_SCK_PIN)
-#  error SPI_DDR non définie
+#  error "SPI_master.h requires SPI_SCK_PIN to be defined"
 #endif
 
 #if !defined(SPI_SS_PIN)
-#  error SPI_DDR non définie
+#  error "SPI_master.h requires SPI_SS_PIN to be defined"
 #endif
 
 #if defined(SPI_SOFTWARE)
 #  if !defined(SPI_PIN)
-#    error SPI_PIN doit être déclaré lorsque le mode software est activé
+#    error "SPI_master.h requires SPI_PIN to be defined in software mode"
 #  endif
 #endif
 
