@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
       <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -148,6 +149,8 @@ Fonctions</h2></td></tr>
 Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspondre aux broches physiques utilisées par le hardware du microcontrolleur.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>La définition de SPI_PIN n'est à faire qu'en mode software.</dd></dl>
 <p>Exemple de code en mode hardware : </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;avr/io.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"></div>
 <div class="line"><span class="preprocessor">#define SPI_DDR                 DDRB</span></div>
 <div class="line"><span class="preprocessor">#define SPI_PORT                PORTB</span></div>
 <div class="line"><span class="preprocessor">#define SPI_MOSI_PIN            PINB1</span></div>
@@ -178,6 +181,8 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 <div class="line">   }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Exemple de code en mode software : </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;avr/io.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"></div>
 <div class="line"><span class="preprocessor">#define SPI_DDR                 DDRB</span></div>
 <div class="line"><span class="preprocessor">#define SPI_PORT                PORTB</span></div>
 <div class="line"><span class="preprocessor">#define SPI_PIN                 PINB</span></div>
@@ -225,7 +230,8 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 </div><div class="memdoc">
 
 <p>Désactive l'esclave SPI. </p>
-<dl class="section note"><dt>Note</dt><dd>Cette macro doit être utilisée une fois toutes les données transmise à l'esclave </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Cette macro doit être utilisée une fois toutes les données transmise à l'esclave</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">A faire:</a></b></dt><dd>Améliorer pour pouvoir disposer de plusieurs esclaves </dd></dl>
 
 </div>
 </div>
@@ -243,7 +249,8 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 </div><div class="memdoc">
 
 <p>Active l'esclave SPI. </p>
-<dl class="section note"><dt>Note</dt><dd>Cette macro doit être utilisée avant l'envoie des données à l'esclave </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Cette macro doit être utilisée avant l'envoie des données à l'esclave</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">A faire:</a></b></dt><dd>Améliorer pour pouvoir disposer de plusieurs esclaves </dd></dl>
 
 </div>
 </div>
@@ -264,7 +271,7 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 
 <p>Initialise l'interface SPI. </p>
 <dl class="section note"><dt>Note</dt><dd>Cette méthode n'est à appeler qu'une seule fois </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">A faire:</a></b></dt><dd>revoir le paramétrage pour les options du mode hardware </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">A faire:</a></b></dt><dd>revoir le paramétrage pour les options du mode hardware </dd></dl>
 
 </div>
 </div>
@@ -299,7 +306,7 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8a1472a16bc50042bedc625d34a1b978.html">include</a></li><li class="navelem"><a class="el" href="_s_p_i__master_8h.html">SPI_master.h</a></li>
-    <li class="footer">Généré le Mercredi 10 Juin 2015 22:33:26 pour avr.sdk par
+    <li class="footer">Généré le Dimanche 21 Juin 2015 16:01:55 pour avr.sdk par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

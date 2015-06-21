@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
       <li><a href="index.html"><span>Page&#160;principale</span></a></li>
       <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
       <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -128,66 +129,81 @@ $(document).ready(function(){initNavTree('_s_p_i__master__core_8h_source.html','
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="_s_p_i__master__core_8h.html#afe52fd1b883a29133b7a8974837e0c4b">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="_s_p_i__master__core_8h.html#afe52fd1b883a29133b7a8974837e0c4b">SPI_Initialize</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  SPI_DDR |=  _BV(SPI_MOSI_PIN);  <span class="comment">// SDI output (MOSI)</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  SPI_DDR |=  _BV(SPI_SCK_PIN);   <span class="comment">// SCK output (Clock)</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  SPI_DDR |=  _BV(SPI_SS_PIN);    <span class="comment">// Slave Select Output</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  SPI_DDR &amp;= ~_BV(SPI_MISO_PIN);    <span class="comment">// SDO input (MISO)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  SPI_PORT |=  _BV(SPI_MISO_PIN);   <span class="comment">// Pull-up MISO</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef SPI_SOFTWARE</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  SPI_PORT |=  _BV(SPI_SS_PIN);   <span class="comment">// SS to high</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  SPI_PORT |=  _BV(SPI_MOSI_PIN); <span class="comment">// SDI to high</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  SPI_PORT &amp;= ~_BV(SPI_SCK_PIN);  <span class="comment">// SCK to low</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="comment">// Default mode for software ISP :</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="comment">// - MSB first</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="comment">// - Polarity : Leading edge Raising + Railling Edge Falling</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">// - Phase : Leading edge Sample + Trailing Edge Setup</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">// - Clock : equal to F_CPU</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  SPI_DDR |=  _BV(SPI_MOSI_PIN);  <span class="comment">// SDI output (MOSI)</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  SPI_DDR |=  _BV(SPI_SCK_PIN);   <span class="comment">// SCK output (Clock)</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  SPI_DDR |=  _BV(SPI_SS_PIN);    <span class="comment">// Slave Select Output</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  SPI_DDR &amp;= ~_BV(SPI_MISO_PIN);    <span class="comment">// SDO input (MISO)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  SPI_PORT |=  _BV(SPI_MISO_PIN);   <span class="comment">// Pull-up MISO</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  SPCR = _BV(SPE)|_BV(MSTR);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#ifdef SPI_SOFTWARE</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  SPI_PORT |=  _BV(SPI_SS_PIN);   <span class="comment">// SS to high</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  SPI_PORT |=  _BV(SPI_MOSI_PIN); <span class="comment">// SDI to high</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  SPI_PORT &amp;= ~_BV(SPI_SCK_PIN);  <span class="comment">// SCK to low</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="_s_p_i__master__core_8h.html#a020bddc974dea151bf30ab0d6a478301">   39</a></span>&#160;uint8_t <a class="code" href="_s_p_i__master__core_8h.html#a020bddc974dea151bf30ab0d6a478301">SPI_SendByte</a>(uint8_t byte)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#ifdef SPI_SOFTWARE</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  uint8_t recv = 0x00;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordflow">for</span>(uint8_t i = 0; i &lt; 8; ++i)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span> (byte &amp; 0x80)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      SPI_PORT |=  _BV(SPI_MOSI_PIN); <span class="comment">// SDI to high</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      SPI_PORT &amp;= ~_BV(SPI_MOSI_PIN); <span class="comment">// SDI to low</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    SPI_PORT |=  _BV(SPI_SCK_PIN); <span class="comment">// SCK to hi</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    recv &lt;&lt;= 1;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> ( SPI_PIN &amp; _BV(SPI_MISO_PIN) )</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      recv |= 0x01;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    SPI_PORT &amp;= ~_BV(SPI_SCK_PIN); <span class="comment">// SCK to low</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    byte &lt;&lt;= 1;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordflow">return</span> recv;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  SPDR = byte;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">while</span>(!(SPSR &amp; _BV(SPIF)));</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordflow">return</span> SPDR;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _SPI_MASTER_CORE_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  SPCR = <span class="comment">//_BV(SPIE)  |   // Interupt Enable</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;         _BV(SPE)   |   <span class="comment">// Enable SPI</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;         <span class="comment">//_BV(DORD)  |   // LSB first</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;         _BV(MSTR)  |   <span class="comment">// Master</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;         <span class="comment">//_BV(CPOL)  |   // Clock Polarity (0 =&gt; Leading edge Raising + Railling Edge Falling)</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;         <span class="comment">//               //                (1 =&gt; Leading edge Falling + Railling Edge Raising)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;         <span class="comment">//_BV(CPHA)  |   // Clock phase (0 =&gt; Leading edge Sample + Trailing Edge Setup)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;         <span class="comment">//               //             (1 =&gt; Leading edge Setup + Trailing Edge Sample)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;         _BV(SPR0);     <span class="comment">// fck/16</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  SPSR &amp;= ~_BV(SPI2X);  <span class="comment">// Pas de double vitesse</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="_s_p_i__master__core_8h.html#a020bddc974dea151bf30ab0d6a478301">   54</a></span>&#160;uint8_t <a class="code" href="_s_p_i__master__core_8h.html#a020bddc974dea151bf30ab0d6a478301">SPI_SendByte</a>(uint8_t byte)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#ifdef SPI_SOFTWARE</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  uint8_t recv = 0x00;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">for</span>(uint8_t i = 0; i &lt; 8; ++i)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span> (byte &amp; 0x80)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      SPI_PORT |=  _BV(SPI_MOSI_PIN); <span class="comment">// SDI to high</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      SPI_PORT &amp;= ~_BV(SPI_MOSI_PIN); <span class="comment">// SDI to low</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    SPI_PORT |=  _BV(SPI_SCK_PIN); <span class="comment">// SCK to hi</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    recv &lt;&lt;= 1;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> ( SPI_PIN &amp; _BV(SPI_MISO_PIN) )</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      recv |= 0x01;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    SPI_PORT &amp;= ~_BV(SPI_SCK_PIN); <span class="comment">// SCK to low</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    byte &lt;&lt;= 1;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordflow">return</span> recv;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  SPDR = byte;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordflow">while</span>(!(SPSR &amp; _BV(SPIF)));</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordflow">return</span> SPDR;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* _SPI_MASTER_CORE_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="_s_p_i__master__core_8h_html_afe52fd1b883a29133b7a8974837e0c4b"><div class="ttname"><a href="_s_p_i__master__core_8h.html#afe52fd1b883a29133b7a8974837e0c4b">SPI_Initialize</a></div><div class="ttdeci">void SPI_Initialize(void)</div><div class="ttdoc">Initialise l&#39;interface SPI. </div><div class="ttdef"><b>Definition:</b> SPI_master_core.h:18</div></div>
-<div class="ttc" id="_s_p_i__master__core_8h_html_a020bddc974dea151bf30ab0d6a478301"><div class="ttname"><a href="_s_p_i__master__core_8h.html#a020bddc974dea151bf30ab0d6a478301">SPI_SendByte</a></div><div class="ttdeci">uint8_t SPI_SendByte(uint8_t byte)</div><div class="ttdoc">Transmet un byte sur la liaison SPI. </div><div class="ttdef"><b>Definition:</b> SPI_master_core.h:39</div></div>
+<div class="ttc" id="_s_p_i__master__core_8h_html_a020bddc974dea151bf30ab0d6a478301"><div class="ttname"><a href="_s_p_i__master__core_8h.html#a020bddc974dea151bf30ab0d6a478301">SPI_SendByte</a></div><div class="ttdeci">uint8_t SPI_SendByte(uint8_t byte)</div><div class="ttdoc">Transmet un byte sur la liaison SPI. </div><div class="ttdef"><b>Definition:</b> SPI_master_core.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_8a1472a16bc50042bedc625d34a1b978.html">include</a></li><li class="navelem"><a class="el" href="_s_p_i__master__core_8h.html">SPI_master_core.h</a></li>
-    <li class="footer">Généré le Mercredi 10 Juin 2015 22:33:26 pour avr.sdk par
+    <li class="footer">Généré le Dimanche 21 Juin 2015 16:01:55 pour avr.sdk par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
