@@ -17,6 +17,12 @@
 
 void SPI_Initialize(void)
 {
+  // Default mode for software ISP :
+  // - MSB first
+  // - Polarity : Leading edge Raising + Railling Edge Falling
+  // - Phase : Leading edge Sample + Trailing Edge Setup
+  // - Clock : equal to F_CPU
+
   SPI_DDR |=  _BV(SPI_MOSI_PIN);  // SDI output (MOSI)
   SPI_DDR |=  _BV(SPI_SCK_PIN);   // SCK output (Clock)
   SPI_DDR |=  _BV(SPI_SS_PIN);	  // Slave Select Output
@@ -32,8 +38,16 @@ void SPI_Initialize(void)
   /**
    * @todo revoir le paramétrage pour les options du mode hardware
    */
-  SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR0);    // Enable SPI + Master + fck/16
-  SPSR &= ~_BV(SPI2X);                        // Pas de double vitesse
+  SPCR = //_BV(SPIE)  |   // Interupt Enable
+         _BV(SPE)   |   // Enable SPI
+         //_BV(DORD)  |   // LSB first
+         _BV(MSTR)  |   // Master
+         //_BV(CPOL)  |   // Clock Polarity (0 => Leading edge Raising + Railling Edge Falling)
+         //               //                (1 => Leading edge Falling + Railling Edge Raising)
+         //_BV(CPHA)  |   // Clock phase (0 => Leading edge Sample + Trailing Edge Setup)
+         //               //             (1 => Leading edge Setup + Trailing Edge Sample)
+         _BV(SPR0);     // fck/16
+  SPSR &= ~_BV(SPI2X);  // Pas de double vitesse
 #endif
 }
 

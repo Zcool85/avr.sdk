@@ -27,3 +27,5 @@ Un template de fichier Makefile ([Makefile.template](templates/Makefile.template
 - [ ] Compléter l'API I2C avec un mode de fonctionnement par interruptions
 - [ ] Faire une API correcte pour le module FM RFM12B
 - [ ] Faire une API correcte pour le module RFID MFRC522
+- [ ] Ajouter une API pour gérer le mode SPI en esclave
+- [ ] Ajouter une API UART

@@ -150,6 +150,8 @@ uint8_t SPI_SendByte(uint8_t byte);
  * @brief       Active l'esclave SPI
  *
  * @note        Cette macro doit être utilisée avant l'envoie des données à l'esclave
+ *
+ * @todo        Améliorer pour pouvoir disposer de plusieurs esclaves
  */
 #define SPI_EnableSlave()       (SPI_PORT &= ~_BV(SPI_SS_PIN))  // SS to low
 
@@ -157,6 +159,8 @@ uint8_t SPI_SendByte(uint8_t byte);
  * @brief       Désactive l'esclave SPI
  *
  * @note        Cette macro doit être utilisée une fois toutes les données transmise à l'esclave
+ *
+ * @todo        Améliorer pour pouvoir disposer de plusieurs esclaves
  */
 #define SPI_DisableSlave()      (SPI_PORT |=  _BV(SPI_SS_PIN))  // SS to high
 
