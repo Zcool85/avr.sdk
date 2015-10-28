@@ -5,15 +5,20 @@ HTMLDIR           := html
 # outils
 RM                := rm
 DOXYGEN           := doxygen
+GIT               := git
 
 all: doc
 
 .PHONY: doc
 doc:
-	-$(DOXYGEN) docs/doxygen.config
+	@$(DOXYGEN) $(DOCSDIR)/doxygen.config
+
+.PHONY: clean
+clean:
+	rm -Rf $(HTMLDIR)
 
 .PHONY: push
 push:
-	-cd html && git add .
-	-cd html && git commit -m "Update doc"
-	-cd html && git push origin gh-pages
+	@cd $(HTMLDIR) && $(GIT) add .
+	@cd $(HTMLDIR) && $(GIT) commit -m "Update doc"
+	@cd $(HTMLDIR) && $(GIT) push origin gh-pages
