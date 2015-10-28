@@ -3,8 +3,8 @@ var NAVTREE =
   [ "avr.sdk", "index.html", [
     [ "Liste des choses à faire", "todo.html", null ],
     [ "Modules", "modules.html", "modules" ],
-    [ "Structures de données", null, [
-      [ "Structures de données", "annotated.html", "annotated" ],
+    [ "Structures de données", "annotated.html", [
+      [ "Structures de données", "annotated.html", "annotated_dup" ],
       [ "Index des structures de données", "classes.html", null ],
       [ "Champs de donnée", "functions.html", [
         [ "Tout", "functions.html", null ],

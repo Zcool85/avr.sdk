@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.9.1"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
 <title>avr.sdk: Référence du fichier include/SPI_master.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -31,7 +31,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
-  <td style="padding-left: 0.5em;">
+  <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">avr.sdk
    </div>
    <div id="projectbrief">SDK pour les projets AVR</div>
@@ -41,7 +41,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.9.1 -->
+<!-- Généré par Doxygen 1.8.10 -->
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </script>
@@ -123,12 +123,12 @@ $(document).ready(function(){initNavTree('_s_p_i__master_8h.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a2eb086fbbace1373fea415c9cc9953d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__master_8h.html#a2eb086fbbace1373fea415c9cc9953d3">SPI_EnableSlave</a>()&#160;&#160;&#160;(SPI_PORT &amp;= ~_BV(SPI_SS_PIN))</td></tr>
-<tr class="memdesc:a2eb086fbbace1373fea415c9cc9953d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active l'esclave SPI.  <a href="#a2eb086fbbace1373fea415c9cc9953d3">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a2eb086fbbace1373fea415c9cc9953d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a7159977e7a69ed49beed0a2019af9b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__master_8h.html#a1a7159977e7a69ed49beed0a2019af9b">SPI_DisableSlave</a>()&#160;&#160;&#160;(SPI_PORT |=  _BV(SPI_SS_PIN))</td></tr>
-<tr class="memdesc:a1a7159977e7a69ed49beed0a2019af9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Désactive l'esclave SPI.  <a href="#a1a7159977e7a69ed49beed0a2019af9b">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a1a7159977e7a69ed49beed0a2019af9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9eb454333886d93ce45e3a826d49923"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__master_8h.html#aa9eb454333886d93ce45e3a826d49923">SPI_EnableSlave</a>()          &#160;&#160;&#160;(SPI_PORT &amp;= ~_BV(SPI_SS_PIN))</td></tr>
+<tr class="memdesc:aa9eb454333886d93ce45e3a826d49923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active l'esclave SPI.  <a href="#aa9eb454333886d93ce45e3a826d49923">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa9eb454333886d93ce45e3a826d49923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeac69a762b6c7586813a54b04d907c87"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i__master_8h.html#aeac69a762b6c7586813a54b04d907c87">SPI_DisableSlave</a>()        &#160;&#160;&#160;(SPI_PORT |=  _BV(SPI_SS_PIN))</td></tr>
+<tr class="memdesc:aeac69a762b6c7586813a54b04d907c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Désactive l'esclave SPI.  <a href="#aeac69a762b6c7586813a54b04d907c87">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aeac69a762b6c7586813a54b04d907c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
@@ -168,13 +168,13 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 <div class="line">   uint8_t receved = 0x00;</div>
 <div class="line"></div>
 <div class="line">   <span class="comment">// Activation de l&#39;esclave</span></div>
-<div class="line">   <a class="code" href="_s_p_i__master_8h.html#a2eb086fbbace1373fea415c9cc9953d3">SPI_EnableSlave</a>();</div>
+<div class="line">   <a class="code" href="_s_p_i__master_8h.html#aa9eb454333886d93ce45e3a826d49923">SPI_EnableSlave</a>();</div>
 <div class="line"></div>
 <div class="line">   <span class="comment">// Transmission des données (ici 2 octets)</span></div>
 <div class="line">   uint8_t receved1 = <a class="code" href="alpha__core_8h.html#a2b57cb76dacf237936bbc252282e34d2">SPI_SendByte</a>(0x12);</div>
 <div class="line">   uint8_t receved2 = <a class="code" href="alpha__core_8h.html#a2b57cb76dacf237936bbc252282e34d2">SPI_SendByte</a>(0x34);</div>
 <div class="line"></div>
-<div class="line">   <a class="code" href="_s_p_i__master_8h.html#a1a7159977e7a69ed49beed0a2019af9b">SPI_DisableSlave</a>();</div>
+<div class="line">   <a class="code" href="_s_p_i__master_8h.html#aeac69a762b6c7586813a54b04d907c87">SPI_DisableSlave</a>();</div>
 <div class="line"></div>
 <div class="line">   <span class="keywordflow">while</span> (1)</div>
 <div class="line">   {</div>
@@ -203,20 +203,20 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 <div class="line">   uint8_t receved = 0x00;</div>
 <div class="line"></div>
 <div class="line">   <span class="comment">// Activation de l&#39;esclave</span></div>
-<div class="line">   <a class="code" href="_s_p_i__master_8h.html#a2eb086fbbace1373fea415c9cc9953d3">SPI_EnableSlave</a>();</div>
+<div class="line">   <a class="code" href="_s_p_i__master_8h.html#aa9eb454333886d93ce45e3a826d49923">SPI_EnableSlave</a>();</div>
 <div class="line"></div>
 <div class="line">   <span class="comment">// Transmission des données (ici 2 octets)</span></div>
 <div class="line">   uint8_t receved1 = <a class="code" href="alpha__core_8h.html#a2b57cb76dacf237936bbc252282e34d2">SPI_SendByte</a>(0x12);</div>
 <div class="line">   uint8_t receved2 = <a class="code" href="alpha__core_8h.html#a2b57cb76dacf237936bbc252282e34d2">SPI_SendByte</a>(0x34);</div>
 <div class="line"></div>
-<div class="line">   <a class="code" href="_s_p_i__master_8h.html#a1a7159977e7a69ed49beed0a2019af9b">SPI_DisableSlave</a>();</div>
+<div class="line">   <a class="code" href="_s_p_i__master_8h.html#aeac69a762b6c7586813a54b04d907c87">SPI_DisableSlave</a>();</div>
 <div class="line"></div>
 <div class="line">   <span class="keywordflow">while</span> (1)</div>
 <div class="line">   {</div>
 <div class="line">   }</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Documentation des macros</h2>
-<a class="anchor" id="a1a7159977e7a69ed49beed0a2019af9b"></a>
+<a class="anchor" id="aeac69a762b6c7586813a54b04d907c87"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -235,7 +235,7 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 
 </div>
 </div>
-<a class="anchor" id="a2eb086fbbace1373fea415c9cc9953d3"></a>
+<a class="anchor" id="aa9eb454333886d93ce45e3a826d49923"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -305,10 +305,10 @@ Lors de l'utilisation du mode hardware, la configuration des SPI_* doit correspo
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8a1472a16bc50042bedc625d34a1b978.html">include</a></li><li class="navelem"><a class="el" href="_s_p_i__master_8h.html">SPI_master.h</a></li>
-    <li class="footer">Généré le Dimanche 21 Juin 2015 16:01:55 pour avr.sdk par
+    <li class="navelem"><a class="el" href="dir_05b7b4f536b9e3a4aecd1837151d279c.html">include</a></li><li class="navelem"><a class="el" href="_s_p_i__master_8h.html">SPI_master.h</a></li>
+    <li class="footer">Généré le Mercredi 28 Octobre 2015 22:30:10 pour avr.sdk par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>
 </div>
 </body>
