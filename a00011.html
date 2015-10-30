@@ -1,0 +1,2100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>avr.sdk: Référence du fichier include/RFID/MFRC522_core.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">avr.sdk
+   </div>
+   <div id="projectbrief">SDK pour les projets AVR</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('a00011.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Énumérations</a> &#124;
+<a href="#func-members">Fonctions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier MFRC522_core.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;avr/pgmspace.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00012_source.html">SPI_master.h</a>&gt;</code><br />
+</div>
+<p><a href="a00011_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a39edefa4be0db73b639644f19aa79bbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a39edefa4be0db73b639644f19aa79bbc">MFRC522_MIFARE_ACK</a>&#160;&#160;&#160;0xA</td></tr>
+<tr class="memdesc:a39edefa4be0db73b639644f19aa79bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Les cartes MIFARE Classic utilisent un ACK/NAK de 4 bits. Tout autres valeur que 0xA est un NAK.  <a href="#a39edefa4be0db73b639644f19aa79bbc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a39edefa4be0db73b639644f19aa79bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:aae4e5280594d2e5f826bd6bca0539a33"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a> { <br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a07a75330085096bd5fdddf91b7b823c2">PCD_REG_CommandReg</a> = 0x01, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a93a13da90845d8c9c3fa78c158854195">PCD_REG_ComIEnReg</a> = 0x02, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a856c2fbda471317477c4d9c6f6f51cf5">PCD_REG_DivIEnReg</a> = 0x03, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33adaea6b5804a6d640dbff5105949f5404">PCD_REG_ComIrqReg</a> = 0x04, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33aed86368899a03917651fb6171d3100b4">PCD_REG_DivIrqReg</a> = 0x05, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a616cf0f1c0e035e8336b0f20617e7804">PCD_REG_ErrorReg</a> = 0x06, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33aaaaf507911a757965d739733b9ae6535">PCD_REG_Status1Reg</a> = 0x07, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a8d6496f8cf42e6dcb95019637816fec4">PCD_REG_Status2Reg</a> = 0x08, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33aeb8e5c2ef4ba8719d7ebef85760edbec">PCD_REG_FIFODataReg</a> = 0x09, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a212296f8a300a8d955bf23e59b676853">PCD_REG_FIFOLevelReg</a> = 0x0A, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33ad79b77a72609cf7e4b631057980c480e">PCD_REG_WaterLevelReg</a> = 0x0B, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a0f45f3bb94d961288e224e6262f36ee0">PCD_REG_ControlReg</a> = 0x0C, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33accd00177ef7a31226e85829a313cfaf2">PCD_REG_BitFramingReg</a> = 0x0D, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a9400548ad6bc1533ae1759ab5633f31e">PCD_REG_CollReg</a> = 0x0E, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a6f0c083085742b3390c0251ebaa1734d">PCD_REG_ModeReg</a> = 0x11, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a74cf62f3f9d28ce418914030cc75aecc">PCD_REG_TxModeReg</a> = 0x12, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a3bea9206a0e75952543dc4947f08ba68">PCD_REG_RxModeReg</a> = 0x13, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a0e2f2cc1d1d0d86af82cc289607d498e">PCD_REG_TxControlReg</a> = 0x14, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a4e859fdaca136ea69b6d1a15d8ce42bb">PCD_REG_TxASKReg</a> = 0x15, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33aa643aee0562bf611da3d63b699cc1d9d">PCD_REG_TxSelReg</a> = 0x16, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33af6af9e44f1c02fcd57f431ff969b5361">PCD_REG_RxSelReg</a> = 0x17, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33ab1dbe3f2cc2589509b9d77e34ee757b5">PCD_REG_RxThresholdReg</a> = 0x18, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a19dad8f8313437c0428a8e885aa78042">PCD_REG_DemodReg</a> = 0x19, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a47e79ac1154ef547083e9b62ac4560b5">PCD_REG_MfTxReg</a> = 0x1C, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33aa5ca6010d626de6318c497b2e030a772">PCD_REG_MfRxReg</a> = 0x1D, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33af1a20c58c7ab38f5ad570897536a13b8">PCD_REG_SerialSpeedReg</a> = 0x1F, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a62df1eebf0e1a19452da8ba6d05fea5e">PCD_REG_CRCResultRegH</a> = 0x21, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a134cfc31312e5d90455e362f4ba2b3a9">PCD_REG_CRCResultRegL</a> = 0x22, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a580beecddfd163115ca42f7e42d860f7">PCD_REG_ModWidthReg</a> = 0x24, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a75eefa4a167beec953bf2d34443c9935">PCD_REG_RFCfgReg</a> = 0x26, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33aff575332e484bda25f49d6fcaf9a0d65">PCD_REG_GsNReg</a> = 0x27, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33afb39e1757ce1146f7919c3ede2e66898">PCD_REG_CWGsPReg</a> = 0x28, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a358eb8a41e72d3378f64f8028f600cae">PCD_REG_ModGsPReg</a> = 0x29, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a6a4b20418e3ddc86f980380cb902d448">PCD_REG_TModeReg</a> = 0x2A, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a2dc37d32070c817377788f04bcf65e1a">PCD_REG_TPrescalerReg</a> = 0x2B, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a3547fc0462c7e2b611d68166b1a762c7">PCD_REG_TReloadRegH</a> = 0x2C, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a1878873f3f0b1e4fe42901727fb1d048">PCD_REG_TReloadRegL</a> = 0x2D, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33aa678740b68bf4ea2037a14599ebd0057">PCD_REG_TCounterValueRegH</a> = 0x2E, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33ac745e1397e9a60e76b19248531491ba9">PCD_REG_TCounterValueRegL</a> = 0x2F, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a241b6b48319cb0bcd71dfb7c71550873">PCD_REG_TestSel1Reg</a> = 0x31, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33ac0d6b81c1c0d8673b2419576a5a413ae">PCD_REG_TestSel2Reg</a> = 0x32, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a7a43eff2d34ea3415e08e1d7e5f0bdd5">PCD_REG_TestPinEnReg</a> = 0x33, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a7cfb5852dc3490759c7c6e464a6bd3a9">PCD_REG_TestPinValueReg</a> = 0x34, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33afd742d6b7e591346eb016c6d6905e15f">PCD_REG_TestBusReg</a> = 0x35, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33ac871c1931c8c16ead48a0b25fec172c2">PCD_REG_AutoTestReg</a> = 0x36, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33aa112c84e0638974eecc772d6e16c7433">PCD_REG_VersionReg</a> = 0x37, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a1becdd93cb0549cd762640c1931c3ed9">PCD_REG_AnalogTestReg</a> = 0x38, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33ae3a1ca472ee1a44cedb6278b002ce71b">PCD_REG_TestDAC1Reg</a> = 0x39, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a5fc5700e251a02d8b88403905fda17da">PCD_REG_TestDAC2Reg</a> = 0x3A, 
+<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33a87bce03f7e7673fe3e14b301173ad443">PCD_REG_TestADCReg</a> = 0x3B
+<br />
+ }<tr class="memdesc:aae4e5280594d2e5f826bd6bca0539a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registres sur MFRC522.  <a href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aae4e5280594d2e5f826bd6bca0539a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</td></tr>
+<tr class="memitem:a116f7cb59d581b6d5f215865aa7d6129"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129">PCD_CMD</a> { <br />
+&#160;&#160;<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129a6d169d8a5ccbca55a4eaa56910620e1b">PCD_CMD_Idle</a> = 0x00, 
+<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129a21cfbed66ddd5ea30f1e18718f38822b">PCD_CMD_Mem</a> = 0x01, 
+<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129a84cc983cf30be66f1a9c77e9434dab06">PCD_CMD_GenerateRandomID</a> = 0x02, 
+<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129a8f646ea639231f41c7adef64ef256792">PCD_CMD_CalcCRC</a> = 0x03, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129ac4e63bc2d9f070830d7381c1b469108d">PCD_CMD_Transmit</a> = 0x04, 
+<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129afe10d8d4db13ee062d6c8420932ad0ef">PCD_CMD_NoCmdChange</a> = 0x07, 
+<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129acbfb109197e667e9a10428e26f554eec">PCD_CMD_Receive</a> = 0x08, 
+<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129a726602bea63c4885fc4b14c16a2bec17">PCD_CMD_Transceive</a> = 0x0C, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129a9f1455eb011b595fce71f1c334c3452b">PCD_CMD_MFAuthent</a> = 0x0E, 
+<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129a5db5c6c4a64c5846a677753cf75ad187">PCD_CMD_SoftReset</a> = 0x0F
+<br />
+ }<tr class="memdesc:a116f7cb59d581b6d5f215865aa7d6129"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commandes du MFRC522.  <a href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a116f7cb59d581b6d5f215865aa7d6129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</td></tr>
+<tr class="memitem:a3134ed1e3da141b3f1c85a98b9a500ac"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500ac">PICC_CMD</a> { <br />
+&#160;&#160;<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500acad213da8df255bc6ff7cca5b7a28da7b4">PICC_CMD_REQA</a> = 0x26, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca95cc086aa9fc83fe999b43f6c508ff19">PICC_CMD_WUPA</a> = 0x52, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500acae53647ddb4c2765fff8814805310113c">PICC_CMD_CT</a> = 0x88, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca6cd44287b13b4ac175b38bde5ef61f5b">PICC_CMD_SEL_CL1</a> = 0x93, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500acab072baf2abb9cadd0205b8809bf0de95">PICC_CMD_SEL_CL2</a> = 0x95, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca2fc1e0ba00730e380391575d5660309a">PICC_CMD_SEL_CL3</a> = 0x97, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca881588d3cca42490c71666c97b55a6c8">PICC_CMD_HLTA</a> = 0x50, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500acaed599c1a5ba157455ed438315406c305">PICC_CMD_MF_AUTH_KEY_A</a> = 0x60, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca95ad7ce4f4272886b6756b49f3aeaf9a">PICC_CMD_MF_AUTH_KEY_B</a> = 0x61, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500acad2cedf2b5b620a6d874f0b8360e7e36c">PICC_CMD_MF_READ</a> = 0x30, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500acab328a35286d092e483fa370d1868e44e">PICC_CMD_MF_WRITE</a> = 0xA0, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca0329cc76c269606689b6c3b35683136c">PICC_CMD_MF_DECREMENT</a> = 0xC0, 
+<br />
+&#160;&#160;<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca0a14c55a640535db5c46ce0110df7a44">PICC_CMD_MF_INCREMENT</a> = 0xC1, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500acaebf925b876166923f98130644349e6ec">PICC_CMD_MF_RESTORE</a> = 0xC2, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca8985fa08e3634abc0229923901e5bd97">PICC_CMD_MF_TRANSFER</a> = 0xB0, 
+<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500aca09929cac708d474115bdcb25f3d61f81">PICC_CMD_UL_WRITE</a> = 0xA2
+<br />
+ }<tr class="memdesc:a3134ed1e3da141b3f1c85a98b9a500ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commandes envoyé à un PICC.  <a href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500ac">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3134ed1e3da141b3f1c85a98b9a500ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a62f5e4394175e120dec5b47042b80375"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a62f5e4394175e120dec5b47042b80375">MFRC522_PCD_WriteRegister</a> (<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a> reg, uint8_t value)</td></tr>
+<tr class="memdesc:a62f5e4394175e120dec5b47042b80375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit une valeur dans un registre du MFRC522.  <a href="#a62f5e4394175e120dec5b47042b80375">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a62f5e4394175e120dec5b47042b80375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a1008b2ed0db7a80ab790224d5c6101"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a3a1008b2ed0db7a80ab790224d5c6101">MFRC522_PCD_WriteRegisterArray</a> (<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a> reg, uint8_t count, uint8_t *values)</td></tr>
+<tr class="memdesc:a3a1008b2ed0db7a80ab790224d5c6101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit un ensemble de valeurs dans un registre du MFRC522.  <a href="#a3a1008b2ed0db7a80ab790224d5c6101">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3a1008b2ed0db7a80ab790224d5c6101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac98baa28a6ff47681af94d1fc0c2b7c9"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#ac98baa28a6ff47681af94d1fc0c2b7c9">MFRC522_PCD_ReadRegister</a> (<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a> reg)</td></tr>
+<tr class="memdesc:ac98baa28a6ff47681af94d1fc0c2b7c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit la valeur d'un registre du MFRC522.  <a href="#ac98baa28a6ff47681af94d1fc0c2b7c9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac98baa28a6ff47681af94d1fc0c2b7c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42cba06e7ef4cfa9afba588d7273e674"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a42cba06e7ef4cfa9afba588d7273e674">MFRC522_PCD_ReadRegisterArray</a> (<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a> reg, uint8_t count, uint8_t *values, uint8_t rxAlign)</td></tr>
+<tr class="memdesc:a42cba06e7ef4cfa9afba588d7273e674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit les valeurs d'un registre du MFRC522.  <a href="#a42cba06e7ef4cfa9afba588d7273e674">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a42cba06e7ef4cfa9afba588d7273e674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cfd56bdca38c4ccefebd21c375d5138"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a9cfd56bdca38c4ccefebd21c375d5138">MFRC522_PCD_SetRegisterBitMask</a> (<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a> reg, uint8_t mask)</td></tr>
+<tr class="memdesc:a9cfd56bdca38c4ccefebd21c375d5138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Postionne un mask sur un regitre donné  <a href="#a9cfd56bdca38c4ccefebd21c375d5138">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9cfd56bdca38c4ccefebd21c375d5138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a537765d799974e532ede36b90d7c2409"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a537765d799974e532ede36b90d7c2409">MFRC522_PCD_ClearRegisterBitMask</a> (<a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a> reg, uint8_t mask)</td></tr>
+<tr class="memdesc:a537765d799974e532ede36b90d7c2409"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverse le mask sur un regitre donné  <a href="#a537765d799974e532ede36b90d7c2409">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a537765d799974e532ede36b90d7c2409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22e3494c692b83c6ce6918cfdec9de5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#ae22e3494c692b83c6ce6918cfdec9de5">MFRC522_PCD_CalculateCRC</a> (uint8_t *data, uint8_t length, uint16_t *result)</td></tr>
+<tr class="memdesc:ae22e3494c692b83c6ce6918cfdec9de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul le CRC d'un tableau.  <a href="#ae22e3494c692b83c6ce6918cfdec9de5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae22e3494c692b83c6ce6918cfdec9de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c1a46eaee837f136ab9ad8caa01b95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a88c1a46eaee837f136ab9ad8caa01b95">MFRC522_PCD_Reset</a> ()</td></tr>
+<tr class="memdesc:a88c1a46eaee837f136ab9ad8caa01b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Réinitialise le composant MFRC522.  <a href="#a88c1a46eaee837f136ab9ad8caa01b95">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a88c1a46eaee837f136ab9ad8caa01b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdbe3a27cd1e8f170a87b42b9fc1a43e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#acdbe3a27cd1e8f170a87b42b9fc1a43e">MFRC522_PCD_AntennaOn</a> ()</td></tr>
+<tr class="memdesc:acdbe3a27cd1e8f170a87b42b9fc1a43e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allume l'antenne.  <a href="#acdbe3a27cd1e8f170a87b42b9fc1a43e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acdbe3a27cd1e8f170a87b42b9fc1a43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39abb1141be87a84f525ea22f555ab20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a39abb1141be87a84f525ea22f555ab20">MFRC522_PCD_AntennaOff</a> ()</td></tr>
+<tr class="memdesc:a39abb1141be87a84f525ea22f555ab20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eteint l'antenne.  <a href="#a39abb1141be87a84f525ea22f555ab20">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a39abb1141be87a84f525ea22f555ab20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa75102bb88c62cd9c384199c491f3045"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#aa75102bb88c62cd9c384199c491f3045">MFRC522_PCD_Init</a> ()</td></tr>
+<tr class="memdesc:aa75102bb88c62cd9c384199c491f3045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise l'interface SPI.  <a href="#aa75102bb88c62cd9c384199c491f3045">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa75102bb88c62cd9c384199c491f3045"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a4e9574d9d35a55d97736855c2a79e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8747255baf96533a382042038f5d01e2">MFRC522_RX_GAIN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a57a4e9574d9d35a55d97736855c2a79e">MFRC522_PCD_GetAntennaGain</a> ()</td></tr>
+<tr class="memdesc:a57a4e9574d9d35a55d97736855c2a79e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtient le gain de l'antenne.  <a href="#a57a4e9574d9d35a55d97736855c2a79e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a57a4e9574d9d35a55d97736855c2a79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ebd01d137d21794cbb3649189006ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a65ebd01d137d21794cbb3649189006ca">MFRC522_PCD_SetAntennaGain</a> (<a class="el" href="a00010.html#a8747255baf96533a382042038f5d01e2">MFRC522_RX_GAIN</a> gain)</td></tr>
+<tr class="memdesc:a65ebd01d137d21794cbb3649189006ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Définit le gain de l'antenne.  <a href="#a65ebd01d137d21794cbb3649189006ca">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a65ebd01d137d21794cbb3649189006ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38cc59bf61d2bff44a84e0e89db78fbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a38cc59bf61d2bff44a84e0e89db78fbb">MFRC522_PCD_PerformSelfTest</a> (void)</td></tr>
+<tr class="memdesc:a38cc59bf61d2bff44a84e0e89db78fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test automatique du MFRC522.  <a href="#a38cc59bf61d2bff44a84e0e89db78fbb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a38cc59bf61d2bff44a84e0e89db78fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f030b32e2182ae7b70398bf5f38095b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a5f030b32e2182ae7b70398bf5f38095b">MFRC522_PCD_CommunicateWithPICC</a> (<a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129">PCD_CMD</a> command, uint8_t waitIrq, uint8_t *sendData, uint8_t sendLen, uint8_t *backData, uint8_t *backLen, uint8_t *validBits, uint8_t rxAlign, uint8_t checkCRC)</td></tr>
+<tr class="memdesc:a5f030b32e2182ae7b70398bf5f38095b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exécute la commande de transfert dans la FIFO du MFRC522.  <a href="#a5f030b32e2182ae7b70398bf5f38095b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5f030b32e2182ae7b70398bf5f38095b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcfd150891e3c490a177710205fa6f86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#adcfd150891e3c490a177710205fa6f86">MFRC522_PCD_TransceiveData</a> (uint8_t *sendData, uint8_t sendLen, uint8_t *backData, uint8_t *backLen, uint8_t *validBits, uint8_t rxAlign, uint8_t checkCRC)</td></tr>
+<tr class="memdesc:adcfd150891e3c490a177710205fa6f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exécute la commande de transfert dans la FIFO du MFRC522.  <a href="#adcfd150891e3c490a177710205fa6f86">Plus de détails...</a><br /></td></tr>
+<tr class="separator:adcfd150891e3c490a177710205fa6f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc8a5afccee76df36d3ed3f8348fefb8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#afc8a5afccee76df36d3ed3f8348fefb8">MFRC522_PICC_REQA_or_WUPA</a> (<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500ac">PICC_CMD</a> command, <a class="el" href="a00002.html">MFRC522_PICC_UID</a> *uid)</td></tr>
+<tr class="memdesc:afc8a5afccee76df36d3ed3f8348fefb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoi une commande Wakeup ou Request de type A.  <a href="#afc8a5afccee76df36d3ed3f8348fefb8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afc8a5afccee76df36d3ed3f8348fefb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41b8c36b24ba229cc192a792caac62d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a41b8c36b24ba229cc192a792caac62d0">MFRC522_PICC_RequestA</a> (<a class="el" href="a00002.html">MFRC522_PICC_UID</a> *uid)</td></tr>
+<tr class="memdesc:a41b8c36b24ba229cc192a792caac62d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoi une commande Request type A.  <a href="#a41b8c36b24ba229cc192a792caac62d0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a41b8c36b24ba229cc192a792caac62d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7604f9c7275cd561647f60c6c8458b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#ab7604f9c7275cd561647f60c6c8458b4">MFRC522_PICC_WakeupA</a> (<a class="el" href="a00002.html">MFRC522_PICC_UID</a> *uid)</td></tr>
+<tr class="memdesc:ab7604f9c7275cd561647f60c6c8458b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoi une commande Wakeup type A.  <a href="#ab7604f9c7275cd561647f60c6c8458b4">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab7604f9c7275cd561647f60c6c8458b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac23dafc7582c3002cb52d0389a41c1ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#ac23dafc7582c3002cb52d0389a41c1ec">MFRC522_PICC_Select</a> (<a class="el" href="a00002.html">MFRC522_PICC_UID</a> *uid)</td></tr>
+<tr class="memdesc:ac23dafc7582c3002cb52d0389a41c1ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sélectionne un PICC.  <a href="#ac23dafc7582c3002cb52d0389a41c1ec">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac23dafc7582c3002cb52d0389a41c1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2820fbfc5839e179d9fab1192490d91e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a2820fbfc5839e179d9fab1192490d91e">MFRC522_PICC_HaltA</a> ()</td></tr>
+<tr class="memdesc:a2820fbfc5839e179d9fab1192490d91e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Envoi une commande Halt type A.  <a href="#a2820fbfc5839e179d9fab1192490d91e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2820fbfc5839e179d9fab1192490d91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a548fd7c84c1a6058fcd3940451399035"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a548fd7c84c1a6058fcd3940451399035">MFRC522_MIFARE_Transceive</a> (uint8_t *sendData, uint8_t sendLen, uint8_t acceptTimeout)</td></tr>
+<tr class="memdesc:a548fd7c84c1a6058fcd3940451399035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction utilitaire pour encapsuler le protocole de communication MIFARE.  <a href="#a548fd7c84c1a6058fcd3940451399035">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a548fd7c84c1a6058fcd3940451399035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a096082dcc584f4e93f45a58206363a8c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a096082dcc584f4e93f45a58206363a8c">MFRC522_MIFARE_TwoStepHelper</a> (<a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500ac">PICC_CMD</a> command, uint8_t blockAddr, int32_t data)</td></tr>
+<tr class="memdesc:a096082dcc584f4e93f45a58206363a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction utilitaire pour encapsuler le protocole de communication MIFARE des opérations Decrement, Increment et Restore.  <a href="#a096082dcc584f4e93f45a58206363a8c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a096082dcc584f4e93f45a58206363a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1ba0ad4f22036448751f56d80a63b59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#aa1ba0ad4f22036448751f56d80a63b59">MFRC522_MIFARE_Authenticate</a> (<a class="el" href="a00010.html#a89adaf1e8ac46b6d0c7bb83c58d152d4">MFRC522_AUTH_KEY</a> keytype, uint8_t blockAddr, <a class="el" href="a00001.html">MFRC522_MIFARE_KEY</a> *key, <a class="el" href="a00002.html">MFRC522_PICC_UID</a> *uid)</td></tr>
+<tr class="memdesc:aa1ba0ad4f22036448751f56d80a63b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effectue l'authentification MIFARE sur un block spécifié  <a href="#aa1ba0ad4f22036448751f56d80a63b59">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa1ba0ad4f22036448751f56d80a63b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27c4dca79d3f27e6014245370f88156a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a27c4dca79d3f27e6014245370f88156a">MFRC522_MIFARE_StopCrypto1</a> ()</td></tr>
+<tr class="memdesc:a27c4dca79d3f27e6014245370f88156a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop l'utilisation de l'authentification MIFARE.  <a href="#a27c4dca79d3f27e6014245370f88156a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a27c4dca79d3f27e6014245370f88156a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc38269694aaca1081f9327559411724"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#afc38269694aaca1081f9327559411724">MFRC522_MIFARE_Read</a> (uint8_t blockAddr, uint8_t *buffer, uint8_t *bufferSize)</td></tr>
+<tr class="memdesc:afc38269694aaca1081f9327559411724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit 16 octets (+2 CRC_A) du PICC ACTIF.  <a href="#afc38269694aaca1081f9327559411724">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afc38269694aaca1081f9327559411724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af652f395989dbce8064a5679115fa9cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#af652f395989dbce8064a5679115fa9cf">MFRC522_MIFARE_Write</a> (uint8_t blockAddr, uint8_t *buffer, uint8_t bufferSize)</td></tr>
+<tr class="memdesc:af652f395989dbce8064a5679115fa9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit 16 octets sur le PICC ACTIF.  <a href="#af652f395989dbce8064a5679115fa9cf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af652f395989dbce8064a5679115fa9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad060eed5c2f314197b59d052572aab14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#ad060eed5c2f314197b59d052572aab14">MFRC522_MIFARE_Decrement</a> (uint8_t blockAddr, int32_t delta)</td></tr>
+<tr class="memdesc:ad060eed5c2f314197b59d052572aab14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soustrait le delta de la valeur stockée à l'adresse du bloc et stock le résultat dans la mémoire volatile.  <a href="#ad060eed5c2f314197b59d052572aab14">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad060eed5c2f314197b59d052572aab14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b49dba203b00abdb4ad357b6ca525e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a69b49dba203b00abdb4ad357b6ca525e">MFRC522_MIFARE_Increment</a> (uint8_t blockAddr, int32_t delta)</td></tr>
+<tr class="memdesc:a69b49dba203b00abdb4ad357b6ca525e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute le delta de la valeur stockée à l'adresse du bloc et stock le résultat dans la mémoire volatile.  <a href="#a69b49dba203b00abdb4ad357b6ca525e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a69b49dba203b00abdb4ad357b6ca525e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ee075ea907230de403411986876ad5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a11ee075ea907230de403411986876ad5">MFRC522_MIFARE_Restore</a> (uint8_t blockAddr)</td></tr>
+<tr class="memdesc:a11ee075ea907230de403411986876ad5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place la valeur stockée à l'adresse d'un bloc dans la mémoire volatile.  <a href="#a11ee075ea907230de403411986876ad5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a11ee075ea907230de403411986876ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5367c43aa316d6c7509af27a451b7e8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a5367c43aa316d6c7509af27a451b7e8b">MFRC522_MIFARE_Transfer</a> (uint8_t blockAddr)</td></tr>
+<tr class="memdesc:a5367c43aa316d6c7509af27a451b7e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit le contenu de la mémoire volatile dans un block.  <a href="#a5367c43aa316d6c7509af27a451b7e8b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5367c43aa316d6c7509af27a451b7e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a265b17588bdc955f9efb93719b52895b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a265b17588bdc955f9efb93719b52895b">MFRC522_MIFARE_Ultralight_Write</a> (uint8_t page, uint8_t *buffer, uint8_t bufferSize)</td></tr>
+<tr class="memdesc:a265b17588bdc955f9efb93719b52895b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit 4 octets dans une page du MIFARE Ultralight ACTIF.  <a href="#a265b17588bdc955f9efb93719b52895b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a265b17588bdc955f9efb93719b52895b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd5263773974b6a152486da112de524f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#acd5263773974b6a152486da112de524f">MFRC522_MIFARE_Classic_GetValue</a> (uint8_t blockAddr, int32_t *value)</td></tr>
+<tr class="memdesc:acd5263773974b6a152486da112de524f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit la valeur d'un block d'un PICC MIFARE Classic.  <a href="#acd5263773974b6a152486da112de524f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:acd5263773974b6a152486da112de524f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af697ac5719bd10495d99085f5e9dca45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#af697ac5719bd10495d99085f5e9dca45">MFRC522_MIFARE_Classic_SetValue</a> (uint8_t blockAddr, int32_t value)</td></tr>
+<tr class="memdesc:af697ac5719bd10495d99085f5e9dca45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecrit la valeur d'un block d'un PICC MIFARE Classic.  <a href="#af697ac5719bd10495d99085f5e9dca45">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af697ac5719bd10495d99085f5e9dca45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff7ee2a68796dbf4d5f1d8433d41b083"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html#a1ab910a4592d91fed8ceb9c8f2014c6e">MFRC522_PICC_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#aff7ee2a68796dbf4d5f1d8433d41b083">MFRC522_PICC_GetType</a> (<a class="el" href="a00002.html">MFRC522_PICC_UID</a> *uid)</td></tr>
+<tr class="memdesc:aff7ee2a68796dbf4d5f1d8433d41b083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Récupère le type de carte en fonction de son SAK.  <a href="#aff7ee2a68796dbf4d5f1d8433d41b083">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aff7ee2a68796dbf4d5f1d8433d41b083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d00e13ef93354b5b523f7267b47fdf7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a7d00e13ef93354b5b523f7267b47fdf7">MFRC522_MIFARE_SetAccessBits</a> (uint8_t *accessBitBuffer, uint8_t g0, uint8_t g1, uint8_t g2, uint8_t g3)</td></tr>
+<tr class="memdesc:a7d00e13ef93354b5b523f7267b47fdf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcul le bit pattern des bits d'accès.  <a href="#a7d00e13ef93354b5b523f7267b47fdf7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7d00e13ef93354b5b523f7267b47fdf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a732edd02a7cbbaae5ce91d4e5db92659"><td class="memItemLeft" align="right" valign="top">const uint8_t PROGMEM&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a732edd02a7cbbaae5ce91d4e5db92659">MFRC522_firmware_referenceV1_0</a> []</td></tr>
+<tr class="memdesc:a732edd02a7cbbaae5ce91d4e5db92659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Firmware de la version 1.0 du MFRC522.  <a href="#a732edd02a7cbbaae5ce91d4e5db92659">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a732edd02a7cbbaae5ce91d4e5db92659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addc9d748d171be1bb8a76dd80e10452f"><td class="memItemLeft" align="right" valign="top">const uint8_t PROGMEM&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#addc9d748d171be1bb8a76dd80e10452f">MFRC522_firmware_referenceV2_0</a> []</td></tr>
+<tr class="memdesc:addc9d748d171be1bb8a76dd80e10452f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Firmware de la version 2.0 du MFRC522.  <a href="#addc9d748d171be1bb8a76dd80e10452f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:addc9d748d171be1bb8a76dd80e10452f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b8d835ea355a4817462616596bf9bff"><td class="memItemLeft" align="right" valign="top">const uint8_t PROGMEM&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a0b8d835ea355a4817462616596bf9bff">FM17522_firmware_reference</a> []</td></tr>
+<tr class="memdesc:a0b8d835ea355a4817462616596bf9bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Firmware de la version Fudan Semiconductor FM17522 (clone du MFRC522)  <a href="#a0b8d835ea355a4817462616596bf9bff">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0b8d835ea355a4817462616596bf9bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="a39edefa4be0db73b639644f19aa79bbc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MFRC522_MIFARE_ACK&#160;&#160;&#160;0xA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Les cartes MIFARE Classic utilisent un ACK/NAK de 4 bits. Tout autres valeur que 0xA est un NAK. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129">PCD_CMD</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Commandes du MFRC522. </p>
+<p>Enumération des commandes du MFRC522 (Cf. Chapitre 10 de la datasheet) </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129a6d169d8a5ccbca55a4eaa56910620e1b"></a>PCD_CMD_Idle&#160;</td><td class="fielddoc">
+<p>no action, cancels current command execution </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129a21cfbed66ddd5ea30f1e18718f38822b"></a>PCD_CMD_Mem&#160;</td><td class="fielddoc">
+<p>stores 25 bytes into the internal buffer </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129a84cc983cf30be66f1a9c77e9434dab06"></a>PCD_CMD_GenerateRandomID&#160;</td><td class="fielddoc">
+<p>generates a 10-byte random ID number </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129a8f646ea639231f41c7adef64ef256792"></a>PCD_CMD_CalcCRC&#160;</td><td class="fielddoc">
+<p>activates the CRC coprocessor or performs a self test </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129ac4e63bc2d9f070830d7381c1b469108d"></a>PCD_CMD_Transmit&#160;</td><td class="fielddoc">
+<p>transmits data from the FIFO buffer </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129afe10d8d4db13ee062d6c8420932ad0ef"></a>PCD_CMD_NoCmdChange&#160;</td><td class="fielddoc">
+<p>no command change, can be used to modify the CommandReg register bits without affecting the command, for example, the PowerDown bit </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129acbfb109197e667e9a10428e26f554eec"></a>PCD_CMD_Receive&#160;</td><td class="fielddoc">
+<p>activates the receiver circuits </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129a726602bea63c4885fc4b14c16a2bec17"></a>PCD_CMD_Transceive&#160;</td><td class="fielddoc">
+<p>transmits data from FIFO buffer to antenna and automatically activates the receiver after transmission </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129a9f1455eb011b595fce71f1c334c3452b"></a>PCD_CMD_MFAuthent&#160;</td><td class="fielddoc">
+<p>performs the MIFARE standard authentication as a reader </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a116f7cb59d581b6d5f215865aa7d6129a5db5c6c4a64c5846a677753cf75ad187"></a>PCD_CMD_SoftReset&#160;</td><td class="fielddoc">
+<p>resets the MFRC522 </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registres sur MFRC522. </p>
+<p>Enumération des registres disponibles du MFRC522 (Cf. Chapitre 9 de la datasheet) </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a07a75330085096bd5fdddf91b7b823c2"></a>PCD_REG_CommandReg&#160;</td><td class="fielddoc">
+<p>starts and stops command execution </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a93a13da90845d8c9c3fa78c158854195"></a>PCD_REG_ComIEnReg&#160;</td><td class="fielddoc">
+<p>enable and disable interrupt request control bits </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a856c2fbda471317477c4d9c6f6f51cf5"></a>PCD_REG_DivIEnReg&#160;</td><td class="fielddoc">
+<p>enable and disable interrupt request control bits </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33adaea6b5804a6d640dbff5105949f5404"></a>PCD_REG_ComIrqReg&#160;</td><td class="fielddoc">
+<p>interrupt request bits </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33aed86368899a03917651fb6171d3100b4"></a>PCD_REG_DivIrqReg&#160;</td><td class="fielddoc">
+<p>interrupt request bits </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a616cf0f1c0e035e8336b0f20617e7804"></a>PCD_REG_ErrorReg&#160;</td><td class="fielddoc">
+<p>error bits showing the error status of the last command executed </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33aaaaf507911a757965d739733b9ae6535"></a>PCD_REG_Status1Reg&#160;</td><td class="fielddoc">
+<p>communication status bits </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a8d6496f8cf42e6dcb95019637816fec4"></a>PCD_REG_Status2Reg&#160;</td><td class="fielddoc">
+<p>receiver and transmitter status bits </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33aeb8e5c2ef4ba8719d7ebef85760edbec"></a>PCD_REG_FIFODataReg&#160;</td><td class="fielddoc">
+<p>input and output of 64 byte FIFO buffer </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a212296f8a300a8d955bf23e59b676853"></a>PCD_REG_FIFOLevelReg&#160;</td><td class="fielddoc">
+<p>number of bytes stored in the FIFO buffer </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33ad79b77a72609cf7e4b631057980c480e"></a>PCD_REG_WaterLevelReg&#160;</td><td class="fielddoc">
+<p>level for FIFO underflow and overflow warning </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a0f45f3bb94d961288e224e6262f36ee0"></a>PCD_REG_ControlReg&#160;</td><td class="fielddoc">
+<p>miscellaneous control registers </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33accd00177ef7a31226e85829a313cfaf2"></a>PCD_REG_BitFramingReg&#160;</td><td class="fielddoc">
+<p>adjustments for bit-oriented frames </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a9400548ad6bc1533ae1759ab5633f31e"></a>PCD_REG_CollReg&#160;</td><td class="fielddoc">
+<p>bit position of the first bit-collision detected on the RF interface </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a6f0c083085742b3390c0251ebaa1734d"></a>PCD_REG_ModeReg&#160;</td><td class="fielddoc">
+<p>defines general modes for transmitting and receiving </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a74cf62f3f9d28ce418914030cc75aecc"></a>PCD_REG_TxModeReg&#160;</td><td class="fielddoc">
+<p>defines transmission data rate and framing </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a3bea9206a0e75952543dc4947f08ba68"></a>PCD_REG_RxModeReg&#160;</td><td class="fielddoc">
+<p>defines reception data rate and framing </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a0e2f2cc1d1d0d86af82cc289607d498e"></a>PCD_REG_TxControlReg&#160;</td><td class="fielddoc">
+<p>controls the logical behavior of the antenna driver pins TX1 and TX2 </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a4e859fdaca136ea69b6d1a15d8ce42bb"></a>PCD_REG_TxASKReg&#160;</td><td class="fielddoc">
+<p>controls the setting of the transmission modulation </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33aa643aee0562bf611da3d63b699cc1d9d"></a>PCD_REG_TxSelReg&#160;</td><td class="fielddoc">
+<p>selects the internal sources for the antenna driver </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33af6af9e44f1c02fcd57f431ff969b5361"></a>PCD_REG_RxSelReg&#160;</td><td class="fielddoc">
+<p>selects internal receiver settings </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33ab1dbe3f2cc2589509b9d77e34ee757b5"></a>PCD_REG_RxThresholdReg&#160;</td><td class="fielddoc">
+<p>selects thresholds for the bit decoder </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a19dad8f8313437c0428a8e885aa78042"></a>PCD_REG_DemodReg&#160;</td><td class="fielddoc">
+<p>defines demodulator settings </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a47e79ac1154ef547083e9b62ac4560b5"></a>PCD_REG_MfTxReg&#160;</td><td class="fielddoc">
+<p>controls some MIFARE communication transmit parameters </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33aa5ca6010d626de6318c497b2e030a772"></a>PCD_REG_MfRxReg&#160;</td><td class="fielddoc">
+<p>controls some MIFARE communication receive parameters </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33af1a20c58c7ab38f5ad570897536a13b8"></a>PCD_REG_SerialSpeedReg&#160;</td><td class="fielddoc">
+<p>selects the speed of the serial UART interface </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a62df1eebf0e1a19452da8ba6d05fea5e"></a>PCD_REG_CRCResultRegH&#160;</td><td class="fielddoc">
+<p>shows the MSB and LSB values of the CRC calculation </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a134cfc31312e5d90455e362f4ba2b3a9"></a>PCD_REG_CRCResultRegL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a580beecddfd163115ca42f7e42d860f7"></a>PCD_REG_ModWidthReg&#160;</td><td class="fielddoc">
+<p>controls the ModWidth setting? </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a75eefa4a167beec953bf2d34443c9935"></a>PCD_REG_RFCfgReg&#160;</td><td class="fielddoc">
+<p>configures the receiver gain </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33aff575332e484bda25f49d6fcaf9a0d65"></a>PCD_REG_GsNReg&#160;</td><td class="fielddoc">
+<p>selects the conductance of the antenna driver pins TX1 and TX2 for modulation </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33afb39e1757ce1146f7919c3ede2e66898"></a>PCD_REG_CWGsPReg&#160;</td><td class="fielddoc">
+<p>defines the conductance of the p-driver output during periods of no modulation </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a358eb8a41e72d3378f64f8028f600cae"></a>PCD_REG_ModGsPReg&#160;</td><td class="fielddoc">
+<p>defines the conductance of the p-driver output during periods of modulation </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a6a4b20418e3ddc86f980380cb902d448"></a>PCD_REG_TModeReg&#160;</td><td class="fielddoc">
+<p>defines settings for the internal timer </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a2dc37d32070c817377788f04bcf65e1a"></a>PCD_REG_TPrescalerReg&#160;</td><td class="fielddoc">
+<p>the lower 8 bits of the TPrescaler value. The 4 high bits are in TModeReg. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a3547fc0462c7e2b611d68166b1a762c7"></a>PCD_REG_TReloadRegH&#160;</td><td class="fielddoc">
+<p>defines the 16-bit timer reload value </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a1878873f3f0b1e4fe42901727fb1d048"></a>PCD_REG_TReloadRegL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33aa678740b68bf4ea2037a14599ebd0057"></a>PCD_REG_TCounterValueRegH&#160;</td><td class="fielddoc">
+<p>shows the 16-bit timer value </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33ac745e1397e9a60e76b19248531491ba9"></a>PCD_REG_TCounterValueRegL&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a241b6b48319cb0bcd71dfb7c71550873"></a>PCD_REG_TestSel1Reg&#160;</td><td class="fielddoc">
+<p>general test signal configuration </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33ac0d6b81c1c0d8673b2419576a5a413ae"></a>PCD_REG_TestSel2Reg&#160;</td><td class="fielddoc">
+<p>general test signal configuration </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a7a43eff2d34ea3415e08e1d7e5f0bdd5"></a>PCD_REG_TestPinEnReg&#160;</td><td class="fielddoc">
+<p>enables pin output driver on pins D1 to D7 </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a7cfb5852dc3490759c7c6e464a6bd3a9"></a>PCD_REG_TestPinValueReg&#160;</td><td class="fielddoc">
+<p>defines the values for D1 to D7 when it is used as an I/O bus </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33afd742d6b7e591346eb016c6d6905e15f"></a>PCD_REG_TestBusReg&#160;</td><td class="fielddoc">
+<p>shows the status of the internal test bus </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33ac871c1931c8c16ead48a0b25fec172c2"></a>PCD_REG_AutoTestReg&#160;</td><td class="fielddoc">
+<p>controls the digital self test </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33aa112c84e0638974eecc772d6e16c7433"></a>PCD_REG_VersionReg&#160;</td><td class="fielddoc">
+<p>shows the software version </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a1becdd93cb0549cd762640c1931c3ed9"></a>PCD_REG_AnalogTestReg&#160;</td><td class="fielddoc">
+<p>controls the pins AUX1 and AUX2 </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33ae3a1ca472ee1a44cedb6278b002ce71b"></a>PCD_REG_TestDAC1Reg&#160;</td><td class="fielddoc">
+<p>defines the test value for TestDAC1 </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a5fc5700e251a02d8b88403905fda17da"></a>PCD_REG_TestDAC2Reg&#160;</td><td class="fielddoc">
+<p>defines the test value for TestDAC2 </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="aae4e5280594d2e5f826bd6bca0539a33a87bce03f7e7673fe3e14b301173ad443"></a>PCD_REG_TestADCReg&#160;</td><td class="fielddoc">
+<p>shows the value of ADC I and Q channels </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500ac">PICC_CMD</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Commandes envoyé à un PICC. </p>
+<p>Enumération des commandes possibles d'envoyer à un PICC </p>
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500acad213da8df255bc6ff7cca5b7a28da7b4"></a>PICC_CMD_REQA&#160;</td><td class="fielddoc">
+<p>REQuest command, Type A. Invites PICCs in state IDLE to go to READY and prepare for anticollision or selection. 7 bit frame. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca95cc086aa9fc83fe999b43f6c508ff19"></a>PICC_CMD_WUPA&#160;</td><td class="fielddoc">
+<p>Wake-UP command, Type A. Invites PICCs in state IDLE and HALT to go to READY(*) and prepare for anticollision or selection. 7 bit frame. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500acae53647ddb4c2765fff8814805310113c"></a>PICC_CMD_CT&#160;</td><td class="fielddoc">
+<p>Cascade Tag. Not really a command, but used during anti collision. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca6cd44287b13b4ac175b38bde5ef61f5b"></a>PICC_CMD_SEL_CL1&#160;</td><td class="fielddoc">
+<p>Anti collision/Select, Cascade Level 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500acab072baf2abb9cadd0205b8809bf0de95"></a>PICC_CMD_SEL_CL2&#160;</td><td class="fielddoc">
+<p>Anti collision/Select, Cascade Level 2 </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca2fc1e0ba00730e380391575d5660309a"></a>PICC_CMD_SEL_CL3&#160;</td><td class="fielddoc">
+<p>Anti collision/Select, Cascade Level 3 </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca881588d3cca42490c71666c97b55a6c8"></a>PICC_CMD_HLTA&#160;</td><td class="fielddoc">
+<p>HaLT command, Type A. Instructs an ACTIVE PICC to go to state HALT. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500acaed599c1a5ba157455ed438315406c305"></a>PICC_CMD_MF_AUTH_KEY_A&#160;</td><td class="fielddoc">
+<p>Perform authentication with Key A </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca95ad7ce4f4272886b6756b49f3aeaf9a"></a>PICC_CMD_MF_AUTH_KEY_B&#160;</td><td class="fielddoc">
+<p>Perform authentication with Key B </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500acad2cedf2b5b620a6d874f0b8360e7e36c"></a>PICC_CMD_MF_READ&#160;</td><td class="fielddoc">
+<p>Reads one 16 byte block from the authenticated sector of the PICC. Also used for MIFARE Ultralight. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500acab328a35286d092e483fa370d1868e44e"></a>PICC_CMD_MF_WRITE&#160;</td><td class="fielddoc">
+<p>Writes one 16 byte block to the authenticated sector of the PICC. Called "COMPATIBILITY WRITE" for MIFARE Ultralight. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca0329cc76c269606689b6c3b35683136c"></a>PICC_CMD_MF_DECREMENT&#160;</td><td class="fielddoc">
+<p>Decrements the contents of a block and stores the result in the internal data register. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca0a14c55a640535db5c46ce0110df7a44"></a>PICC_CMD_MF_INCREMENT&#160;</td><td class="fielddoc">
+<p>Increments the contents of a block and stores the result in the internal data register. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500acaebf925b876166923f98130644349e6ec"></a>PICC_CMD_MF_RESTORE&#160;</td><td class="fielddoc">
+<p>Reads the contents of a block into the internal data register. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca8985fa08e3634abc0229923901e5bd97"></a>PICC_CMD_MF_TRANSFER&#160;</td><td class="fielddoc">
+<p>Writes the contents of the internal data register to a block. </p>
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="a3134ed1e3da141b3f1c85a98b9a500aca09929cac708d474115bdcb25f3d61f81"></a>PICC_CMD_UL_WRITE&#160;</td><td class="fielddoc">
+<p>Writes one 4 byte page to the PICC. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="aa1ba0ad4f22036448751f56d80a63b59"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Authenticate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00010.html#a89adaf1e8ac46b6d0c7bb83c58d152d4">MFRC522_AUTH_KEY</a>&#160;</td>
+          <td class="paramname"><em>keytype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00001.html">MFRC522_MIFARE_KEY</a> *&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00002.html">MFRC522_PICC_UID</a> *&#160;</td>
+          <td class="paramname"><em>uid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Effectue l'authentification MIFARE sur un block spécifié </p>
+<p>Effectue une authentification MIFARE pour sécuriser les accès MIFARE Mini, MIFARE 1K et MIFARE 4K.<br />
+ L'authentification est décrite dans le paragraphe 10.3.1.9 de la datasheet et dans la section 10.1 de la datasheet <a href="http://www.nxp.com/documents/data_sheet/MF1S503x.pdf">http://www.nxp.com/documents/data_sheet/MF1S503x.pdf</a> pour l'utilisation avec une carte MIFARE Classic PICCs.</p>
+<dl class="section note"><dt>Note</dt><dd>Le PICC doit être sélectionné avant d'utiliser cette focntion. </dd>
+<dd>
+Il convient d'appeler MFRC522_MIFARE_StopScrypto1() après une communication authentifiée avec le PICC (Sinon plus aucune communication n'est possible). </dd>
+<dd>
+Toutes les clefs sont positionnées à 0xFFFFFFFFFFFF en sortie d'usine.</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">keytype</td><td>Type de clef à utiliser pour l'authentification </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Adresse du bloc sur lequel s'authentifier </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>Clef à utiliser pour l'authentification </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">uid</td><td>Carte sur laquelle effectuer l'authentification</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur (Timeout si la clef fournie n'est pas correcte). </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acd5263773974b6a152486da112de524f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Classic_GetValue </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lit la valeur d'un block d'un PICC MIFARE Classic. </p>
+<p>Permet de lire facilement la valeur stockée dans un bloc.</p>
+<dl class="section note"><dt>Note</dt><dd>Le secteur contenant le block doit être authentifié avant d'appeler cette fonction.<br />
+ Cette restriction n'est que pour les blocks en mode "valide" (bits d'accès [C1 C2 C3] = [110] ou [001]).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Addresse du block à utiliser (0x00 -&gt; 0xFF) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Valeur lue dans le block</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af697ac5719bd10495d99085f5e9dca45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Classic_SetValue </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit la valeur d'un block d'un PICC MIFARE Classic. </p>
+<p>Permet d'écrire facilement la valeur dans un bloc.</p>
+<dl class="section note"><dt>Note</dt><dd>Le secteur contenant le block doit être authentifié avant d'appeler cette fonction.<br />
+ Cette restriction n'est que pour les blocks en mode "valide" (bits d'accès [C1 C2 C3] = [110] ou [001]).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Addresse du block à utiliser (0x00 -&gt; 0xFF) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Nouvelle valeur à stocker dans le block</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad060eed5c2f314197b59d052572aab14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Decrement </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>delta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soustrait le delta de la valeur stockée à l'adresse du bloc et stock le résultat dans la mémoire volatile. </p>
+<p>MIFARE Decrement soustrait le delta passé en paramètre de la valeur présente à l'adresse fournie en entrée. Le résultat est stocké dans la mémoire volatile. Utiliser la fonction <code><a class="el" href="a00010.html#a5367c43aa316d6c7509af27a451b7e8b" title="Ecrit le contenu de la mémoire volatile dans un block. ">MFRC522_MIFARE_Transfer()</a></code> pour stoker le résultat de la mémoire volatile dans un block particulier.</p>
+<dl class="section note"><dt>Note</dt><dd>Pour les PICC MIFARE Classic, le secteur contenant le block doit être authentifié avant d'appeler cette fonction.<br />
+ Cette restriction n'est que pour les blocks en mode "valide" (bits d'accès [C1 C2 C3] = [110] ou [001]).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Addresse du block à soustraire </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">delta</td><td>Valeur à soustraire</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a69b49dba203b00abdb4ad357b6ca525e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Increment </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>delta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajoute le delta de la valeur stockée à l'adresse du bloc et stock le résultat dans la mémoire volatile. </p>
+<p>MIFARE Increment ajoute le delta passé en paramètre de la valeur présente à l'adresse fournie en entrée. Le résultat est stocké dans la mémoire volatile. Utiliser la fonction <code><a class="el" href="a00010.html#a5367c43aa316d6c7509af27a451b7e8b" title="Ecrit le contenu de la mémoire volatile dans un block. ">MFRC522_MIFARE_Transfer()</a></code> pour stoker le résultat de la mémoire volatile dans un block particulier.</p>
+<dl class="section note"><dt>Note</dt><dd>Pour les PICC MIFARE Classic, le secteur contenant le block doit être authentifié avant d'appeler cette fonction.<br />
+ Cette restriction n'est que pour les blocks en mode "valide" (bits d'accès [C1 C2 C3] = [110] ou [001]).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Addresse du block à incrémenter </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">delta</td><td>Valeur à incrémenter</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afc38269694aaca1081f9327559411724"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>bufferSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lit 16 octets (+2 CRC_A) du PICC ACTIF. </p>
+<p>Lit 16 octets (+2 CRC_A) du PICC ACTIF. La focntion vérifie le CRC_A avant de retourner <code>MFRC511_STATUS_OK</code> </p>
+<dl class="section note"><dt>Note</dt><dd>Pour les cartes MIFARE Classic, le secteur contenant le bloc à lire doit avoir été authentifié avant d'utiliser cette fonction.</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Adresse du bloc à lire </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>Buffer où seront stocké les données lues </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">bufferSize</td><td>Taille du buffer (doit être au moins de 18 octets). Le CRC_A est également retourné</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a11ee075ea907230de403411986876ad5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Restore </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Place la valeur stockée à l'adresse d'un bloc dans la mémoire volatile. </p>
+<p>MIFARE Restore place la valeur présente à l'adresse d'un block fournie en entrée dans la mémoire volatile. Utiliser la fonction <code><a class="el" href="a00010.html#a5367c43aa316d6c7509af27a451b7e8b" title="Ecrit le contenu de la mémoire volatile dans un block. ">MFRC522_MIFARE_Transfer()</a></code> pour stoker le résultat de la mémoire volatile dans un block particulier.</p>
+<dl class="section note"><dt>Note</dt><dd>Pour les PICC MIFARE Classic, le secteur contenant le block doit être authentifié avant d'appeler cette fonction.<br />
+ Cette restriction n'est que pour les blocks en mode "valide" (bits d'accès [C1 C2 C3] = [110] ou [001]).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Addresse du block à utiliser</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a7d00e13ef93354b5b523f7267b47fdf7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_MIFARE_SetAccessBits </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>accessBitBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>g0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>g1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>g2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>g3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcul le bit pattern des bits d'accès. </p>
+<p>Calcul le bit pattern des bits d'accès</p>
+<dl class="section note"><dt>Note</dt><dd>In the [C1 C2 C3] tupples C1 is MSB (=4) and C3 is LSB (=1).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">accessBitBuffer</td><td>Buffer des bits d'accès à mettre à jour (pointeur vers les octets 6, 7 et 8 du sector trailer) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g0</td><td>bits d'accès [C1 C2 C3] du block 0 (secteurs 0-31) ou block 0-4 (secteurs 32-39) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g1</td><td>bits d'accès [C1 C2 C3] du block 1 (secteurs 0-31) ou block 5-9 (secteurs 32-39) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g2</td><td>bits d'accès [C1 C2 C3] du block 2 (secteurs 0-31) ou block 10-14 (secteurs 32-39) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g3</td><td>bits d'accès [C1 C2 C3] du sector trailer, block 3 (secteurs 0-31) ou block 15 (secteurs 32-39) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a27c4dca79d3f27e6014245370f88156a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_MIFARE_StopCrypto1 </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stop l'utilisation de l'authentification MIFARE. </p>
+<p>Stop l'utilisation de l'authentification MIFARE </p>
+
+</div>
+</div>
+<a class="anchor" id="a548fd7c84c1a6058fcd3940451399035"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Transceive </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>sendData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>sendLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>acceptTimeout</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction utilitaire pour encapsuler le protocole de communication MIFARE. </p>
+<p>Cette fonction prend le buffer à envoyer, ajoute le CRC_A et vérifie en fin d'excution que l'on a bien reçu un MF_ACK ou un timeout.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sendData</td><td>Buffer des données à envoyer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sendLen</td><td>Taille des données à envoyer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acceptTimeout</td><td>Valeurs possibles : <ul>
+<li><code>0</code> : Le timeout est considéré comme une erreur </li>
+<li><code>1</code> : Le timeout n'est pas considéré comme une erreur</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5367c43aa316d6c7509af27a451b7e8b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Transfer </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit le contenu de la mémoire volatile dans un block. </p>
+<p>MIFARE Transfert place le contenu de la mémoire volatile dans le block à l'adresse fournie en entrée.</p>
+<dl class="section note"><dt>Note</dt><dd>Pour les PICC MIFARE Classic, le secteur contenant le block doit être authentifié avant d'appeler cette fonction.<br />
+ Cette restriction n'est que pour les blocks en mode "valide" (bits d'accès [C1 C2 C3] = [110] ou [001]).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Addresse du block à utiliser</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a096082dcc584f4e93f45a58206363a8c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_TwoStepHelper </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500ac">PICC_CMD</a>&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction utilitaire pour encapsuler le protocole de communication MIFARE des opérations Decrement, Increment et Restore. </p>
+<p>Cette fonction prend le buffer à envoyer, ajoute le CRC_A et vérifie en fin d'excution que l'on a bien reçu un MF_ACK ou un timeout.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>Commande à envoyer (PICC_CMD_MF_DECREMENT ou PICC_CMD_MF_INCREMENT ou PICC_CMD_MF_RESTORE) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Adresse du block sur lequel travailler </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Donnée à envoyer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a265b17588bdc955f9efb93719b52895b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Ultralight_Write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>page</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>bufferSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit 4 octets dans une page du MIFARE Ultralight ACTIF. </p>
+<p>Permet d'écrire 4 octets dans une page données pour un PICC MIFARE Ultralight.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">page</td><td>Page où stocker les données </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffer</td><td>Buffer de 4 octets à écrire dans la page </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bufferSize</td><td>Taille du buffer (Doit être supérieur à 4). Seul les 4 premiers octets du buffer sont utilisés.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est fait.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af652f395989dbce8064a5679115fa9cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_MIFARE_Write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>blockAddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>bufferSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit 16 octets sur le PICC ACTIF. </p>
+<p>Ecrit 16 octets sur le PICC ACTIF</p>
+<dl class="section note"><dt>Note</dt><dd>Pour les cartes MIFARE Classic, le secteur contenant le bloc à écrire doit avoir été authentifié avant d'utiliser cette fonction. </dd>
+<dd>
+Pour les cartes MIFARE Ultralight, cette opération est nommée "COMPATIBILITY WRITE". Même Si 16 octets sont transmis au PICC, seuls les 4 premiers octets sont réellement écrit à l'adresse spécifiée. Il est recommandé de placer tous les octets suivant à la valeur 0x00.</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">blockAddr</td><td>Adresse du bloc à écrire </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buffer</td><td>Buffer des 16 octets à écrire </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bufferSize</td><td>Taille du buffer (doit être au moins de 16 octets - Seul les 16 premiers octets sont envoyés au PICC)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a39abb1141be87a84f525ea22f555ab20"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_AntennaOff </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Eteint l'antenne. </p>
+<p>Eteint l'antenne du composant MFRC522 </p>
+
+</div>
+</div>
+<a class="anchor" id="acdbe3a27cd1e8f170a87b42b9fc1a43e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_AntennaOn </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allume l'antenne. </p>
+<p>Met en marche l'antenne du composant MFRC522 </p>
+
+</div>
+</div>
+<a class="anchor" id="ae22e3494c692b83c6ce6918cfdec9de5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PCD_CalculateCRC </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcul le CRC d'un tableau. </p>
+<p>Utilise le coprocesseur du MFRC522 pour calculer le CRC_A</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Pointeur sur les données à transférer dans la FIFO pour calculer le CRC_A </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>Nombre d'octets à transférer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>Pointeur du résultat. Le résultat est écrit dans un entier non signé sur 16 bits, octet de poid faible en premier.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Status du traitement (MFRC522_STATUS_OK si tout va bien)</dd></dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun test de dépassement de capacité n'est fait </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a537765d799974e532ede36b90d7c2409"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_ClearRegisterBitMask </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inverse le mask sur un regitre donné </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre sur lequel appliquer le masque </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Masque à appliquer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5f030b32e2182ae7b70398bf5f38095b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PCD_CommunicateWithPICC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a116f7cb59d581b6d5f215865aa7d6129">PCD_CMD</a>&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>waitIrq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>sendData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>sendLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>backData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>backLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>validBits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>rxAlign</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>checkCRC</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exécute la commande de transfert dans la FIFO du MFRC522. </p>
+<p>Exécute la commande PCD_CMD_Transceive qui envoi les données de la FIFO vers l'antenne</p>
+<dl class="section note"><dt>Note</dt><dd>La validation CRC ne peut être faite que si <code>backData</code> et <code>backLen</code> sont spécifiés</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>Commande à exécuter </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">waitIrq</td><td>Mask de bit du registre PCD_REG_ComIrqReg signalant la bonne terminaison de la commande </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sendData</td><td>Pointeur des données à transférer dans la FIFO </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sendLen</td><td>Nombre d'octets à transférer dans la FIFO </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">backData</td><td>NULL ou pointeur vers le buffer devant récupérer les données après transfert </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">backLen</td><td>Valeurs possibles : <ul>
+<li><code>in</code> : Nombre max d'octets pouvant être écrit dans le buffer backData </li>
+<li><code>out</code> : Nombre d'octets retournés </li>
+</ul>
+</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">validBits</td><td>Nombre de bits valids pour le dernier octets (0 à 8). NULL par défaut </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rxAlign</td><td>Définit la position du bit dans backData[0] pour le premier bit reçu. Par défaut 0. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">checkCRC</td><td>Valeurs possible : <ul>
+<li><code>0</code> -&gt; Pas de contrôle CRC. </li>
+<li><code>1</code> -&gt; Les deux derniers octets sont considérés comme CRC_A et sont donc validés.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a57a4e9574d9d35a55d97736855c2a79e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8747255baf96533a382042038f5d01e2">MFRC522_RX_GAIN</a> MFRC522_PCD_GetAntennaGain </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtient le gain de l'antenne. </p>
+<p>Récupère le gain de l'antenne du composant MFRC522</p>
+<dl class="section return"><dt>Renvoie</dt><dd>Valeur du gain de l'antenne </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa75102bb88c62cd9c384199c491f3045"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialise l'interface SPI. </p>
+<dl class="section note"><dt>Note</dt><dd>Cette méthode n'est à appeler qu'une seule fois </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a38cc59bf61d2bff44a84e0e89db78fbb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PCD_PerformSelfTest </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test automatique du MFRC522. </p>
+<p>Effectue un test du firmware du MFRC522</p>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_ERROR en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac98baa28a6ff47681af94d1fc0c2b7c9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t MFRC522_PCD_ReadRegister </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a>&#160;</td>
+          <td class="paramname"><em>reg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lit la valeur d'un registre du MFRC522. </p>
+<p>Interface décrite dans la datasheet au paragraphe 8.1.2</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre à lire</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>valeur lue dans le registre </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a42cba06e7ef4cfa9afba588d7273e674"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_ReadRegisterArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>rxAlign</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lit les valeurs d'un registre du MFRC522. </p>
+<p>Interface décrite dans la datasheet au paragraphe 8.1.2</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre à lire </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>Nombre d'octet du registre à lire </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">values</td><td>Tableau mémoire où stocker les octets lus du registre </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rxAlign</td><td>???Only bit positions rxAlign..7 in values[0] are updated</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>valeur lue dans le registre </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a88c1a46eaee837f136ab9ad8caa01b95"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_Reset </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Réinitialise le composant MFRC522. </p>
+<p>Effectue une réinitialisation software du composant MFRC522 </p>
+
+</div>
+</div>
+<a class="anchor" id="a65ebd01d137d21794cbb3649189006ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_SetAntennaGain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00010.html#a8747255baf96533a382042038f5d01e2">MFRC522_RX_GAIN</a>&#160;</td>
+          <td class="paramname"><em>gain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définit le gain de l'antenne. </p>
+<p>Définit le gain de l'antenne du composant MFRC522 </p>
+
+</div>
+</div>
+<a class="anchor" id="a9cfd56bdca38c4ccefebd21c375d5138"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_SetRegisterBitMask </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Postionne un mask sur un regitre donné </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre sur lequel appliquer le masque </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mask</td><td>Masque à appliquer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="adcfd150891e3c490a177710205fa6f86"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PCD_TransceiveData </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>sendData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>sendLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>backData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>backLen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>validBits</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>rxAlign</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>checkCRC</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exécute la commande de transfert dans la FIFO du MFRC522. </p>
+<p>Exécute la commande PCD_CMD_Transceive qui envoi les données de la FIFO vers l'antenne</p>
+<dl class="section note"><dt>Note</dt><dd>La validation CRC ne peut être faite que si <code>backData</code> et <code>backLen</code> sont spécifiés</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sendData</td><td>Pointeur des données à transférer dans la FIFO </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sendLen</td><td>Nombre d'octets à transférer dans la FIFO </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">backData</td><td>NULL ou pointeur vers le buffer devant récupérer les données après transfert </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">backLen</td><td>Valeurs possibles : <ul>
+<li><code>in</code> : Nombre max d'octets pouvant être écrit dans le buffer backData </li>
+<li><code>out</code> : Nombre d'octets retournés </li>
+</ul>
+</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">validBits</td><td>Nombre de bits valids pour le dernier octets (0 à 8). NULL par défaut </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rxAlign</td><td>Définit la position du bit dans backData[0] pour le premier bit reçu. Par défaut 0. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">checkCRC</td><td>Valeurs possible : <ul>
+<li><code>0</code> -&gt; Pas de contrôle CRC. </li>
+<li><code>1</code> -&gt; Les deux derniers octets sont considérés comme CRC_A et sont donc validés.</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a62f5e4394175e120dec5b47042b80375"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_WriteRegister </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit une valeur dans un registre du MFRC522. </p>
+<p>Interface décrite dans la datasheet au paragraphe 8.1.2</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre dans lequel écrire la valeur </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Valeur à écrire dans le registre </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3a1008b2ed0db7a80ab790224d5c6101"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MFRC522_PCD_WriteRegisterArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#aae4e5280594d2e5f826bd6bca0539a33">PCD_REG</a>&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>values</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ecrit un ensemble de valeurs dans un registre du MFRC522. </p>
+<p>Interface décrite dans la datasheet au paragraphe 8.1.2</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Adresse du registre dans lequel écrire les valeurs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>Nombre de valeurs à écrire dans le registre </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">values</td><td>Contenu des valeurs à écrure dans le resitre</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>l'adresse <code>values</code> doit pointer sur un tableau de <code>count</code> valeurs.</dd></dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun test de dépassement de capacité n'est fait </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aff7ee2a68796dbf4d5f1d8433d41b083"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a1ab910a4592d91fed8ceb9c8f2014c6e">MFRC522_PICC_TYPE</a> MFRC522_PICC_GetType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00002.html">MFRC522_PICC_UID</a> *&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Récupère le type de carte en fonction de son SAK. </p>
+<p>Permet d'identifier le type de carte.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">uid</td><td>Structure UID de la carte à analyser</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le type de carte déterminé. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2820fbfc5839e179d9fab1192490d91e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PICC_HaltA </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envoi une commande Halt type A. </p>
+<p>Invite le PICC de passer de l'état ACTIVE à l'état HALT. </p><dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afc8a5afccee76df36d3ed3f8348fefb8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PICC_REQA_or_WUPA </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a3134ed1e3da141b3f1c85a98b9a500ac">PICC_CMD</a>&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00002.html">MFRC522_PICC_UID</a> *&#160;</td>
+          <td class="paramname"><em>uid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envoi une commande Wakeup ou Request de type A. </p>
+<p>Envoi une commande Wakeup ou Request de type A.<br />
+ Frame de 7 bits.<br />
+ </p><dl class="section warning"><dt>Avertissement</dt><dd>Quand deux PICC sont dans le champ au même moment, un MFRC522_STATUS_TIMEOUT sera probablement déclenché.</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">command</td><td>Command PICC à envoyer </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">uid</td><td>Pointeur sur une structure de type <a class="el" href="a00002.html" title="Structure contenant l&#39;UID d&#39;un PICC. ">MFRC522_PICC_UID</a>.<br />
+ La zone ATQA est alimentée en sortie</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a41b8c36b24ba229cc192a792caac62d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PICC_RequestA </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00002.html">MFRC522_PICC_UID</a> *&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envoi une commande Request type A. </p>
+<p>Invite le PICC de passer de l'état IDLE à l'état READY et se prépare pour l'anticollision ou la sélection.<br />
+ Frame de 7 bits.<br />
+ </p><dl class="section warning"><dt>Avertissement</dt><dd>Quand deux PICC sont dans le champ au même moment, un MFRC522_STATUS_TIMEOUT sera probablement déclenché.</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">uid</td><td>Pointeur sur une structure de type <a class="el" href="a00002.html" title="Structure contenant l&#39;UID d&#39;un PICC. ">MFRC522_PICC_UID</a>.<br />
+ La zone ATQA est alimentée en sortie</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac23dafc7582c3002cb52d0389a41c1ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PICC_Select </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00002.html">MFRC522_PICC_UID</a> *&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sélectionne un PICC. </p>
+<p>Envoi une command SELECT/ANTICOLLISION à un seul PICC.</p>
+<dl class="section warning"><dt>Avertissement</dt><dd>Avant d'utiliser cette fonction, le PICC doit être placé dans un état READY (</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="a00010.html#a41b8c36b24ba229cc192a792caac62d0" title="Envoi une commande Request type A. ">MFRC522_PICC_RequestA</a> ou </dd>
+<dd>
+<a class="el" href="a00010.html#ab7604f9c7275cd561647f60c6c8458b4" title="Envoi une commande Wakeup type A. ">MFRC522_PICC_WakeupA</a>) </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>En cas de succès : <ul>
+<li>Le PICC choisi passe à l'état ACTIVE et tous les autres PICC retourne à l'état IDLE/HALT (Figure 7 of the ISO/IEC 14443-3 draft.) </li>
+<li>La taille du UID et la valeur du PICC choisie est retourné dans la structure <code>*uid</code> avec le code SAK retour.</li>
+</ul>
+</dd>
+<dd>
+L'UID d'un PICC est constitué de 4, 7 ou 10 octets :<br />
+ Seul 4 octets sont spécifiés dans la commande SELECT, donc, pour les UID de 7 et 10 octets, il faut respectivement 2 et 3 itérations (cascade level).</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">uid</td><td>Pointeur sur une structure de type <a class="el" href="a00002.html" title="Structure contenant l&#39;UID d&#39;un PICC. ">MFRC522_PICC_UID</a>.<br />
+ Permet de spécifier en entrée un UID connu.<br />
+ Alimenté en sortie avec l'UID du PICC sélectionné.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="a00018.html#_todo000008">A faire:</a></b></dt><dd>Gérer la sélection d'un PICC déjà connu (en entrée de la fonction Select) </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="a00018.html#_todo000009">A faire:</a></b></dt><dd>Gérer les collisions </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="a00018.html#_todo000010">A faire:</a></b></dt><dd>Faire les autres cascade levels </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab7604f9c7275cd561647f60c6c8458b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html#a8ed729867f3e31ba760da8cdf874c9d7">MFRC522_STATUS</a> MFRC522_PICC_WakeupA </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00002.html">MFRC522_PICC_UID</a> *&#160;</td>
+          <td class="paramname"><em>uid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Envoi une commande Wakeup type A. </p>
+<p>Invite le PICC de passer de l'état IDLE et HALT à l'état READY et se prépare pour l'anticollision ou la sélection.<br />
+ Frame de 7 bits.<br />
+ </p><dl class="section warning"><dt>Avertissement</dt><dd>Quand deux PICC sont dans le champ au même moment, un MFRC522_STATUS_TIMEOUT sera probablement déclenché.</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">uid</td><td>Pointeur sur une structure de type <a class="el" href="a00002.html" title="Structure contenant l&#39;UID d&#39;un PICC. ">MFRC522_PICC_UID</a>.<br />
+ La zone ATQA est alimentée en sortie</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Aucun dépassement de capacité n'est testé.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>MFRC522_STATUS_OK si le test est OK. MFRC522_STATUS_* en cas d'erreur. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des variables</h2>
+<a class="anchor" id="a0b8d835ea355a4817462616596bf9bff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t PROGMEM FM17522_firmware_reference[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    0x00, 0xD6, 0x78, 0x8C, 0xE2, 0xAA, 0x0C, 0x18,</div>
+<div class="line">    0x2A, 0xB8, 0x7A, 0x7F, 0xD3, 0x6A, 0xCF, 0x0B,</div>
+<div class="line">    0xB1, 0x37, 0x63, 0x4B, 0x69, 0xAE, 0x91, 0xC7,</div>
+<div class="line">    0xC3, 0x97, 0xAE, 0x77, 0xF4, 0x37, 0xD7, 0x9B,</div>
+<div class="line">    0x7C, 0xF5, 0x3C, 0x11, 0x8F, 0x15, 0xC3, 0xD7,</div>
+<div class="line">    0xC1, 0x5B, 0x00, 0x2A, 0xD0, 0x75, 0xDE, 0x9E,</div>
+<div class="line">    0x51, 0x64, 0xAB, 0x3E, 0xE9, 0x15, 0xB5, 0xAB,</div>
+<div class="line">    0x56, 0x9A, 0x98, 0x82, 0x26, 0xEA, 0x2A, 0x62</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Firmware de la version Fudan Semiconductor FM17522 (clone du MFRC522) </p>
+<p>Firmware de référence pour les tests du Fudan Semiconductor FM17522 (clone du MFRC522) </p>
+
+</div>
+</div>
+<a class="anchor" id="a732edd02a7cbbaae5ce91d4e5db92659"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t PROGMEM MFRC522_firmware_referenceV1_0[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    0x00, 0xC6, 0x37, 0xD5, 0x32, 0xB7, 0x57, 0x5C,</div>
+<div class="line">    0xC2, 0xD8, 0x7C, 0x4D, 0xD9, 0x70, 0xC7, 0x73,</div>
+<div class="line">    0x10, 0xE6, 0xD2, 0xAA, 0x5E, 0xA1, 0x3E, 0x5A,</div>
+<div class="line">    0x14, 0xAF, 0x30, 0x61, 0xC9, 0x70, 0xDB, 0x2E,</div>
+<div class="line">    0x64, 0x22, 0x72, 0xB5, 0xBD, 0x65, 0xF4, 0xEC,</div>
+<div class="line">    0x22, 0xBC, 0xD3, 0x72, 0x35, 0xCD, 0xAA, 0x41,</div>
+<div class="line">    0x1F, 0xA7, 0xF3, 0x53, 0x14, 0xDE, 0x7E, 0x02,</div>
+<div class="line">    0xD9, 0x0F, 0xB5, 0x5E, 0x25, 0x1D, 0x29, 0x79</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Firmware de la version 1.0 du MFRC522. </p>
+<p>Firmware de référence pour les tests du MFRC522 en version 1.0 </p>
+
+</div>
+</div>
+<a class="anchor" id="addc9d748d171be1bb8a76dd80e10452f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t PROGMEM MFRC522_firmware_referenceV2_0[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur initiale :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    0x00, 0xEB, 0x66, 0xBA, 0x57, 0xBF, 0x23, 0x95,</div>
+<div class="line">    0xD0, 0xE3, 0x0D, 0x3D, 0x27, 0x89, 0x5C, 0xDE,</div>
+<div class="line">    0x9D, 0x3B, 0xA7, 0x00, 0x21, 0x5B, 0x89, 0x82,</div>
+<div class="line">    0x51, 0x3A, 0xEB, 0x02, 0x0C, 0xA5, 0x00, 0x49,</div>
+<div class="line">    0x7C, 0x84, 0x4D, 0xB3, 0xCC, 0xD2, 0x1B, 0x81,</div>
+<div class="line">    0x5D, 0x48, 0x76, 0xD5, 0x71, 0x61, 0x21, 0xA9,</div>
+<div class="line">    0x86, 0x96, 0x83, 0x38, 0xCF, 0x9D, 0x5B, 0x6D,</div>
+<div class="line">    0xDC, 0x15, 0xBA, 0x3E, 0x7D, 0x95, 0x3B, 0x2F</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Firmware de la version 2.0 du MFRC522. </p>
+<p>Firmware de référence pour les tests du MFRC522 en version 2.0 </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_05b7b4f536b9e3a4aecd1837151d279c.html">include</a></li><li class="navelem"><a class="el" href="dir_07b2f03de813145a75523f1d5a4d5370.html">RFID</a></li><li class="navelem"><a class="el" href="a00011.html">MFRC522_core.h</a></li>
+    <li class="footer">Généré le Samedi 31 Octobre 2015 00:46:37 pour avr.sdk par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>
