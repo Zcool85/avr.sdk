@@ -1,5 +1,5 @@
 var dir_07b2f03de813145a75523f1d5a4d5370 =
 [
-    [ "MFRC522.h", "_m_f_r_c522_8h.html", "_m_f_r_c522_8h" ],
-    [ "MFRC522_core.h", "_m_f_r_c522__core_8h.html", "_m_f_r_c522__core_8h" ]
+    [ "MFRC522.h", "a00010.html", "a00010" ],
+    [ "MFRC522_core.h", "a00011.html", "a00011" ]
 ];

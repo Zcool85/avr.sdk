@@ -1,7 +1,7 @@
 var modules =
 [
-    [ "Protocoles de communication", "group___p_r_o_t_o_c_o_l_e_s.html", "group___p_r_o_t_o_c_o_l_e_s" ],
-    [ "Afficheurs LCD", "group___l_c_d.html", "group___l_c_d" ],
-    [ "Radiofréquence", "group___r_f_m.html", "group___r_f_m" ],
-    [ "RFID", "group___r_f_i_d.html", "group___r_f_i_d" ]
+    [ "Protocoles de communication", "a00014.html", "a00014" ],
+    [ "Afficheurs LCD", "a00015.html", "a00015" ],
+    [ "Radiofréquence", "a00016.html", "a00016" ],
+    [ "RFID", "a00017.html", "a00017" ]
 ];

@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "avr.sdk", "index.html", [
-    [ "Liste des choses à faire", "todo.html", null ],
+    [ "Liste des choses à faire", "a00019.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Structures de données", "annotated.html", [
       [ "Structures de données", "annotated.html", "annotated_dup" ],
@@ -27,8 +27,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"162c_8h.html",
-"_m_f_r_c522__core_8h.html#aae4e5280594d2e5f826bd6bca0539a33a4e859fdaca136ea69b6d1a15d8ce42bb"
+"a00001.html",
+"a00011.html#a69b49dba203b00abdb4ad357b6ca525e"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';
