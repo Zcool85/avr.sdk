@@ -10,7 +10,7 @@ La documentation en ligne du SDK est accessible [ici](http://zcool85.github.io/a
 # Templates
 ## Template Makefile
 
-Un template de fichier Makefile ([Makefile.template](templates/Makefile.template)) est disponible dnas le répertoire templates. Pour l'utiliser, il suffit de le copier dans le répertoire des sources à compiler (en renommant le fichier `Makefile`) et de modifier l'entête du fichier déclarant les variables suivantes :
+Un template de fichier Makefile ([Makefile.template](templates/Makefile.template)) est disponible dans le répertoire templates. Pour l'utiliser, il suffit de le copier dans le répertoire des sources à compiler (en renommant le fichier `Makefile`) et de modifier l'entête du fichier déclarant les variables suivantes :
 - MCU
 - HZ
 - PROGRAMMER_MCU
@@ -52,7 +52,7 @@ Le template apparaitra dans la liste des templates à l'ouverture d'Xcode.
 
 # TODO
 
-- [ ] Revoir le tamplate du makefile
+- [ ] template Xcode : Revoir le template du makefile
 - [ ] Faire fonctionner l'API RFM pour les modules alpha
 - [ ] Présenter l'organisation des répertoires dans la documentation
 - [ ] Compléter l'API I2C avec un mode de fonctionnement par interruptions
@@ -60,3 +60,6 @@ Le template apparaitra dans la liste des templates à l'ouverture d'Xcode.
 - [ ] Faire une API correcte pour le module RFID MFRC522
 - [ ] Ajouter une API pour gérer le mode SPI en esclave
 - [ ] Ajouter une API UART
+- [ ] template Xcode : Ajout de l'argument -Wc99-extensions pour la target 'Index' (GCC_C_LANGUAGE_STANDARD=GNU99)
+- [ ] template Xcode : Correction des deux erreurs pour la target 'Index'
+- [ ] template Xcode : Trouver une solution pour activer le contrôle de la documentation embarquée dans le code

@@ -74,8 +74,6 @@
 			</array>
 			<key>PRODUCT_NAME</key>
 			<string>$(TARGET_NAME)</string>
-			<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
-			<string>YES</string>
 		</dict>
 	</dict>
 	<key>Targets</key>
@@ -128,9 +126,15 @@
 			<key>Configurations</key>
 			<dict>
 				<key>Debug</key>
-				<dict/>
+				<dict>
+					<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+					<string>YES</string>
+				</dict>
 				<key>Release</key>
-				<dict/>
+				<dict>
+					<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+					<string>YES</string>
+				</dict>
 			</dict>
 			<key>BuildPhases</key>
 			<array>
