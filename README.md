@@ -7,7 +7,8 @@ utilisés pour mes réalisations personnelles.
 
 Documentation en ligne accessible [ici](http://zcool85.github.io/avr.sdk/index.html)
 
-# Template Makefile
+# Templates
+## Template Makefile
 
 Un template de fichier Makefile ([Makefile.template](templates/Makefile.template)) est disponible dnas le répertoire templates. Pour l'utiliser, il suffit de le copier dans le répertoire des sources à compiler (en renommant le fichier `Makefile`) et de modifier l'entête du fichier déclarant les variables suivantes :
 - MCU
@@ -19,6 +20,17 @@ Un template de fichier Makefile ([Makefile.template](templates/Makefile.template
 - OPTLEVEL
 - AVRDUDE_PROGRAMMERID
 - AVRDUDE_PORT
+
+## Template Xcode
+
+Un template complet pour Xcode (v4 à v7) est diponible dans le répertoire templates/Xcode. Pour installer ce template, il suffit de copier le contenu du répertoire `templates/Xcode` dans le répertoire des templates Xcode.
+
+Pour ce faire, il suffit dans un premier temps de créer le répertoire des templates de projet pour Xcode :
+`mkdir -p ~/Library/Developer/Xcode/Templates/Project\ Template`
+Et copier le template dans le répertoire tout juste créé :
+`cp -R templates/Xcode/* ~/Library/Developer/Xcode/Templates/Project\ Template/.`.
+
+Le template apparaitra dans la liste des templates à l'ouverture d'Xcode.
 
 # TODO
 

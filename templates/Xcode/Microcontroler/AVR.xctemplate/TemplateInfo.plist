@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Quelques aides : http://meandmark.com/blog/2011/12/creating-custom-xcode-4-project-templates/ -->
+
+        <!-- Obligatoire pour spécifier qu'il s'agit d'un template de projet -->
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+
+        <!-- Clef d'identification du template de projet. On peut mettre ce que l'on veut -->
+	<key>Identifier</key>
+	<string>com.zcool.avr.template</string>
+
+        <!-- Indique qu'il s'agit d'un template concret pour qu'il apparaisse dans la liste des modèles de projets -->
+	<key>Concrete</key>
+	<true/>
+
+        <!-- Description du template de projet -->
+	<key>Description</key>
+	<string>Template d'un projet AVR en C</string>
+
+        <!-- Ordre d'apparition du template dans la liste -->
+	<key>SorterOrder</key>
+	<integer>1</integer>
+
+	<!-- Sert à gruger Xcode pour la documentation (Target Index) et définit le groupe dans lequel le template apparait -->
+        <key>Platforms</key>
+	<array>
+		<string>com.apple.platform.macosx</string>
+	</array>
+
+        <!-- Liste des types de fichiers autorisés -->
+	<key>AllowedTypes</key>
+	<array>
+		<string>public.c-header</string>
+		<string>public.c-source</string>
+	</array>
+
+        <!-- Utilisé pour demander les infos par défaut du type nom du projet et namespace -->
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.base</string>
+	</array>
+
+        <!-- Définit les fichiers template à utiliser et leur emplacement de destination dans le projet -->
+	<key>Definitions</key>
+	<dict>
+		<key>main.c</key>
+		<dict>
+			<key>Path</key>
+			<string>main.c</string>
+                        <key>Group</key>
+                        <array>
+                            <string>src</string>
+                        </array>    
+		</dict>
+		<key>Makefile</key>
+		<dict>
+			<key>Path</key>
+			<string>Makefile</string>
+			<!-- Suppression du fichier Makefile dans les targets -->
+			<key>TargetIndices</key>
+			<array/>
+		</dict>
+	</dict>
+
+        <!-- Définit les éléments à ajouter au projet -->
+	<key>Nodes</key>
+	<array>
+		<string>main.c</string>
+		<string>Makefile</string>
+	</array>
+
+        <!-- Définit le paramétrage des configurations Debug et Release -->
+	<key>Project</key>
+	<dict>
+		<key>Configurations</key>
+		<dict>
+			<key>Debug</key>
+			<dict/>
+			<key>Release</key>
+			<dict/>
+		</dict>
+		<key>SharedSettings</key>
+		<dict>
+			<key>PATH</key>
+			<string>$(PATH):$(PROJECT_DIR)</string>
+			<key>HEADER_SEARCH_PATHS</key>
+			<string>/usr/local/lib/gcc/avr/4.9.2/include /usr/local/lib/gcc/avr/4.9.2/include-fixed /usr/local/lib/gcc/avr/4.9.2/../../../../avr/include</string>
+			<key>PRODUCT_NAME</key>
+			<string>$(TARGET_NAME)</string>
+                        <key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+                        <string>YES</string>
+		</dict>
+	</dict>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>All</string>
+
+			<key>BuildToolPath</key>
+			<string>make</string>
+
+			<key>TargetType</key>
+			<string>Legacy</string>
+
+			<key>BuildToolArgsString</key>
+			<string>all -C &quot;$(PROJECT)&quot;</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Build</string>
+
+			<key>TargetType</key>
+			<string>Legacy</string>
+
+			<key>BuildToolPath</key>
+			<string>make</string>
+
+			<key>BuildToolArgsString</key>
+			<string>clean build -C &quot;$(PROJECT)&quot;</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Upload</string>
+
+			<key>TargetType</key>
+			<string>Legacy</string>
+
+			<key>BuildToolPath</key>
+			<string>make</string>
+
+			<key>BuildToolArgsString</key>
+			<string>clean build program -C &quot;$(PROJECT)&quot;</string>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Clean</string>
+
+			<key>TargetType</key>
+			<string>Legacy</string>
+
+			<key>BuildToolPath</key>
+			<string>make</string>
+
+			<key>BuildToolArgsString</key>
+			<string>clean -C &quot;$(PROJECT)&quot;</string>
+		</dict>
+		<dict>
+			<key>ProductType</key>
+			<string>com.apple.product-type.tool</string>
+
+			<key>Name</key>
+			<string>Index</string>
+
+			<key>Configurations</key>
+			<dict>
+				<key>Debug</key>
+				<dict/>
+				<key>Release</key>
+				<dict/>
+			</dict>
+
+			<key>BuildPhases</key>
+			<array>
+				<dict>
+					<key>Class</key>
+					<string>Sources</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Default</key>
+			<string>atmega324p</string>
+
+			<key>Description</key>
+			<string>Microcontroller</string>
+
+			<key>Identifier</key>
+			<string>MCU</string>
+
+			<key>Name</key>
+			<string>MCU</string>
+
+			<key>SortOrder</key>
+			<integer>1</integer>
+
+			<key>Type</key>
+			<string>popup</string>
+
+			<key>Units</key>
+			<dict>
+				
+
+
+				
+				<key>atmega324p</key>
+				<dict>
+					<key>Project</key>
+					<dict>
+						<key>Configurations</key>
+						<dict>
+							<key>Debug</key>
+							<dict>
+							<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+								<string>DEBUG=1, __AVR_ATmega324P__, F_CPU=___VARIABLE_F_CPU___</string>
+							</dict>
+							<key>Release</key>
+							<dict>
+								<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+								<string>__AVR_ATmega324P__, F_CPU=___VARIABLE_F_CPU___</string>
+							</dict>
+						</dict>
+					</dict>
+				</dict>
+				
+				
+
+
+			</dict>
+		</dict>
+
+
+		<dict>
+			<key>Default</key>
+			<string>avrispmkII</string>
+
+			<key>Description</key>
+			<string>Programmer</string>
+
+			<key>Identifier</key>
+			<string>PROGRAMMER</string>
+
+			<key>Name</key>
+			<string>Programmer</string>
+
+			<key>SortOrder</key>
+			<integer>2</integer>
+
+			<key>Type</key>
+			<string>popup</string>
+
+			<key>Units</key>
+			<dict>
+				
+				<key>avrispmkII</key>
+				<dict/>
+				
+			</dict>
+		</dict>
+		
+		<dict>
+			<key>Default</key>
+			<string>cu.usbmodem*</string>
+
+			<key>Description</key>
+			<string>Serial Port (for serial programmer)</string>
+
+			<key>Identifier</key>
+			<string>SERIAL_PORT</string>
+
+			<key>Name</key>
+			<string>Serial Port</string>
+
+			<key>SortOrder</key>
+			<integer>3</integer>
+
+			<key>Required</key>
+	        	<true/>
+
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+
+		<dict>
+			<key>Default</key>
+			<string>16000000</string>
+
+			<key>Description</key>
+			<string>MCU frequence (in Hz)</string>
+
+			<key>Identifier</key>
+			<string>F_CPU</string>
+
+			<key>Name</key>
+			<string>Frequency</string>
+
+			<key>SortOrder</key>
+			<integer>4</integer>
+
+			<key>Required</key>
+	        	<true/>
+
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+	</array>
+</dict>
+</plist>
