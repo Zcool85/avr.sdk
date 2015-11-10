@@ -5,7 +5,7 @@
 avr.sdk est un Software Development Kit contenant les librairies et les outils
 utilisés pour mes réalisations personnelles.
 
-Documentation en ligne accessible [ici](http://zcool85.github.io/avr.sdk/index.html)
+La documentation en ligne du SDK est accessible [ici](http://zcool85.github.io/avr.sdk/index.html).
 
 # Templates
 ## Template Makefile
@@ -25,9 +25,9 @@ Un template de fichier Makefile ([Makefile.template](templates/Makefile.template
 
 Un template complet pour Xcode (v4 à v7) est diponible dans le répertoire templates/Xcode.
 
-Avant d'installer ce template, il convient de modifier les répertoires de recherche des headers par défaut de avr-gcc. Pour ce faire, il faut lancer la commande suivante : `echo | avr-cpp -v` et récupérer les chemins indiqués sous la ligne `#include <...> search starts here:`. Ces répertoires doivent être ajouté à la clef `HEADER_SEARCH_PATHS` dans le fichier `TemplateInfo.plist` :
+Avant d'installer ce template, il convient de modifier les répertoires de recherche des headers par défaut de avr-gcc. Pour ce faire, il faut lancer la commande suivante : `echo | avr-cpp -v` et récupérer les chemins indiqués sous la ligne `#include <...> search starts here:`. Ces chemins doivent être ajoutés à la clef `HEADER_SEARCH_PATHS` dans le fichier `templates/Xcode/Microcontroller/AVR.xctemplate/TemplateInfo.plist` :
 
-````
+````XML
 ...
 <key>HEADER_SEARCH_PATHS</key>
 <array>
@@ -38,7 +38,7 @@ Avant d'installer ce template, il convient de modifier les répertoires de reche
 ...
 ````
 
-Pour installer ce template, il suffit de copier le contenu du répertoire `templates/Xcode` dans le répertoire des templates Xcode.
+Puis, pour installer ce template, il suffit de copier le contenu du répertoire `templates/Xcode` dans le répertoire des templates Xcode.
 
 Pour ce faire, il suffit dans un premier temps de créer le répertoire des templates de projet pour Xcode :
 
@@ -52,6 +52,7 @@ Le template apparaitra dans la liste des templates à l'ouverture d'Xcode.
 
 # TODO
 
+- [ ] Revoir le tamplate du makefile
 - [ ] Faire fonctionner l'API RFM pour les modules alpha
 - [ ] Présenter l'organisation des répertoires dans la documentation
 - [ ] Compléter l'API I2C avec un mode de fonctionnement par interruptions
