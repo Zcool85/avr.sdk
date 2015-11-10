@@ -23,11 +23,29 @@ Un template de fichier Makefile ([Makefile.template](templates/Makefile.template
 
 ## Template Xcode
 
-Un template complet pour Xcode (v4 à v7) est diponible dans le répertoire templates/Xcode. Pour installer ce template, il suffit de copier le contenu du répertoire `templates/Xcode` dans le répertoire des templates Xcode.
+Un template complet pour Xcode (v4 à v7) est diponible dans le répertoire templates/Xcode.
+
+Avant d'installer ce template, il convient de modifier les répertoires de recherche des headers par défaut de avr-gcc. Pour ce faire, il faut lancer la commande suivante : `echo | avr-cpp -v` et récupérer les chemins indiqués sous la ligne `#include <...> search starts here:`. Ces répertoires doivent être ajouté à la clef `HEADER_SEARCH_PATHS` dans le fichier `TemplateInfo.plist` :
+
+````
+...
+<key>HEADER_SEARCH_PATHS</key>
+<array>
+    <string>/usr/local/lib/gcc/avr/4.9.2/include</string>
+    <string>/usr/local/lib/gcc/avr/4.9.2/include-fixed</string>
+    <string>/usr/local/lib/gcc/avr/4.9.2/../../../../avr/include</string>
+</array>
+...
+````
+
+Pour installer ce template, il suffit de copier le contenu du répertoire `templates/Xcode` dans le répertoire des templates Xcode.
 
 Pour ce faire, il suffit dans un premier temps de créer le répertoire des templates de projet pour Xcode :
+
 `mkdir -p ~/Library/Developer/Xcode/Templates/Project\ Template`
+
 Et copier le template dans le répertoire tout juste créé :
+
 `cp -R templates/Xcode/* ~/Library/Developer/Xcode/Templates/Project\ Template/.`.
 
 Le template apparaitra dans la liste des templates à l'ouverture d'Xcode.
