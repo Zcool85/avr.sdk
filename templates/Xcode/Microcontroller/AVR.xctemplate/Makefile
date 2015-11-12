@@ -325,7 +325,6 @@ $(DEPSDIR):
 
 .DELETE_ON_ERROR:
 $(DEPSDIR)/%.d: %.c | $(DEPSDIR)
-	@echo "--> $@"
 	$(CC) $(ALL_ASFLAGS) $(GENDEPFLAGS) -MT $(patsubst %.c,$(OBJDIR)/%.o,$<) -MF $@ $<
 
 
