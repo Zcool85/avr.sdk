@@ -8,22 +8,9 @@ utilisés pour mes réalisations personnelles.
 La documentation en ligne du SDK est accessible [ici](http://zcool85.github.io/avr.sdk/index.html).
 
 # Templates
-## Template Makefile
-
-Un template de fichier Makefile ([Makefile.template](templates/Makefile.template)) est disponible dans le répertoire templates. Pour l'utiliser, il suffit de le copier dans le répertoire des sources à compiler (en renommant le fichier `Makefile`) et de modifier l'entête du fichier déclarant les variables suivantes :
-- MCU
-- HZ
-- PROGRAMMER_MCU
-- TARGET_NAME
-- INC
-- LIBS
-- OPTLEVEL
-- AVRDUDE_PROGRAMMERID
-- AVRDUDE_PORT
-
 ## Template Xcode
 
-Un template complet pour Xcode (v4 à v7) est diponible dans le répertoire templates/Xcode.
+Un template complet pour Xcode (v4 à v7) est disponible dans le répertoire templates/Xcode.
 
 Avant d'installer ce template, il convient de modifier les répertoires de recherche des headers par défaut de avr-gcc. Pour ce faire, il faut lancer la commande suivante : `echo | avr-cpp -v` et récupérer les chemins indiqués sous la ligne `#include <...> search starts here:`. Ces chemins doivent être ajoutés à la clef `HEADER_SEARCH_PATHS` dans le fichier `templates/Xcode/Microcontroller/AVR.xctemplate/TemplateInfo.plist` :
 
@@ -50,9 +37,17 @@ Et copier le template dans le répertoire tout juste créé :
 
 Le template apparaitra dans la liste des templates à l'ouverture d'Xcode.
 
+## Template Makefile sans Xcode
+
+Le fichier [Makefile](templates/Xcode/Microcontroller/AVR.xctemplate/Makefile) du template pour Xcode est utilisable dans utiliser Xcode. Pour l'utiliser, il suffit de le copier dans le répertoire des sources à compiler et de modifier les variables suivantes :
+- MCU
+- F_CPU
+- AVRDUDE_PROGRAMMER
+- AVRDUDE_PORT
+
+
 # TODO
 
-- [ ] template Xcode : Revoir le template du makefile
 - [ ] Faire fonctionner l'API RFM pour les modules alpha
 - [ ] Présenter l'organisation des répertoires dans la documentation
 - [ ] Compléter l'API I2C avec un mode de fonctionnement par interruptions
@@ -60,6 +55,7 @@ Le template apparaitra dans la liste des templates à l'ouverture d'Xcode.
 - [ ] Faire une API correcte pour le module RFID MFRC522
 - [ ] Ajouter une API pour gérer le mode SPI en esclave
 - [ ] Ajouter une API UART
+- [X] template Xcode : Revoir le template du makefile
 - [ ] template Xcode : Ajout de l'argument -Wc99-extensions pour la target 'Index' (GCC_C_LANGUAGE_STANDARD=GNU99)
 - [ ] template Xcode : Correction des deux erreurs pour la target 'Index'
 - [ ] template Xcode : Trouver une solution pour activer le contrôle de la documentation embarquée dans le code
