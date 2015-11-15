@@ -15,7 +15,11 @@
 #
 # ___COPYRIGHT___
 
-# TODO : Supprimer les références circulaires
+# TODO : Ajouer les .DELETE_ON_ERROR:
+# TODO : Vérifier le bon usage des $<
+# TODO : Mettre les sources dans "src" et non à la racine du projet
+# TODO : Ajouter le répertoire "inc" pour les fichiers d'include
+# TODO : Tester en vrai "make program"
 
 #===============================================================================
 #=========================== Configuration générale ============================
@@ -107,7 +111,7 @@ DEBUG                   := stabs
 
 # Répertoire de compilation
 #     Tous les fichiers binaires seront dans ce répertoires
-OBJDIR                  := build
+OBJDIR                  := bin
 
 
 #-------------------------------------------------------------------------------
@@ -171,7 +175,7 @@ CSTANDARD               := c99
 #     -Wa,...    -> Commande envoyé à l'assembleur
 #     -adhlns... -> Création d'un listing assembleur
 #     -I...      -> Répertoire de recherche des fichiers d'entête
-CFLAGS                  := -g$(DEBUG)
+CFLAGS                   = -g$(DEBUG)
 CFLAGS                  += -DF_CPU=$(F_CPU)UL
 CFLAGS                  += -O$(OPT)
 CFLAGS                  += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
@@ -195,7 +199,7 @@ CFLAGS                  += -std=$(CSTANDARD)
 #  -listing-cont-lines -> Définit le nombre de ligne continue maximum de
 #                         dump hexadécimal à afficher pour une seule ligne
 #                         de cide source
-ASFLAGS                 := -Wa,-adhlns=$(addprefix $(OBJDIR)/,$(<:.S=.lst)),-gstabs,--listing-cont-lines=100
+ASFLAGS                  = -Wa,-adhlns=$(addprefix $(OBJDIR)/,$(<:.S=.lst)),-gstabs,--listing-cont-lines=100
 
 
 #-------------------------------------------------------------------------------
@@ -293,9 +297,9 @@ AVRDUDE_FLAGS           += $(AVRDUDE_ERASE_COUNTER)
 #-------------------------------------------------------------------------------
 
 # Convertion ELF vers COFF pour usage en déboggage / simulation dans AVR Studio ou VMLAB
-COFFCONVERT             := $(OBJCOPY) --debugging \
-                           --change-section-address .data-0x800000 \
-                           --change-section-address .bss-0x800000 \
+COFFCONVERT             := --debugging \
+                           --change-section-address   .data-0x800000 \
+                           --change-section-address    .bss-0x800000 \
                            --change-section-address .noinit-0x800000 \
                            --change-section-address .eeprom-0x810000
 
@@ -305,11 +309,7 @@ COFFCONVERT             := $(OBJCOPY) --debugging \
 #-------------------------------------------------------------------------------
 
 # Pour les fichiers HEX
-HEXSIZE                 := $(SIZE) --target=$(FORMAT) $(OBJDIR)/$(TARGET).hex
-
-# Pour les fichiers ELF
-ELFSIZE                 := $(SIZE) --format=avr $(OBJDIR)/$(TARGET).elf
-
+HEXSIZE                 := --target=$(FORMAT)
 
 
 #===============================================================================
@@ -320,20 +320,18 @@ ELFSIZE                 := $(SIZE) --format=avr $(OBJDIR)/$(TARGET).elf
 # Messages
 #-------------------------------------------------------------------------------
 
-MSG_BEGIN               := -------- Début --------
-MSG_END                 := --------  Fin  --------
-MSG_SIZE_BEFORE         := Taille avant :
-MSG_SIZE_AFTER          := Taille après :
-MSG_COFF                := Convertion en AVR COFF :
-MSG_EXTENDED_COFF       := Convertion en AVR COFF étendu :
-MSG_FLASH               := Création du fichier de chargement pour mémoire flash :
-MSG_EEPROM              := Création du fichier de chargement pour mémoire EEPROM :
-MSG_EXTENDED_LISTING    := Création du listing étendu :
-MSG_SYMBOL_TABLE        := Création de la table des symboles :
-MSG_LINKING             := Liaison :
-MSG_COMPILING           := Compilation :
-MSG_ASSEMBLING          := Assemblage :
-MSG_CLEANING            := Nétoyage du projet :
+MSG_DEPENDANCE          := "  --> Dépendance :"
+MSG_SIZE_AFTER          := "  --> Taille :"
+MSG_COFF                := "  --> Convertion AVR COFF :"
+MSG_EXTENDED_COFF       := "  --> Convertion AVR COFF étendu :"
+MSG_FLASH               := "  --> Mémoire flash :"
+MSG_EEPROM              := "  --> EEPROM :"
+MSG_EXTENDED_LISTING    := "  --> Listing étendu :"
+MSG_SYMBOL_TABLE        := "  --> Symboles :"
+MSG_LINKING             := "  --> Liaison :"
+MSG_COMPILING           := "  --> Compilation :"
+MSG_ASSEMBLING          := "  --> Assemblage :"
+MSG_CLEANING            := "  --> Nétoyage du projet"
 
 
 #-------------------------------------------------------------------------------
@@ -343,23 +341,9 @@ MSG_CLEANING            := Nétoyage du projet :
 # Définition des fichiers .o
 OBJ                     := $(addprefix $(OBJDIR)/,$(SRC:.c=.o)) $(addprefix $(OBJDIR)/,$(ASRC:.S=.o))
 
-# Définition de tous les listings des fichiers
-LST                     := $(addprefix $(OBJDIR)/,$(SRC:.c=.lst)) $(addprefix $(OBJDIR)/,$(ASRC:.S=.lst))
-
 
 #-------------------------------------------------------------------------------
-# Assemblage des lignes de commandes
-#-------------------------------------------------------------------------------
-
-# Combinaison de toutes les options de compilation
-ALL_CFLAGS              := -mmcu=$(MCU) -I. $(CFLAGS)
-
-# Combinaison de toutes les options de l'assembleur
-ALL_ASFLAGS             := -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
-
-
-#-------------------------------------------------------------------------------
-# Génération des fichiers de dépendances
+# fichiers de dépendances
 #-------------------------------------------------------------------------------
 
 # Emplacement des fichiers de dépendances
@@ -371,16 +355,11 @@ DEPS                    := $(SRC:%.c=$(DEPSDIR)/%.d)
 # Inclusion des fichiers de dépendances (ce qui provoque également leur création)
 # lors de la première passe du GNU make
 # Inutile si la cible est clean ou help
-# TODO ifneq (,$(findstring clean,$(MAKEFLAGS)))
-# TODO ifneq (,$(findstring help,$(MAKEFLAGS)))
-     -include $(DEPS)
-# TODO endif
-# TODO endif
-
-# Règle de création d'un fichier de dépendance
-.DELETE_ON_ERROR:
-$(DEPSDIR)/%.d: %.c | $(DEPSDIR)
-	$(CC) $(ALL_ASFLAGS) -M -MT $(patsubst %.c,$(OBJDIR)/%.o,$<) -MF $@ $<
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(MAKECMDGOALS),help)
+	-include $(DEPS)
+endif
+endif
 
 
 #-------------------------------------------------------------------------------
@@ -389,26 +368,27 @@ $(DEPSDIR)/%.d: %.c | $(DEPSDIR)
 
 # Cibles PHONY
 .PHONY : all build program debug coff extcoff clean help \
-         gccversion sizebefore sizeafter \
-         elf hex eep lss sym gdb-config
+         displaysize gdb-config
+
+# Suffixes de fichiers
+.SUFFIXES: .elf .hex .eep .lss .sym .c .o .S .s .i .lst .map
 
 # Cible par défaut
-all: gccversion \
-     sizebefore \
-     clean \
-     build \
-     program \
-     sizeafter
+.DEFAULT_GOAL           := all
+
+# Cible par défaut
+all: build \
+     program
 
 # Cible de construction des fichiers binaires
-build: hex eep lss sym
+build: $(OBJDIR)/$(TARGET).hex $(OBJDIR)/$(TARGET).eep displaysize
 
 # Cible de programmation du microcontrolleur
-program: hex eep
+program: build
 	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_WRITE_EEPROM)
 
 # TODO : Ne plus utiliser Windows
-debug: gdb-config elf
+debug: gdb-config $(OBJDIR)/$(TARGET).elf
 ifeq ($(DEBUG_BACKEND), avarice)
 	@echo Starting AVaRICE - Press enter when "waiting to connect" message displays.
 	@$(WINSHELL) /c start avarice --jtag $(JTAG_DEV) --erase --program --file \
@@ -421,23 +401,23 @@ endif
     @$(WINSHELL) /c start avr-$(DEBUG_UI) --command=$(GDBINIT_FILE)
 
 # Cible de convertion d'un ELF en COFF
-coff: elf
+coff: $(OBJDIR)/$(TARGET).elf
 	@echo
 	@echo $(MSG_COFF) $(OBJDIR)/$(TARGET).cof
-	$(COFFCONVERT) -O coff-avr $< $(OBJDIR)/$(TARGET).cof
+	$(OBJCOPY) -O coff-avr $(COFFCONVERT) $< $(OBJDIR)/$(TARGET).cof
 
 # Cible de convertion d'un ELF en COFF étendu
-extcoff: elf
+extcoff: $(OBJDIR)/$(TARGET).elf
 	@echo
 	@echo $(MSG_EXTENDED_COFF) $(OBJDIR)/$(TARGET).cof
-	$(COFFCONVERT) -O coff-ext-avr $< $(OBJDIR)/$(TARGET).cof
+	$(OBJCOPY) -O coff-ext-avr $(COFFCONVERT) $< $(OBJDIR)/$(TARGET).cof
 
 # Compilation des fichiers en assembleur depuis les sources C
-$(OBJDIR)/%.s : %.c | $(OBJDIR)
-	$(CC) -S $(ALL_CFLAGS) $< -o $@
+$(OBJDIR)/%.s : %.c
+	$(CC) -S -mmcu=$(MCU) -I. $(CFLAGS) $< -o $@
 
 # Compilation d'un fichier de rapport de compilation (pour les rapports de bug)
-$(OBJDIR)/%.i : %.c | $(OBJDIR)
+$(OBJDIR)/%.i : %.c
 	$(CC) -E -mmcu=$(MCU) -I. $(CFLAGS) $< -o $@
 
 # Cible pour netoyer tous les fichiers produits
@@ -448,81 +428,52 @@ clean:
 	if test -d "$(OBJDIR)/.dep"; then $(REMOVEDIR) "$(OBJDIR)/.dep"; fi
 	if test -d "$(OBJDIR)"; then $(REMOVE) "$(OBJDIR)"/*; fi
 	if test -d "$(OBJDIR)"; then $(REMOVEDIR) "$(OBJDIR)"; fi
-	@echo
 
 
 #-------------------------------------------------------------------------------
 # Règles de génération des sous-cibles
 #-------------------------------------------------------------------------------
 
-# Règle pour les fichiers binaires et listings
-elf: $(OBJDIR)/$(TARGET).elf
-hex: $(OBJDIR)/$(TARGET).hex
-eep: $(OBJDIR)/$(TARGET).eep
-lss: $(OBJDIR)/$(TARGET).lss
-sym: $(OBJDIR)/$(TARGET).sym
+# Création du fichhier ELF à partir des fichiers objets (liaison des fichiers .o)
+$(OBJDIR)/%.elf $(OBJDIR)/%.lss $(OBJDIR)/%.sym: $(OBJ) | $(OBJDIR)
+	@echo
+	@echo $(MSG_LINKING) $@
+	$(CC) -mmcu=$(MCU) -I. $(CFLAGS) $^ --output $@ $(LDFLAGS)
+	@echo
+	@echo $(MSG_EXTENDED_LISTING) $(@:.elf=.lss)
+	$(OBJDUMP) -h -S -z $@ > $(@:.elf=.lss)
+	@echo
+	@echo $(MSG_SYMBOL_TABLE) $(@:.elf=.sym)
+	$(NM) -n $@ > $(@:.elf=.sym)
 
-# Affichage de la version du compilateur
-gccversion:
-	@$(CC) --version
-
-# Création des fichiers finaux HEX depuis le format ELF
+# Création du fichier HEX à partir de l'ELF
 $(OBJDIR)/%.hex: $(OBJDIR)/%.elf | $(OBJDIR)
 	@echo
 	@echo $(MSG_FLASH) $@
-	$(OBJCOPY) -O $(FORMAT) -R .eeprom $< $@
+	$(OBJCOPY) -O $(FORMAT) -R .eeprom -R .fuse -R .lock -R .signature $< $@
 
-# Création des fichiers finaux HEX depuis le format ELF
+# Création du fichier EEP à partir de l'ELF
 $(OBJDIR)/%.eep: $(OBJDIR)/%.elf | $(OBJDIR)
 	@echo
 	@echo $(MSG_EEPROM) $@
-	-$(OBJCOPY) -j .eeprom --set-section-flags .eeprom=alloc,load \
-            --change-section-lma .eeprom=0 -O $(FORMAT) $< $@
-
-# Création du listing étendu depuis le format ELF
-$(OBJDIR)/%.lss: $(OBJDIR)/%.elf | $(OBJDIR)
-	@echo
-	@echo $(MSG_EXTENDED_LISTING) $@
-	$(OBJDUMP) -h -S $< > $@
-
-# Création de la table des symboles depuis le format ELF
-$(OBJDIR)/%.sym: $(OBJDIR)/%.elf | $(OBJDIR)
-	@echo
-	@echo $(MSG_SYMBOL_TABLE) $@
-	$(NM) -n $< > $@
-
-# Création du fichhier ELF à partir des fichiers O (liaison des fichiers .o)
-.SECONDARY : $(OBJDIR)/$(TARGET).elf
-.PRECIOUS : $(OBJ)
-$(OBJDIR)/%.elf: $(OBJ) | $(OBJDIR)
-	@echo
-	@echo $(MSG_LINKING) $@
-	$(CC) $(ALL_CFLAGS) $^ --output $@ $(LDFLAGS)
+	-$(OBJCOPY) -j .eeprom --set-section-flags .eeprom="alloc,load" \
+                           --change-section-lma .eeprom=0 --no-change-warnings -O $(FORMAT) $< $@
 
 # Compilation des fichiers sources C
 $(OBJDIR)/%.o : %.c | $(OBJDIR)
 	@echo
 	@echo $(MSG_COMPILING) $<
-	$(CC) -c $(ALL_CFLAGS) "$(abspath $<)" -o $@
+	$(CC) -c -mmcu=$(MCU) -I. $(CFLAGS) $< -o $@
 
 # Création des fichiers .o à partir des fichiers assembleur
 $(OBJDIR)/%.o : %.S | $(OBJDIR)
 	@echo
 	@echo $(MSG_ASSEMBLING) $<
-	$(CC) -c $(ALL_ASFLAGS) $< -o $@
-
-# Affichage de la taille des binaires avant nouvelle compilation
-sizebefore: hex
-	@if test -f $(OBJDIR)/$(TARGET).elf; then echo; echo $(MSG_SIZE_BEFORE); $(ELFSIZE); \
-        2>/dev/null; echo; fi
-	@if test -f $(OBJDIR)/$(TARGET).hex; then echo; echo $(MSG_SIZE_BEFORE); $(HEXSIZE); \
-        2>/dev/null; echo; fi
+	$(CC) -c -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS) $< -o $@
 
 # Affichage de la taille des binaires après nouvelle compilation
-sizeafter: hex
-	@if test -f $(OBJDIR)/$(TARGET).elf; then echo; echo $(MSG_SIZE_AFTER); $(ELFSIZE); \
-         2>/dev/null; echo; fi
-	@if test -f $(OBJDIR)/$(TARGET).hex; then echo; echo $(MSG_SIZE_AFTER); $(HEXSIZE); \
+displaysize:
+	@if test -f $(OBJDIR)/$(TARGET).hex; then echo; echo $(MSG_SIZE_AFTER); $(SIZE) $(HEXSIZE) $(OBJDIR)/$(TARGET).hex; \
          2>/dev/null; echo; fi
 
 # Génération du fichier avr-gdb d'initialisation définissant :
@@ -549,11 +500,23 @@ endif
 
 # Règle de construction du répertoire des binaires
 $(OBJDIR):
-	@mkdir -p $@
+	@mkdir -p $(OBJDIR)
 
 # Règle de création du répertoires des dépendances
 $(DEPSDIR):
 	@mkdir -p $(DEPSDIR)
+
+
+#-------------------------------------------------------------------------------
+# Génération des fichiers de dépendances
+#-------------------------------------------------------------------------------
+
+# Règle de création d'un fichier de dépendance
+.DELETE_ON_ERROR:
+$(DEPSDIR)/%.d: %.c | $(DEPSDIR)
+	@echo
+	@echo $(MSG_DEPENDANCE) $@
+	$(CC) -mmcu=$(MCU) -I. $(CFLAGS) -M -MT $(patsubst %.c,$(OBJDIR)/%.o,$<) -MF $@ $<
 
 
 #-------------------------------------------------------------------------------
@@ -563,27 +526,37 @@ $(DEPSDIR):
 help:
 	@echo
 	@echo "Usage :"
-	@echo "   make all        => Compile le projet et programme le microcontrolleur"
+	@echo "   make [all]"
+	@echo "        => Compile le projet et programme le microcontrolleur"
 	@echo
-	@echo "   make build      => Compile le projet"
+	@echo "   make build"
+	@echo "        => Compile le projet"
 	@echo
-	@echo "   make program    => Télécharge le fichier HEX dans le microcontrolleur en utilisant avrdude."
-	@echo "                      (Merci de mettre à jour la configuration avrdude de ce fichier Makefile !)"
+	@echo "   make program"
+	@echo "        => Télécharge le fichier HEX dans le microcontrolleur en utilisant avrdude."
+	@echo "           (Merci de mettre à jour la configuration avrdude de ce fichier Makefile !)"
 	@echo
-	@echo "   make debug      => Démarre soit simulavr ou avarice comme spécifié pour le débuggage"
-	@echo "                      (Avec avr-gdb ou avr-insight comme déboggeur)"
+	@echo "   make debug"
+	@echo "        => Démarre soit simulavr ou avarice comme spécifié pour le débuggage"
+	@echo "           (Avec avr-gdb ou avr-insight comme déboggeur)"
 	@echo
-	@echo "   make coff       => Converti le fichier ELF en fichier COFF pour AVR"
+	@echo "   make coff"
+	@echo "        => Converti le fichier ELF en fichier COFF pour AVR"
 	@echo
-	@echo "   make extcoff    => Converti le fichier ELF en fichier COFF étendu pour AVR"
+	@echo "   make extcoff"
+	@echo "        => Converti le fichier ELF en fichier COFF étendu pour AVR"
 	@echo
-	@echo "   make filename.s => Comiple fichier 'filename.c' en code assembleur uniquement"
+	@echo "   make $(OBJDIR)/<filename>.s"
+	@echo "        => Compile fichier '<filename>.c' en code assembleur uniquement"
 	@echo
-	@echo "   make filename.i => Créé un fichier source précompilé utilisable pour les rapports de bug du porjet GCC"
+	@echo "   make $(OBJDIR)/<filename>.i"
+	@echo "        => Créé le fichier précompilé à partir du fichier '<filename.c>'"
+	@echo "           (fichier utilisable pour les rapports de bug du porjet GCC)"
 	@echo
-	@echo "   make clean      => Supprime tous les fichiers et répertoires de compilation"
+	@echo "   make clean"
+	@echo "        => Supprime tous les fichiers et répertoires de compilation"
 	@echo
-	@echo "Pour recompiler tout le projet, utiliser 'make clean' puis 'make all'"
+	@echo "Pour recompiler tout le projet, utiliser 'make clean' puis 'make [all]'"
 	@echo
 
 # EOF
