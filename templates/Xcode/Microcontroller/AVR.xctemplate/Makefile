@@ -15,12 +15,6 @@
 #
 # ___COPYRIGHT___
 
-# TODO : Ajouer les .DELETE_ON_ERROR:
-# TODO : Vérifier le bon usage des $<
-# TODO : Mettre les sources dans "src" et non à la racine du projet
-# TODO : Ajouter le répertoire "inc" pour les fichiers d'include
-# TODO : Tester en vrai "make program"
-
 #===============================================================================
 #=========================== Configuration générale ============================
 #===============================================================================
@@ -49,13 +43,13 @@ WINSHELL                := cmd      # TODO : A remplacer par la version *nux
 
 # MCU
 #     Cf. http://www.nongnu.org/avr-libc/user-manual/using_tools.html
-MCU                     := atmega324p    # TODO : ___VARIABLE_MCU___
+MCU                     := ___VARIABLE_MCU___
 
 # Fréquence du microcontrolleur
 #     Cette variable est utilisée pour définir le symbol F_CPU dans tous les
 #     fichiers sources. Il est inutile de suffixer la valeur par 'UL' car
 #     cela est fait automatiquement par ce fichier Makefile
-F_CPU                   := 16000000# TODO : ___VARIABLE_F_CPU___
+F_CPU                   := ___VARIABLE_F_CPU___
 
 
 
@@ -65,13 +59,13 @@ F_CPU                   := 16000000# TODO : ___VARIABLE_F_CPU___
 
 # Définit le type de microcontrolleur à programmer pour avrdude
 #    Cf. avrdude -c?
-AVRDUDE_PROGRAMMER      := avrispmkII     # TODO : ___VARIABLE_PROGRAMMER___
+AVRDUDE_PROGRAMMER      := ___VARIABLE_PROGRAMMER___
 
 # Port de connexion avrdude à utiliser pour programmer le microcontrolleur
 #     com1 -> Port série
 #     lpt1 -> Port parallèle
 #     usb  -> Port usb
-AVRDUDE_PORT            := usb   # TODO : ___VARIABLE_SERIAL_PORT___
+AVRDUDE_PORT            := ___VARIABLE_SERIAL_PORT___
 
 # NOTE : Liste des microcontrolleurs programmable via avrdude : avrdude -p?
 
@@ -258,7 +252,7 @@ EXTMEMOPTS              :=
 #                 commande au linker
 #    -Map      -> Création du fichier .map
 #    --cref    -> Ajout des références croisées au fichier .map
-LDFLAGS                 := -Wl,-Map=$(OBJDIR)/$(TARGET).map,--cref
+LDFLAGS                  = -Wl,-Map=$(@:.elf=.map),--cref
 LDFLAGS                 += $(EXTMEMOPTS)
 LDFLAGS                 += $(PRINTF_LIB) $(SCANF_LIB) $(MATH_LIB)
 
@@ -271,7 +265,7 @@ LDFLAGS                 += $(PRINTF_LIB) $(SCANF_LIB) $(MATH_LIB)
 AVRDUDE_WRITE_FLASH     := -U flash:w:$(OBJDIR)/$(TARGET).hex
 
 # Commande d'écriture de l'eeprom
-AVRDUDE_WRITE_EEPROM    := -U eeprom:w:$(TARGET).eep
+AVRDUDE_WRITE_EEPROM    := -U eeprom:w:$(OBJDIR)/$(TARGET).eep
 
 # Décommenter cette ligne pour que avrdude effectue un comptage de cycle
 # d'effacement
@@ -385,14 +379,23 @@ build: $(OBJDIR)/$(TARGET).hex $(OBJDIR)/$(TARGET).eep displaysize
 
 # Cible de programmation du microcontrolleur
 program: build
-	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_WRITE_EEPROM)
+ifeq (,$(wildcard $(OBJDIR)/$(TARGET).eep))
+	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH)
+else
+	@if [ $$($(SIZE) -d --totals $(OBJDIR)/$(TARGET).eep | tail -1 | cut -f4) -eq 0 ]; \
+     then \
+         $(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH); \
+     else \
+         $(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_WRITE_EEPROM); \
+     fi
+endif
 
 # TODO : Ne plus utiliser Windows
-debug: gdb-config $(OBJDIR)/$(TARGET).elf
+debug: $(OBJDIR)/$(TARGET).elf gdb-config
 ifeq ($(DEBUG_BACKEND), avarice)
 	@echo Starting AVaRICE - Press enter when "waiting to connect" message displays.
 	@$(WINSHELL) /c start avarice --jtag $(JTAG_DEV) --erase --program --file \
-	                      $(OBJDIR)/$(TARGET).elf $(DEBUG_HOST):$(DEBUG_PORT)
+	                      $< $(DEBUG_HOST):$(DEBUG_PORT)
 	@$(WINSHELL) /c pause
 else
 	@$(WINSHELL) /c start simulavr --gdbserver --device $(MCU) --clock-freq \
@@ -401,22 +404,18 @@ endif
     @$(WINSHELL) /c start avr-$(DEBUG_UI) --command=$(GDBINIT_FILE)
 
 # Cible de convertion d'un ELF en COFF
-coff: $(OBJDIR)/$(TARGET).elf
-	@echo
-	@echo $(MSG_COFF) $(OBJDIR)/$(TARGET).cof
-	$(OBJCOPY) -O coff-avr $(COFFCONVERT) $< $(OBJDIR)/$(TARGET).cof
+coff: $(OBJDIR)/$(TARGET).coff
 
 # Cible de convertion d'un ELF en COFF étendu
-extcoff: $(OBJDIR)/$(TARGET).elf
-	@echo
-	@echo $(MSG_EXTENDED_COFF) $(OBJDIR)/$(TARGET).cof
-	$(OBJCOPY) -O coff-ext-avr $(COFFCONVERT) $< $(OBJDIR)/$(TARGET).cof
+extcoff: $(OBJDIR)/$(TARGET).ecoff
 
 # Compilation des fichiers en assembleur depuis les sources C
+.DELETE_ON_ERROR:
 $(OBJDIR)/%.s : %.c
 	$(CC) -S -mmcu=$(MCU) -I. $(CFLAGS) $< -o $@
 
 # Compilation d'un fichier de rapport de compilation (pour les rapports de bug)
+.DELETE_ON_ERROR:
 $(OBJDIR)/%.i : %.c
 	$(CC) -E -mmcu=$(MCU) -I. $(CFLAGS) $< -o $@
 
@@ -434,8 +433,23 @@ clean:
 # Règles de génération des sous-cibles
 #-------------------------------------------------------------------------------
 
+# Règle de génération des fichiers COFF
+.DELETE_ON_ERROR:
+$(OBJDIR)/$(TARGET).coff: $(OBJDIR)/$(TARGET).elf
+	@echo
+	@echo $(MSG_COFF) $@
+	$(OBJCOPY) -O coff-avr $(COFFCONVERT) $< $@
+
+# Règle de génération des fichiers COFF étendus
+.DELETE_ON_ERROR:
+$(OBJDIR)/$(TARGET).ecoff: $(OBJDIR)/$(TARGET).elf
+	@echo
+	@echo $(MSG_EXTENDED_COFF) $@
+	$(OBJCOPY) -O coff-ext-avr $(COFFCONVERT) $< $@
+
 # Création du fichhier ELF à partir des fichiers objets (liaison des fichiers .o)
-$(OBJDIR)/%.elf $(OBJDIR)/%.lss $(OBJDIR)/%.sym: $(OBJ) | $(OBJDIR)
+.DELETE_ON_ERROR:
+$(OBJDIR)/%.elf $(OBJDIR)/%.lss $(OBJDIR)/%.sym $(OBJDIR)/%.map: $(OBJ) | $(OBJDIR)
 	@echo
 	@echo $(MSG_LINKING) $@
 	$(CC) -mmcu=$(MCU) -I. $(CFLAGS) $^ --output $@ $(LDFLAGS)
@@ -447,12 +461,14 @@ $(OBJDIR)/%.elf $(OBJDIR)/%.lss $(OBJDIR)/%.sym: $(OBJ) | $(OBJDIR)
 	$(NM) -n $@ > $(@:.elf=.sym)
 
 # Création du fichier HEX à partir de l'ELF
+.DELETE_ON_ERROR:
 $(OBJDIR)/%.hex: $(OBJDIR)/%.elf | $(OBJDIR)
 	@echo
 	@echo $(MSG_FLASH) $@
 	$(OBJCOPY) -O $(FORMAT) -R .eeprom -R .fuse -R .lock -R .signature $< $@
 
 # Création du fichier EEP à partir de l'ELF
+.DELETE_ON_ERROR:
 $(OBJDIR)/%.eep: $(OBJDIR)/%.elf | $(OBJDIR)
 	@echo
 	@echo $(MSG_EEPROM) $@
@@ -460,12 +476,14 @@ $(OBJDIR)/%.eep: $(OBJDIR)/%.elf | $(OBJDIR)
                            --change-section-lma .eeprom=0 --no-change-warnings -O $(FORMAT) $< $@
 
 # Compilation des fichiers sources C
+.DELETE_ON_ERROR:
 $(OBJDIR)/%.o : %.c | $(OBJDIR)
 	@echo
 	@echo $(MSG_COMPILING) $<
 	$(CC) -c -mmcu=$(MCU) -I. $(CFLAGS) $< -o $@
 
 # Création des fichiers .o à partir des fichiers assembleur
+.DELETE_ON_ERROR:
 $(OBJDIR)/%.o : %.S | $(OBJDIR)
 	@echo
 	@echo $(MSG_ASSEMBLING) $<
