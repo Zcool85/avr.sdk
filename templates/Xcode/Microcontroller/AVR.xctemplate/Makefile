@@ -67,7 +67,9 @@ AVRDUDE_PROGRAMMER      := ___VARIABLE_PROGRAMMER___
 #     usb  -> Port usb
 AVRDUDE_PORT            := ___VARIABLE_SERIAL_PORT___
 
-# NOTE : Liste des microcontrolleurs programmable via avrdude : avrdude -p?
+# Définit le type de microcontrolleur à programmer pour avrdude
+#    NOTE : Liste des microcontrolleurs programmable via avrdude : avrdude -p?
+AVRDUDE_MCU             := $(MCU)
 
 #-------------------------------------------------------------------------------
 # Configuration de la compilation
@@ -280,7 +282,7 @@ AVRDUDE_WRITE_EEPROM    := -U eeprom:w:$(OBJDIR)/$(TARGET).eep
 #AVRDUDE_VERBOSE        := -v -v
 
 # Création des flags avrdude
-AVRDUDE_FLAGS           := -p $(MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
+AVRDUDE_FLAGS           := -p $(AVRDUDE_MCU) -P $(AVRDUDE_PORT) -c $(AVRDUDE_PROGRAMMER)
 AVRDUDE_FLAGS           += $(AVRDUDE_NO_VERIFY)
 AVRDUDE_FLAGS           += $(AVRDUDE_VERBOSE)
 AVRDUDE_FLAGS           += $(AVRDUDE_ERASE_COUNTER)
